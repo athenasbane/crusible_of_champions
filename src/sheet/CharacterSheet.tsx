@@ -1,5 +1,5 @@
 import type { BuiltSheet } from "./types";
-import "./characterSheet.css";
+import "./CharacterSheet.css";
 
 export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
   const p = sheet.profile;
