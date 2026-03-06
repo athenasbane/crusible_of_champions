@@ -1,0 +1,729 @@
+{
+  "id": "death_guard",
+  "name": "Death Guard",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "plague_sorcerer",
+      "name": "Plague Sorcerer",
+      "profile": {
+        "move": 5,
+        "toughness": 6,
+        "save": 3,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1
+      },
+      "points": 70,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Nurgle's Gift (Aura)"
+        },
+        {
+          "title": "Gift of Contagion (Psychic)",
+          "text": "Each time a model in this unit makes an attack that targets a unit that is Afflicted, that attack has the [SUSTAINED HITS 1] ability."
+        }
+      ],
+      "leaderUnits": ["Plague Marines", "Poxwalkers"],
+      "unitComposition": "1 Plague Sorcerer",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Psyker",
+        "Chaos",
+        "Nurgle",
+        "Plague Sorcerer"
+      ],
+      "factionKeywords": ["Death Guard"]
+    },
+    {
+      "id": "plague_lord",
+      "name": "Plague Lord",
+      "profile": {
+        "move": 5,
+        "toughness": 6,
+        "save": 3,
+        "wounds": 5,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 4
+      },
+      "points": 80,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Nurgle's Gift (Aura)"
+        },
+        {
+          "title": "Gift of Poxes",
+          "text": "Add 3\" to the range of this model's Contagion Range."
+        }
+      ],
+      "leaderUnits": ["Plague Marines", "Poxwalkers"],
+      "unitComposition": "1 Plague Lord",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Chaos",
+        "Nurgle",
+        "Plague Lord"
+      ],
+      "factionKeywords": ["Death Guard"]
+    },
+    {
+      "id": "tri_lobe_vectors",
+      "name": "Tri-Lobe Vectors",
+      "profile": {
+        "move": 5,
+        "toughness": 6,
+        "save": 3,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1
+      },
+      "points": 120,
+      "modelCount": 3,
+      "abilityPick": 3,
+      "loadout": {
+        "caps": {
+          "ranged": 3,
+          "pistol": 6,
+          "melee": 3
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Nurgle's Gift (Aura)"
+        },
+        {
+          "title": "Tri-Lobe Vectors",
+          "text": "In Step 2, choose up to one specialism for this unit. In Step 3, choose one unique ability for each model in this unit. In Step 4, complete this step for each model in this unit separately."
+        }
+      ],
+      "leaderUnits": ["Plague Marines", "Poxwalkers"],
+      "unitComposition": "3 Tri-Lobe Vectors",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Chaos",
+        "Nurgle",
+        "Tri-Lobe Vectors"
+      ],
+      "factionKeywords": ["Death Guard"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "glutted_with_infection",
+        "name": "Glutted with Infection",
+        "text": "This model gains the Deadly Demise D3 ability.",
+        "points": 0,
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Deadly Demise D3"]
+          }
+        ]
+      },
+      {
+        "id": "terminator_armour",
+        "name": "Terminator Armour",
+        "text": "Change this model's Toughness characteristic to 7, its Save characteristic to 2+, its Wounds characteristic to 5, and it has a 4+ invulnerable save. Add the TERMINATOR keyword, it gains the Deep Strike ability, and replace the list of units this model can be attached to: Blightlord Terminators, Deathshroud Terminators.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 7
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "setInvuln",
+            "value": 4
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Deep Strike", "Terminator"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Blightlord Terminators", "Deathshroud Terminators"]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "foul_infusion",
+        "name": "Foul Infusion",
+        "text": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability. In addition, each time a model in that unit makes an attack, a Critical Hit is scored on an unmodified Hit roll of 5+, instead of only a 6.",
+        "points": 10
+      },
+      {
+        "id": "malicious_calculations",
+        "name": "Malicious Calculations",
+        "text": "While this model is leading a unit, each time a model in that unit makes an attack, you can ignore any or all modifiers to that attack's Ballistic Skill or Weapon Skill characteristics and/or any or all modifiers to the Hit roll.",
+        "points": 0
+      },
+      {
+        "id": "putrefying_stink",
+        "name": "Putrefying Stink",
+        "text": "Enemy models cannot start or end an Advance move within 9\" of this model.",
+        "points": 0
+      },
+      {
+        "id": "shroud_of_disease",
+        "name": "Shroud of Disease",
+        "text": "While this model is leading a unit, that unit cannot be targeted by ranged attacks unless the attacking model is within 18\".",
+        "points": 0
+      },
+      {
+        "id": "sickening_vitality",
+        "name": "Sickening Vitality",
+        "text": "While this model is leading a unit, add 1 to the Move characteristic of models in that unit and you can re-roll Advance and Charge rolls made for that unit.",
+        "points": 10
+      },
+      {
+        "id": "tainted_narthecium",
+        "name": "Tainted Narthecium",
+        "text": "While this model is leading a unit, in your Command phase, you can return 1 destroyed Bodyguard model to that unit.",
+        "points": 10
+      },
+      {
+        "id": "tocsin_of_misery",
+        "name": "Tocsin of Misery",
+        "text": "(Aura): In the Battle-shock step of your opponent's Command phase, if an enemy unit that is below its Starting Strength is within 9\" of this model, that enemy unit must take a Battle-shock test, subtracting 1 from that test if it is a Psyker unit.",
+        "points": 0
+      },
+      {
+        "id": "unclean_icon",
+        "name": "Unclean Icon",
+        "text": "While this model is leading a unit, add 1 to the Objective Control characteristic of models in that unit.",
+        "points": 0
+      },
+      {
+        "id": "vector_of_disease",
+        "name": "Vector of Disease",
+        "text": "While this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [LANCE] abilities.",
+        "points": 0
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "blight_launcher",
+      "name": "Blight launcher",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D3",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Blast", "Lethal Hits"]
+    },
+    {
+      "id": "boltgun",
+      "name": "Boltgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "combi_bolter",
+      "name": "Combi-bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Lethal Hits", "Rapid Fire 2"]
+    },
+    {
+      "id": "combi_weapon",
+      "name": "Combi-weapon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Devastating Wounds", "Rapid Fire 1"]
+    },
+    {
+      "id": "hyper_blight_grenades",
+      "name": "Hyper blight grenades",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Assault", "Blast", "Lethal Hits"]
+    },
+    {
+      "id": "meltagun",
+      "name": "Meltagun",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 2"]
+    },
+    {
+      "id": "plague_belcher",
+      "name": "Plague belcher",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "plague_spewer",
+      "name": "Plague spewer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 2+", "Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "plague_sprayer",
+      "name": "Plague sprayer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Anti-Infantry 2+", "Ignores Cover", "Torrent"],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "terminator_armour"
+        }
+      ]
+    },
+    {
+      "id": "plague_wind_witchfire",
+      "name": "Plague Wind — witchfire",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Psychic", "Torrent"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "plague_wind_focused_witchfire",
+      "name": "Plague Wind — focused witchfire",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6+3",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": ["Hazardous", "Psychic", "Torrent"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "plasma_gun_standard",
+      "name": "Plasma gun — standard",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "plasma_gun_supercharge",
+      "name": "Plasma gun — supercharge",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Hazardous", "Rapid Fire 1"]
+    },
+    {
+      "id": "reaper_autocannon",
+      "name": "Reaper autocannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Devastating Wounds", "Sustained Hits 1"],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "terminator_armour"
+        }
+      ]
+    },
+    {
+      "id": "twin_plague_spewer",
+      "name": "Twin plague spewer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 2+",
+        "Ignores Cover",
+        "Torrent",
+        "Twin-linked"
+      ],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "plague_lord"
+        }
+      ]
+    },
+    {
+      "id": "bolt_pistol",
+      "name": "Bolt pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Lethal Hits", "Pistol"]
+    },
+    {
+      "id": "injector_pistol",
+      "name": "Injector pistol",
+      "type": "pistol",
+      "range": "3\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "3",
+      "keywords": ["Anti-Infantry 2+", "Pistol", "Precision"]
+    },
+    {
+      "id": "plaguespurt_gauntlet",
+      "name": "Plaguespurt gauntlet",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Ignores Cover", "Pistol", "Torrent"],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "terminator_armour"
+        }
+      ]
+    },
+    {
+      "id": "plasma_pistol_standard",
+      "name": "Plasma pistol — standard",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "plasma_pistol_supercharge",
+      "name": "Plasma pistol — supercharge",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Hazardous", "Pistol"]
+    },
+    {
+      "id": "balesword",
+      "name": "Balesword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "bubotic_weapons",
+      "name": "Bubotic weapons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "corrupted_staff",
+      "name": "Corrupted staff",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Lethal Hits", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "cursed_plague_bell",
+      "name": "Cursed plague bell",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Anti-Psyker 2+", "Lethal Hits"]
+    },
+    {
+      "id": "flail_of_corruption",
+      "name": "Flail of corruption",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "great_plague_blade",
+      "name": "Great plague blade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Devastating Wounds", "Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "plague_lord"
+        }
+      ]
+    },
+    {
+      "id": "heavy_plague_weapon",
+      "name": "Heavy plague weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "manreaper_strike",
+      "name": "Manreaper — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "terminator_armour"
+        }
+      ]
+    },
+    {
+      "id": "manreaper_sweep",
+      "name": "Manreaper — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "10",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "terminator_armour"
+        }
+      ]
+    },
+    {
+      "id": "plague_knife",
+      "name": "Plague knife",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "power_fist",
+      "name": "Power fist",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lethal Hits"]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Before selecting targets for a weapon with multiple profiles, select one of its profiles to make attacks with.",
+    "* Terminator only.",
+    "** Psyker only.",
+    "*** Plague Lord only."
+  ]
+}
