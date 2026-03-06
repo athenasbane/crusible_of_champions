@@ -21,15 +21,23 @@ function isRequirementMet(
   requirement: Requirement,
   input: BuildInput,
   faction: FactionRules,
-) {
+): boolean {
+  if (requirement.kind === "oneOf") {
+    return requirement.requirements.some((nestedRequirement) =>
+      isRequirementMet(nestedRequirement, input, faction),
+    );
+  }
+
   if (requirement.kind === "archetypeIs") {
     return input.archetypeId === requirement.archetypeId;
   }
 
   if (requirement.kind === "keywordHas") {
     const archetype = faction.archetypes.find((a) => a.id === input.archetypeId);
-    return archetype?.keywords.some(
+    return (
+      archetype?.keywords.some(
       (keyword) => keyword.toLowerCase() === requirement.keyword.toLowerCase(),
+      ) ?? false
     );
   }
 
@@ -44,7 +52,13 @@ function isRequirementMet(
   return false;
 }
 
-function requirementLabel(requirement: Requirement, faction: FactionRules) {
+function requirementLabel(requirement: Requirement, faction: FactionRules): string {
+  if (requirement.kind === "oneOf") {
+    return requirement.requirements
+      .map((nestedRequirement) => requirementLabel(nestedRequirement, faction))
+      .join(" or ");
+  }
+
   if (requirement.kind === "archetypeIs") {
     const archetype = faction.archetypes.find((a) => a.id === requirement.archetypeId);
     return `Archetype: ${archetype?.name ?? requirement.archetypeId}`;

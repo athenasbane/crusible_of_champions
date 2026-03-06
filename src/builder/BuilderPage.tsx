@@ -4,6 +4,7 @@ import { loadFaction } from "../rules/loadFaction";
 import emperors_children_raw from "../rules/emperors-children.json";
 import chaos_space_marines_raw from "../rules/chaos-space-marines.json";
 import death_guard_raw from "../rules/death-guard.json";
+import thousand_sons_raw from "../rules/thousand-sons.json";
 import { CharacterSheet } from "../sheet/CharacterSheet";
 import { ArchetypeSelector } from "./ArchetypeSelector";
 import { SpecialismSelector } from "./SpecialismSelector";
@@ -23,6 +24,7 @@ const factionData: Record<string, unknown> = {
   "emperors-children": emperors_children_raw,
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
+  "thousand-sons": thousand_sons_raw,
   // Placeholder until we have more factions
 };
 
@@ -30,6 +32,7 @@ const availableFactions = [
   { id: "emperors-children", name: "Emperor's Children" },
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },
+  { id: "thousand-sons", name: "Thousand Sons" },
   // Add more factions here
 ];
 

@@ -52,6 +52,11 @@ export function applyEffectsToSheet(
           ...current,
           leaderUnits: [...effect.value],
         };
+      case "addLeaderUnits":
+        return {
+          ...current,
+          leaderUnits: [...(current.leaderUnits ?? []), ...effect.value],
+        };
       default:
         return current;
     }

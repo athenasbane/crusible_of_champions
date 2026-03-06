@@ -52,6 +52,10 @@ export const EffectSchema = z.union([
     value: z.array(z.string()),
   }),
   z.object({
+    kind: z.literal("addLeaderUnits"),
+    value: z.array(z.string()),
+  }),
+  z.object({
     kind: z.literal("add"),
     field: z.enum([
       "move",
@@ -65,7 +69,27 @@ export const EffectSchema = z.union([
   }),
 ]);
 
-export const RequirementSchema = z.union([
+type BaseRequirement =
+  | {
+      kind: "archetypeIs";
+      archetypeId: string;
+    }
+  | {
+      kind: "hasChoice";
+      groupId: string;
+      optionId: string;
+    }
+  | {
+      kind: "keywordHas";
+      keyword: string;
+    };
+
+export type Requirement = BaseRequirement | {
+  kind: "oneOf";
+  requirements: Requirement[];
+};
+
+const BaseRequirementSchema = z.union([
   z.object({
     kind: z.literal("archetypeIs"),
     archetypeId: z.string(),
@@ -80,6 +104,16 @@ export const RequirementSchema = z.union([
     keyword: z.string(),
   }),
 ]);
+
+export const RequirementSchema: z.ZodType<Requirement> = z.lazy(() =>
+  z.union([
+    BaseRequirementSchema,
+    z.object({
+      kind: z.literal("oneOf"),
+      requirements: z.array(RequirementSchema).min(1),
+    }),
+  ]),
+);
 
 export const WeaponSchema = z.object({
   id: z.string(),
@@ -165,7 +199,6 @@ export type FactionRules = z.infer<typeof FactionSchema>;
 export type Profile = z.infer<typeof ProfileSchema>;
 export type Effect = z.infer<typeof EffectSchema>;
 export type Weapon = z.infer<typeof WeaponSchema>;
-export type Requirement = z.infer<typeof RequirementSchema>;
 export type ChoiceOption = z.infer<typeof ChoiceOptionSchema>;
 export type ChoiceGroup = z.infer<typeof ChoiceGroupSchema>;
 export type Archetype = z.infer<typeof ArchetypeSchema>;

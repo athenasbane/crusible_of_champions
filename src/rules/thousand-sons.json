@@ -1,0 +1,733 @@
+{
+  "id": "thousand_sons",
+  "name": "Thousand Sons",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "magister",
+      "name": "Magister",
+      "profile": {
+        "move": 6,
+        "toughness": 4,
+        "save": 3,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 105,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Cabal of Sorcerers"
+        },
+        {
+          "title": "Rebinding (Psychic)",
+          "text": "In your Command phase, if this model is leading a unit, you can roll one D6: on a 1, that unit suffers D3 mortal wounds; on a 2+, you can return 1 destroyed Bodyguard model to that unit."
+        }
+      ],
+      "leaderUnits": [
+        "Rubric Marines"
+      ],
+      "unitComposition": "1 Magister",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Psyker",
+        "Chaos",
+        "Tzeentch",
+        "Magister"
+      ],
+      "factionKeywords": [
+        "Thousand Sons"
+      ]
+    },
+    {
+      "id": "brayherd_chieftain",
+      "name": "Brayherd Chieftain",
+      "profile": {
+        "move": 6,
+        "toughness": 4,
+        "save": 5,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 60,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader, Scouts 6\""
+        },
+        {
+          "title": "Fate's Guide",
+          "text": "If this unit starts the game in Strategic Reserves, it can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. If this unit is in Strategic Reserves, for the purposes of setting up this unit on the battlefield, treat the current battle round number as being one higher than it actually is."
+        }
+      ],
+      "leaderUnits": [
+        "Tzaangors"
+      ],
+      "unitComposition": "1 Brayherd Chieftain",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Chaos",
+        "Tzeentch",
+        "Mutant",
+        "Brayherd Chieftain"
+      ],
+      "factionKeywords": [
+        "Thousand Sons"
+      ]
+    },
+    {
+      "id": "brayherd_shaman",
+      "name": "Brayherd Shaman",
+      "profile": {
+        "move": 6,
+        "toughness": 4,
+        "save": 5,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 60,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader, Scouts 6\""
+        },
+        {
+          "title": "Faction",
+          "text": "Cabal of Sorcerers"
+        },
+        {
+          "title": "Bestial Prophet",
+          "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+        }
+      ],
+      "leaderUnits": [
+        "Tzaangors"
+      ],
+      "unitComposition": "1 Brayherd Shaman",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Psyker",
+        "Chaos",
+        "Tzeentch",
+        "Mutant",
+        "Brayherd Shaman"
+      ],
+      "factionKeywords": [
+        "Thousand Sons"
+      ]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "disc_of_tzeentch",
+        "name": "Disc of Tzeentch",
+        "text": "Change this model's Move characteristic to 10\", and it gains the MOUNTED and FLY keywords. Add the following units to the list of units this model can be attached to: Tzaangor Enlightened.",
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 10
+          },
+          {
+            "kind": "addKeywords",
+            "value": [
+              "Mounted",
+              "Fly"
+            ]
+          },
+          {
+            "kind": "addLeaderUnits",
+            "value": [
+              "Tzaangor Enlightened"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "terminator_armour",
+        "name": "Terminator Armour",
+        "text": "(MAGISTER only): Change this model's Move characteristic to 5\", its Toughness characteristic to 5, its Save characteristic to 2+, its Wounds characteristic to 5, and it has a 4+ invulnerable save. Add the TERMINATOR keyword, it gains the Deep Strike ability, and replace the list of units this model can be attached to: Scarab Occult Terminators.",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "magister"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "setInvuln",
+            "value": 4
+          },
+          {
+            "kind": "addKeywords",
+            "value": [
+              "Deep Strike",
+              "Terminator"
+            ]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Scarab Occult Terminators"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "arcane_shield",
+        "name": "Arcane Shield",
+        "text": "(Psychic) (PSYKER only): While this model is leading a unit, models in that unit have a 4+ invulnerable save.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ],
+        "points": 10
+      },
+      {
+        "id": "binding_tendrils",
+        "name": "Binding Tendrils",
+        "text": "(Psychic) (PSYKER only): In your Shooting phase, after this model has shot, select one enemy Infantry unit hit by one or more of those attacks made with a Psychic weapon. Until the start of your next turn, that unit is ensnared. While a unit is ensnared, subtract 2\" from its Move characteristic and subtract 2 from Charge rolls made for it.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "empyric_guidance",
+        "name": "Empyric Guidance",
+        "text": "(Psychic) (PSYKER only): Weapons equipped by models in this unit have the [LETHAL HITS] ability.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "malefic_will",
+        "name": "Malefic Will",
+        "text": "Weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.",
+        "points": 0
+      },
+      {
+        "id": "marked_by_fate",
+        "name": "Marked by Fate",
+        "text": "(Psychic) (PSYKER only): In your Shooting phase, after this model's unit has shot, select one enemy unit hit by one or more of those attacks made with a Psychic weapon. Until the end of the phase, each time a friendly THOUSAND SONS unit makes an attack that targets that enemy unit, add 1 to the Hit roll.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ],
+        "points": 10
+      },
+      {
+        "id": "swathed_in_illusion",
+        "name": "Swathed in Illusion",
+        "text": "This unit can only be selected as the target of a ranged attack if the attacking model is within 18\".",
+        "points": 0
+      },
+      {
+        "id": "twisted_sorceries",
+        "name": "Twisted Sorceries",
+        "text": "(Psychic) (PSYKER only): Once per battle, in your Shooting phase or the Fight phase, this model can use this ability. If it does, until the end of the phase, improve the Strength and Attacks characteristics of Psychic weapons equipped by this model by 1.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ],
+        "points": 0
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "arcane_fire",
+      "name": "Arcane Fire",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": [
+        "Ignores Cover",
+        "Psychic",
+        "Torrent"
+      ],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "astral_blast",
+      "name": "Astral Blast",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": [
+        "Blast",
+        "Devastating Wounds",
+        "Psychic"
+      ],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "baleful_devolution",
+      "name": "Baleful Devolution",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Blast",
+        "Devastating Wounds",
+        "Psychic"
+      ]
+    },
+    {
+      "id": "fatecaster_greatbow",
+      "name": "Fatecaster greatbow",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [
+        "Ignores Cover",
+        "Lethal Hits",
+        "Precision"
+      ]
+    },
+    {
+      "id": "fires_of_the_abyss_witchfire",
+      "name": "Fires of the Abyss — witchfire",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Psychic",
+        "Torrent"
+      ],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "fires_of_the_abyss_focused_witchfire",
+      "name": "Fires of the Abyss — focused witchfire",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2D6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Hazardous",
+        "Psychic",
+        "Torrent"
+      ],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "gaze_of_hate",
+      "name": "Gaze of Hate",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": [
+        "Anti-Monster 4+",
+        "Anti-Vehicle 4+",
+        "Devastating Wounds",
+        "Psychic"
+      ]
+    },
+    {
+      "id": "heavy_warpflamer",
+      "name": "Heavy warpflamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Ignores Cover",
+        "Torrent"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "terminator_armour"
+        }
+      ]
+    },
+    {
+      "id": "hellfyre_missile_rack",
+      "name": "Hellfyre missile rack",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "terminator_armour"
+        }
+      ]
+    },
+    {
+      "id": "inferno_boltgun",
+      "name": "Inferno boltgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "inferno_combi_bolter",
+      "name": "Inferno combi-bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Rapid Fire 2"
+      ]
+    },
+    {
+      "id": "inferno_combi_weapon",
+      "name": "Inferno combi-weapon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 4+",
+        "Devastating Wounds",
+        "Rapid Fire 1"
+      ]
+    },
+    {
+      "id": "pandaemonic_delusion",
+      "name": "Pandæmonic Delusion",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [
+        "Psychic",
+        "Sustained Hits 3"
+      ]
+    },
+    {
+      "id": "soulreaper_cannon",
+      "name": "Soulreaper cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Devastating Wounds"
+      ]
+    },
+    {
+      "id": "warpflamer",
+      "name": "Warpflamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [
+        "Ignores Cover",
+        "Torrent"
+      ]
+    },
+    {
+      "id": "autopistol",
+      "name": "Autopistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Pistol"
+      ]
+    },
+    {
+      "id": "inferno_bolt_pistol",
+      "name": "Inferno bolt pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [
+        "Pistol"
+      ]
+    },
+    {
+      "id": "warpflame_pistol",
+      "name": "Warpflame pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "3",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [
+        "Ignores Cover",
+        "Pistol",
+        "Torrent"
+      ]
+    },
+    {
+      "id": "chainsword",
+      "name": "Chainsword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Precision"
+      ]
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "divining_spear",
+      "name": "Divining spear",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [
+        "Lance",
+        "Precision"
+      ]
+    },
+    {
+      "id": "force_weapon",
+      "name": "Force weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": [
+        "Psychic"
+      ],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "prosperine_khopesh",
+      "name": "Prosperine khopesh",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "oneOf",
+          "requirements": [
+            {
+              "kind": "archetypeIs",
+              "archetypeId": "magister"
+            },
+            {
+              "kind": "hasChoice",
+              "groupId": "specialisms",
+              "optionId": "terminator_armour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tzaangor_blades",
+      "name": "Tzaangor blades",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mutant"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Before selecting targets for a weapon with multiple profiles, select one of its profiles to make attacks with.",
+    "* Psyker only.",
+    "** Mutant only.",
+    "*** Terminator only.",
+    "‡ Magister or Terminator only."
+  ]
+}
