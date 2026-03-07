@@ -126,6 +126,37 @@
   font-size: 0.85rem;
 }
 
+.builder-archetype-profile {
+  margin-top: 8px;
+}
+
+.builder-archetype-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.builder-archetype-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #4f4f4f;
+  border-radius: 999px;
+  background: #242424;
+  padding: 3px 8px;
+  font-size: 0.8rem;
+}
+
+.builder-archetype-stat-label {
+  color: #9fa3a8;
+  font-weight: 700;
+}
+
+.builder-archetype-stat-value {
+  color: #f2f2f2;
+  font-weight: 600;
+}
+
 .builder-weapon-profile {
   margin-top: 8px;
 }

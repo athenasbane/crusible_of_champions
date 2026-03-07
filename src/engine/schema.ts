@@ -177,14 +177,20 @@ export const FactionSchema = z.object({
   name: z.string(),
   defaultLoadout: LoadoutRulesSchema,
   archetypes: z.array(ArchetypeSchema),
-  specialisms: ChoiceGroupSchema,
+  specialisms: z.union([
+    ChoiceGroupSchema,
+    z.object({
+      partA: ChoiceGroupSchema,
+      partB: ChoiceGroupSchema,
+    }),
+  ]),
   abilities: ChoiceGroupSchema,
   weapons: z.array(WeaponSchema),
 });
 
 export type BuildInput = {
   archetypeId: string;
-  specialismId?: string;
+  specialismIds: string[];
   abilityIds: string[];
   weaponIds: string[];
   name?: string;

@@ -1,4 +1,4 @@
-import type { FactionRules } from "./schema";
+import type { BuildInput, FactionRules } from "./schema";
 import { applyEffectsToProfile, applyEffectsToSheet } from "./applyEffects";
 import { getEffectiveLoadoutRules, validateWeapons } from "./validateWeapons";
 import {
@@ -7,16 +7,8 @@ import {
 } from "./weaponRequirements";
 import { getWeaponGroupKey } from "./weaponGrouping";
 import { getAbilityPickCount } from "./choicePicks";
+import { getSelectedSpecialismIds, getSpecialismGroups } from "./specialisms";
 import type { BuiltSheet } from "../sheet/types";
-
-export type BuildInput = {
-  archetypeId: string;
-  specialismId?: string;
-  abilityIds: string[];
-  weaponIds: string[];
-  name?: string;
-  notes?: string;
-};
 
 export type BuildResult =
   | { type: "error"; errors: string[] }
@@ -31,11 +23,36 @@ export function buildSheet(
   const archetype = faction.archetypes.find((a) => a.id === input.archetypeId);
   if (!archetype) return { type: "error", errors: ["Archetype not found"] };
 
-  const specialism = input.specialismId
-    ? faction.specialisms.options.find((o) => o.id === input.specialismId)
-    : undefined;
-  if (input.specialismId && !specialism) errors.push("Specialism not found");
-  if (specialism) {
+  const specialismGroups = getSpecialismGroups(faction);
+  const selectedSpecialismIds = getSelectedSpecialismIds(input);
+  const allSpecialismOptions = specialismGroups.flatMap((group) => group.options);
+  const specialisms = selectedSpecialismIds
+    .map((specialismId) =>
+      allSpecialismOptions.find((option) => option.id === specialismId),
+    )
+    .filter(
+      (specialism): specialism is (typeof allSpecialismOptions)[number] =>
+        specialism !== undefined,
+    );
+
+  if (specialisms.length !== selectedSpecialismIds.length) {
+    errors.push("Specialism not found");
+  }
+
+  for (const group of specialismGroups) {
+    const groupSelectedCount = specialisms.filter((specialism) =>
+      group.options.some((option) => option.id === specialism.id),
+    ).length;
+    if (groupSelectedCount > group.pick) {
+      errors.push(
+        group.pick === 1 ?
+          `${group.title}: select up to 1 option` :
+          `${group.title}: select up to ${group.pick} options`,
+      );
+    }
+  }
+
+  for (const specialism of specialisms) {
     const status = getChoiceRequirementStatus(specialism, input, faction);
     if (!status.met) {
       errors.push(`${specialism.name} requires ${status.unmet.join(" and ")}`);
@@ -87,14 +104,14 @@ export function buildSheet(
   if (errors.length) return { type: "error", errors };
 
   const effects = [
-    ...(specialism?.effects ?? []),
+    ...specialisms.flatMap((specialism) => specialism.effects ?? []),
     ...abilities.flatMap((ability) => ability.effects ?? []),
     ...weapons.flatMap((w) => w.effects ?? []),
   ];
 
   const keywords: string[] = [
     archetype.keywords,
-    ...(specialism?.keywords ?? []),
+    ...specialisms.flatMap((specialism) => specialism.keywords ?? []),
     ...abilities.flatMap((ability) => ability.keywords ?? []),
   ].flat();
 
@@ -103,14 +120,14 @@ export function buildSheet(
   const preeffectSheet: BuiltSheet = {
     points:
       archetype.points +
-      (specialism?.points ?? 0) +
+      specialisms.reduce((sum, specialism) => sum + specialism.points, 0) +
       abilities.reduce((sum, ability) => sum + ability.points, 0),
     factionName: faction.name,
     archetypeName: archetype.name,
     modelCount: archetype.modelCount,
     name: input.name,
     profile,
-    specialism,
+    specialisms,
     abilities,
     leaderUnits: archetype.leaderUnits,
     factionKeywords: archetype.factionKeywords,

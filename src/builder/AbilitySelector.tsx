@@ -19,7 +19,7 @@ export const AbilitySelector = ({
   return (
     <section className="builder-section">
       <h2 className="builder-section-title">
-        Ability{pickCount > 1 ? "ies" : ""} ({selectedCount}/{pickCount})
+        {pickCount > 1 ? "Abilities" : "Ability"} ({selectedCount}/{pickCount})
       </h2>
       {faction.abilities.options.map((ability) => {
         const requirementStatus = getChoiceRequirementStatus(ability, input, faction);

@@ -8,7 +8,7 @@ export type BuiltSheet = {
   leaderUnits?: string[];
   profile: Profile;
 
-  specialism?: ChoiceOption;
+  specialisms: ChoiceOption[];
   abilities: ChoiceOption[];
   factionKeywords: string[];
   keywords: string[];

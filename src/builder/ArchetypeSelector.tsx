@@ -41,6 +41,20 @@ export const ArchetypeSelector = ({
               Leader of: {archetype.leaderUnits.join(", ")}
             </div>
           )}
+          <div className="builder-archetype-profile">
+            <div className="builder-archetype-stats">
+              <Stat label="M" value={`${archetype.profile.move}"`} />
+              <Stat label="T" value={`${archetype.profile.toughness}`} />
+              <Stat label="Sv" value={`${archetype.profile.save}+`} />
+              <Stat label="W" value={`${archetype.profile.wounds}`} />
+              <Stat label="Ld" value={`${archetype.profile.leadership}+`} />
+              <Stat label="OC" value={`${archetype.profile.objectiveControl}`} />
+              <Stat
+                label="Inv"
+                value={archetype.profile.invuln ? `${archetype.profile.invuln}+` : "—"}
+              />
+            </div>
+          </div>
           <div className="builder-option-meta">
             {archetype.abilitiesText.map((ability, i) => (
               <div key={i} style={{ marginBottom: 8 }}>
@@ -53,3 +67,12 @@ export const ArchetypeSelector = ({
     </section>
   );
 };
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <span className="builder-archetype-stat">
+      <span className="builder-archetype-stat-label">{label}</span>
+      <span className="builder-archetype-stat-value">{value}</span>
+    </span>
+  );
+}

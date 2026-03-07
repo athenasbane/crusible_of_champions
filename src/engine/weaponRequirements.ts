@@ -5,16 +5,52 @@ import type {
   Requirement,
   Weapon,
 } from "./schema";
+import { getSelectedSpecialismIds, getSpecialismGroups } from "./specialisms";
 
 function findGroupAndOption(
   faction: FactionRules,
   groupId: string,
   optionId: string,
 ) {
-  const groups = [faction.specialisms, faction.abilities];
+  const groups = [...getSpecialismGroups(faction), faction.abilities];
   const group = groups.find((g) => g.id === groupId);
   const option = group?.options.find((o) => o.id === optionId);
   return { group, option };
+}
+
+function getEffectiveKeywords(input: BuildInput, faction: FactionRules): string[] {
+  const archetype = faction.archetypes.find((a) => a.id === input.archetypeId);
+  if (!archetype) return [];
+
+  const effectiveKeywords = [...archetype.keywords];
+  const selectedSpecialismIds = getSelectedSpecialismIds(input);
+  const selectedSpecialisms = getSpecialismGroups(faction)
+    .flatMap((group) => group.options)
+    .filter((option) => selectedSpecialismIds.includes(option.id));
+  const selectedAbilities = faction.abilities.options.filter((option) =>
+    input.abilityIds.includes(option.id),
+  );
+
+  for (const option of [...selectedSpecialisms, ...selectedAbilities]) {
+    if (option.keywords) {
+      effectiveKeywords.push(...option.keywords);
+    }
+    for (const effect of option.effects ?? []) {
+      if (effect.kind === "addKeywords") {
+        effectiveKeywords.push(...effect.value);
+      }
+      if (effect.kind === "remove" && effect.field === "keywords") {
+        const matchIndex = effectiveKeywords.findIndex(
+          (keyword) => keyword.toLowerCase() === effect.value.toLowerCase(),
+        );
+        if (matchIndex >= 0) {
+          effectiveKeywords.splice(matchIndex, 1);
+        }
+      }
+    }
+  }
+
+  return effectiveKeywords;
 }
 
 function isRequirementMet(
@@ -33,16 +69,19 @@ function isRequirementMet(
   }
 
   if (requirement.kind === "keywordHas") {
-    const archetype = faction.archetypes.find((a) => a.id === input.archetypeId);
-    return (
-      archetype?.keywords.some(
+    const effectiveKeywords = getEffectiveKeywords(input, faction);
+    return effectiveKeywords.some(
       (keyword) => keyword.toLowerCase() === requirement.keyword.toLowerCase(),
-      ) ?? false
     );
   }
 
-  if (requirement.kind === "hasChoice" && requirement.groupId === faction.specialisms.id) {
-    return input.specialismId === requirement.optionId;
+  const selectedSpecialismIds = getSelectedSpecialismIds(input);
+  const specialismGroups = getSpecialismGroups(faction);
+  if (
+    requirement.kind === "hasChoice" &&
+    specialismGroups.some((group) => group.id === requirement.groupId)
+  ) {
+    return selectedSpecialismIds.includes(requirement.optionId);
   }
 
   if (requirement.kind === "hasChoice" && requirement.groupId === faction.abilities.id) {

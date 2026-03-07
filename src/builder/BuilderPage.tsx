@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
-import { buildSheet, type BuildInput } from "../engine/buildSheet";
+import { buildSheet } from "../engine/buildSheet";
+import type { BuildInput } from "../engine/schema";
 import { loadFaction } from "../rules/loadFaction";
 import emperors_children_raw from "../rules/emperors-children.json";
 import chaos_space_marines_raw from "../rules/chaos-space-marines.json";
 import death_guard_raw from "../rules/death-guard.json";
 import thousand_sons_raw from "../rules/thousand-sons.json";
+import chaos_daemons_raw from "../rules/chaos_daemons.json";
 import { CharacterSheet } from "../sheet/CharacterSheet";
 import { ArchetypeSelector } from "./ArchetypeSelector";
 import { SpecialismSelector } from "./SpecialismSelector";
@@ -18,6 +20,7 @@ import {
 import { getWeaponRequirementStatus } from "../engine/weaponRequirements";
 import { getWeaponGroupKey } from "../engine/weaponGrouping";
 import { getAbilityPickCount } from "../engine/choicePicks";
+import { getSelectedSpecialismIds, getSpecialismGroups } from "../engine/specialisms";
 import "./builder.css";
 
 const factionData: Record<string, unknown> = {
@@ -25,6 +28,7 @@ const factionData: Record<string, unknown> = {
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
+  "chaos-daemons": chaos_daemons_raw,
   // Placeholder until we have more factions
 };
 
@@ -33,6 +37,7 @@ const availableFactions = [
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },
   { id: "thousand-sons", name: "Thousand Sons" },
+  { id: "chaos-daemons", name: "Chaos Daemons" },
   // Add more factions here
 ];
 
@@ -77,6 +82,22 @@ function sanitizeInputChoices(
   input: BuildInput,
 ) {
   const abilityPickCount = getAbilityPickCount(faction, input.archetypeId);
+  const specialismGroups = getSpecialismGroups(faction);
+  const selectedSpecialismIds = getSelectedSpecialismIds(input);
+  const allSpecialismOptions = specialismGroups.flatMap((group) => group.options);
+  const specialismOptionIds = new Set(allSpecialismOptions.map((option) => option.id));
+
+  const specialismIds = selectedSpecialismIds.filter((specialismId) =>
+    specialismOptionIds.has(specialismId),
+  );
+
+  const specialismIdsByGroup = specialismGroups.flatMap((group) => {
+    const groupIds = specialismIds.filter((specialismId) =>
+      group.options.some((option) => option.id === specialismId),
+    );
+    return groupIds.slice(0, group.pick);
+  });
+
   const abilityOptions = new Set(
     faction.abilities.options.map((ability) => ability.id),
   );
@@ -86,7 +107,7 @@ function sanitizeInputChoices(
 
   const abilityIds = uniqueAbilityIds.slice(0, abilityPickCount);
 
-  return { ...input, abilityIds };
+  return { ...input, specialismIds: specialismIdsByGroup, abilityIds };
 }
 
 export function BuilderPage() {
@@ -100,6 +121,7 @@ export function BuilderPage() {
 
   const [input, setInput] = useState<BuildInput>({
     archetypeId: faction.archetypes[0].id,
+    specialismIds: [],
     abilityIds: [],
     weaponIds: [],
   });
@@ -156,6 +178,7 @@ export function BuilderPage() {
     const nextFaction = loadFaction(factionData[factionId]);
     setInput({
       archetypeId: nextFaction.archetypes[0].id,
+      specialismIds: [],
       abilityIds: [],
       weaponIds: [],
     });
@@ -167,7 +190,7 @@ export function BuilderPage() {
         <div className="builder-controls no-print">
           <h1 className="builder-title">{faction.name} Builder</h1>
           <p className="builder-subtitle">
-            Pick an archetype, optional specialism, ability, and legal weapon
+            Pick an archetype, optional specialism(s), ability, and legal weapon
             loadout.
           </p>
           <div className="builder-summary">

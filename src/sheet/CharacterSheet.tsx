@@ -28,9 +28,11 @@ export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
 
       <div className="cs-body">
         <div className="cs-left">
-          {sheet.specialism ? (
-            <Block title={sheet.specialism.name}>{sheet.specialism.text}</Block>
-          ) : null}
+          {sheet.specialisms.map((specialism) => (
+            <Block key={specialism.id} title={specialism.name}>
+              {specialism.text}
+            </Block>
+          ))}
           {sheet.abilities.map((ability) => (
             <Block key={ability.id} title={ability.name}>
               {ability.text}

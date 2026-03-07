@@ -1,0 +1,1324 @@
+{
+  "id": "chaos_daemons",
+  "name": "Chaos Daemons",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 0,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "daemonic_herald",
+      "name": "Daemonic Herald",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 7,
+        "wounds": 3,
+        "leadership": 7,
+        "objectiveControl": 1
+      },
+      "points": 60,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deep Strike, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Shadow of Chaos"
+        },
+        {
+          "title": "Daemonic Locus",
+          "text": "While this model is leading a unit, in your Command phase, you can return 1 destroyed Bodyguard model, or D3 destroyed models with the BATTLELINE keyword, to that unit."
+        }
+      ],
+      "leaderUnits": [
+        "Infantry Daemon units (excluding Possessed units) which share one of the following keywords with this model: Khorne, Nurgle, Slaanesh, Tzeentch"
+      ],
+      "unitComposition": "1 Daemonic Herald",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Chaos",
+        "Daemon",
+        "Summoned",
+        "Daemonic Herald"
+      ],
+      "factionKeywords": ["Legiones Daemonica"]
+    },
+    {
+      "id": "daemonic_charioteer",
+      "name": "Daemonic Charioteer",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 7,
+        "save": 6,
+        "wounds": 8,
+        "leadership": 7,
+        "objectiveControl": 3
+      },
+      "points": 120,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deep Strike, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Shadow of Chaos"
+        },
+        {
+          "title": "Malefic Impact",
+          "text": "Melee weapons equipped by models in this unit have [LANCE]."
+        }
+      ],
+      "leaderUnits": [
+        "Mounted Daemon units which share one of the following keywords with this model: Khorne, Nurgle, Slaanesh, Tzeentch"
+      ],
+      "unitComposition": "1 Daemonic Charioteer",
+      "keywords": [
+        "Mounted",
+        "Character",
+        "Chaos",
+        "Daemon",
+        "Daemonic Charioteer"
+      ],
+      "factionKeywords": ["Legiones Daemonica"]
+    },
+    {
+      "id": "immortal_champion",
+      "name": "Immortal Champion",
+      "modelCount": 1,
+      "profile": {
+        "move": 8,
+        "toughness": 10,
+        "save": 2,
+        "wounds": 10,
+        "leadership": 6,
+        "objectiveControl": 3
+      },
+      "points": 180,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise D3, Deep Strike"
+        },
+        {
+          "title": "Faction",
+          "text": "Shadow of Chaos"
+        },
+        {
+          "title": "Infernal Attendants",
+          "text": "While this model is within 3\" of one or more friendly Daemon Infantry units, this model has the Lone Operative ability."
+        },
+        {
+          "title": "Font of Unreality",
+          "text": "Each time an attack is allocated to a friendly Daemon unit within 3\" of this model, subtract 1 from the Hit roll."
+        }
+      ],
+      "leaderUnits": [],
+      "unitComposition": "1 Immortal Champion",
+      "keywords": [
+        "Monster",
+        "Character",
+        "Chaos",
+        "Daemon",
+        "Immortal Champion"
+      ],
+      "factionKeywords": ["Legiones Daemonica"]
+    }
+  ],
+  "specialisms": {
+    "partA": {
+      "id": "patron_specialisms",
+      "title": "02A — Patron Specialisms",
+      "pick": 1,
+      "options": [
+        {
+          "id": "daemon_of_blood",
+          "name": "Daemon of Blood",
+          "text": "Improve this model's Move characteristic by 2\", its Toughness and Wounds characteristics by 1. If this model is a DAEMONIC CHARIOTEER, change this model's Save characteristic to 3+. Add the KHORNE keyword, add the Blood Legions Faction keyword, and it gains the Pact of Blood Faction ability.",
+          "points": 15,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "move",
+              "delta": 2
+            },
+            {
+              "kind": "add",
+              "field": "toughness",
+              "delta": 1
+            },
+            {
+              "kind": "add",
+              "field": "wounds",
+              "delta": 1
+            },
+            {
+              "kind": "addKeywords",
+              "value": ["Khorne", "Blood Legions", "Pact of Blood"]
+            }
+          ]
+        },
+        {
+          "id": "daemon_of_plague",
+          "name": "Daemon of Plague",
+          "text": "Improve this model's Toughness and Wounds characteristics by 2. Add the NURGLE and PSYKER keywords, add the Plague Legions Faction keyword, and it gains the Pact of Decay Faction ability.",
+          "points": 10,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "toughness",
+              "delta": 2
+            },
+            {
+              "kind": "add",
+              "field": "wounds",
+              "delta": 2
+            },
+            {
+              "kind": "addKeywords",
+              "value": ["Nurgle", "Psyker", "Plague Legions", "Pact of Decay"]
+            }
+          ]
+        },
+        {
+          "id": "daemon_of_excess",
+          "name": "Daemon of Excess",
+          "text": "Improve this model's Move characteristic by 3\". Add the SLAANESH and PSYKER keywords, add the Legions of Excess Faction keyword, and it gains the Pact of Excess Faction ability.",
+          "points": 0,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "move",
+              "delta": 3
+            },
+            {
+              "kind": "addKeywords",
+              "value": [
+                "Slaanesh",
+                "Psyker",
+                "Legions of Excess",
+                "Pact of Excess"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "daemon_of_change",
+          "name": "Daemon of Change",
+          "text": "This model has a 4+ invulnerable save. If this model is a DAEMONIC CHARIOTEER, add 6\" to this model's Move characteristic, and it has the Fly keyword. Add the TZEENTCH and PSYKER keywords, add the Scintillating Legions Faction keyword, and it gains the Pact of Sorcery Faction ability.",
+          "points": 0,
+          "effects": [
+            {
+              "kind": "setInvuln",
+              "value": 4
+            },
+            {
+              "kind": "addKeywords",
+              "value": [
+                "Tzeentch",
+                "Psyker",
+                "Scintillating Legions",
+                "Pact of Sorcery"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "partB": {
+      "id": "other_specialisms",
+      "title": "02B — Other Specialisms",
+      "pick": 1,
+      "options": [
+        {
+          "id": "collar_of_khorne",
+          "name": "Collar of Khorne",
+          "text": "(KHORNE only): This model has the Feel No Pain 3+ ability against Psychic Attacks.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Khorne"
+            }
+          ],
+          "points": 0
+        },
+        {
+          "id": "juggernaut_of_khorne",
+          "name": "Juggernaut of Khorne",
+          "text": "(KHORNE INFANTRY only): Improve this model's Move characteristic by 3\", change its Save characteristic to 3+, its equipped with 1 Juggernaut's bladed horn in addition to the weapons you choose in Step 4, change its INFANTRY keyword to MOUNTED, and replace the list of units this model can be attached to: Bloodcrushers.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Khorne"
+            },
+            {
+              "kind": "keywordHas",
+              "keyword": "Infantry"
+            }
+          ],
+          "points": 20,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "move",
+              "delta": 3
+            },
+            {
+              "kind": "set",
+              "field": "save",
+              "value": 3
+            },
+            {
+              "kind": "remove",
+              "field": "keywords",
+              "value": "Infantry"
+            },
+            {
+              "kind": "addKeywords",
+              "value": ["Mounted"]
+            },
+            {
+              "kind": "setLeaderUnits",
+              "value": ["Bloodcrushers"]
+            }
+          ]
+        },
+        {
+          "id": "giggling_balemite",
+          "name": "Giggling Balemite",
+          "text": "(NURGLE INFANTRY only): Replace this model's INFANTRY keyword with the SWARMS keyword, and replace the list of units this model can be attached to: Nurglings.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Nurgle"
+            },
+            {
+              "kind": "keywordHas",
+              "keyword": "Infantry"
+            }
+          ],
+          "points": 0,
+          "effects": [
+            {
+              "kind": "addKeywords",
+              "value": ["Swarms"]
+            },
+            {
+              "kind": "setLeaderUnits",
+              "value": ["Nurglings"]
+            }
+          ]
+        },
+        {
+          "id": "rot_fly",
+          "name": "Rot Fly",
+          "text": "(NURGLE INFANTRY only): Improve this model's Move characteristic by 4\", its Toughness characteristic by 3, replace its INFANTRY keyword with the MOUNTED and FLY keywords, and replace the list of units this model can be attached to: Plague Drones.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Nurgle"
+            },
+            {
+              "kind": "keywordHas",
+              "keyword": "Infantry"
+            }
+          ],
+          "points": 10,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "move",
+              "delta": 4
+            },
+            {
+              "kind": "add",
+              "field": "toughness",
+              "delta": 3
+            },
+            {
+              "kind": "remove",
+              "field": "keywords",
+              "value": "Infantry"
+            },
+            {
+              "kind": "addKeywords",
+              "value": ["Mounted", "Fly"]
+            },
+            {
+              "kind": "setLeaderUnits",
+              "value": ["Plague Drones"]
+            }
+          ]
+        },
+        {
+          "id": "perfumed_fog",
+          "name": "Perfumed Fog",
+          "text": "(SLAANESH only): This unit has the SMOKE keyword.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Slaanesh"
+            }
+          ],
+          "points": 0,
+          "effects": [
+            {
+              "kind": "addKeywords",
+              "value": ["Smoke"]
+            }
+          ]
+        },
+        {
+          "id": "steed_of_slaanesh",
+          "name": "Steed of Slaanesh",
+          "text": "(SLAANESH INFANTRY only): Improve this model's Move characteristic by 5\", its Toughness characteristic by 1 and its Wounds characteristic by 2, add the Scouts 9\" ability, change its INFANTRY keyword to MOUNTED, and replace the list of units this model can be attached to: Seekers.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Slaanesh"
+            },
+            {
+              "kind": "keywordHas",
+              "keyword": "Infantry"
+            }
+          ],
+          "points": 10,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "move",
+              "delta": 5
+            },
+            {
+              "kind": "add",
+              "field": "toughness",
+              "delta": 1
+            },
+            {
+              "kind": "add",
+              "field": "wounds",
+              "delta": 2
+            },
+            {
+              "kind": "remove",
+              "field": "keywords",
+              "value": "Infantry"
+            },
+            {
+              "kind": "addKeywords",
+              "value": ["Mounted", "Scouts 9\""]
+            },
+            {
+              "kind": "setLeaderUnits",
+              "value": ["Seekers"]
+            }
+          ]
+        },
+        {
+          "id": "disc_of_tzeentch",
+          "name": "Disc of Tzeentch",
+          "text": "(TZEENTCH INFANTRY only): Improve this model's Move characteristic by 6\", change its INFANTRY keyword to MOUNTED, add the FLY keyword, and replace the list of units this model can be attached to: Screamers.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Tzeentch"
+            },
+            {
+              "kind": "keywordHas",
+              "keyword": "Infantry"
+            }
+          ],
+          "points": 0,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "move",
+              "delta": 6
+            },
+            {
+              "kind": "remove",
+              "field": "keywords",
+              "value": "Infantry"
+            },
+            {
+              "kind": "addKeywords",
+              "value": ["Mounted", "Fly"]
+            },
+            {
+              "kind": "setLeaderUnits",
+              "value": ["Screamers"]
+            }
+          ]
+        },
+        {
+          "id": "eldritch_flames",
+          "name": "Eldritch Flames",
+          "text": "(TZEENTCH only): In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. Until the end of the phase, that unit cannot have the Benefit of Cover.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Tzeentch"
+            }
+          ],
+          "points": 0
+        },
+        {
+          "id": "daemon_wings",
+          "name": "Daemon Wings",
+          "text": "(MONSTER only): Add 4\" to this model's Move characteristic and it has the Fly keyword.",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Monster"
+            }
+          ],
+          "points": 0,
+          "effects": [
+            {
+              "kind": "add",
+              "field": "move",
+              "delta": 4
+            },
+            {
+              "kind": "addKeywords",
+              "value": ["Fly"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "03 — Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "bloodmarked",
+        "name": "Bloodmarked",
+        "text": "(KHORNE only): At the start of the Fight phase, select one enemy unit within 18\" and visible to this model. Until the end of the phase, if a friendly KHORNE unit makes an attack that targets that unit, improve the Strength, Armour Penetration and Damage characteristics of that attack by 1.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Khorne"
+          }
+        ],
+        "points": 20
+      },
+      {
+        "id": "rage_fuelled_strength",
+        "name": "Rage-fuelled Strength",
+        "text": "(KHORNE INFANTRY only): Each time a model in this unit makes an attack, add 1 to the Wound roll.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Khorne"
+          },
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 10
+      },
+      {
+        "id": "restless_prey_seeker",
+        "name": "Restless Prey-seeker",
+        "text": "(KHORNE only): You can re-roll Advance and Charge rolls made for this unit.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Khorne"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "jolly_gutpipes",
+        "name": "Jolly Gutpipes",
+        "text": "(NURGLE only): While this model is leading a unit, add 1 to the Move characteristic of models in that unit and you can re-roll Advance rolls made for it.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Nurgle"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "keep_counting",
+        "name": "Keep Counting!",
+        "text": "(NURGLE only): Melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Nurgle"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "meet_your_quota",
+        "name": "Meet Your Quota!",
+        "text": "(NURGLE only): While this model's unit is not Battle-shocked, add 1 to the Objective Control characteristic of models in that unit.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Nurgle"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "discordant_disruption",
+        "name": "Discordant Disruption",
+        "text": "(Aura) (SLAANESH only): While an enemy Psyker unit is within 12\" of this model, Psychic weapons equipped by models in that unit have the [HAZARDOUS] ability.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Slaanesh"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "sadistic_savagery",
+        "name": "Sadistic Savagery",
+        "text": "(SLAANESH only): Melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Slaanesh"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "swallow_energy",
+        "name": "Swallow Energy",
+        "text": "(SLAANESH only): Models in this unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Slaanesh"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "blazing_warpfire",
+        "name": "Blazing Warpfire",
+        "text": "(TZEENTCH only): Ranged weapons equipped by models in this unit have the [ASSAULT] ability.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Tzeentch"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "malefic_deceit",
+        "name": "Malefic Deceit",
+        "text": "(TZEENTCH only): Each time an attack is made against this unit, subtract 1 from the Hit roll.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Tzeentch"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "rider_of_the_immaterial_winds",
+        "name": "Rider of the Immaterial Winds",
+        "text": "(TZEENTCH only): Once per battle, at the end of your opponent's turn, if this model's unit is not within Engagement Range of one or more enemy units, you can remove that unit from the battlefield and place it into Strategic Reserves.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Tzeentch"
+          }
+        ],
+        "points": 0
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "khorne_infernal_cannon",
+      "name": "Infernal cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Rapid Fire 3"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "deaths_heads",
+      "name": "Death's heads",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D3",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast", "Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        }
+      ]
+    },
+    {
+      "id": "disgusting_sneezes",
+      "name": "Disgusting sneezes",
+      "type": "ranged",
+      "range": "6\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol", "Torrent"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        }
+      ]
+    },
+    {
+      "id": "nurgle_infernal_cannon",
+      "name": "Infernal cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "slaanesh_infernal_cannon",
+      "name": "Infernal cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Precision"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "lashes_of_torment",
+      "name": "Lashes of torment",
+      "type": "ranged",
+      "range": "6\"",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 3+", "Assault", "Pistol"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        }
+      ]
+    },
+    {
+      "id": "arcane_fireball_witchfire",
+      "name": "Arcane Fireball — witchfire",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        }
+      ]
+    },
+    {
+      "id": "arcane_fireball_focused_witchfire",
+      "name": "Arcane Fireball — focused witchfire",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": ["Devastating Wounds", "Hazardous", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        }
+      ]
+    },
+    {
+      "id": "tzeentch_infernal_cannon",
+      "name": "Infernal cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "attendants_hellblades",
+      "name": "Attendants' hellblades",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Extra Attacks"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "daemonic_charioteer"
+        }
+      ]
+    },
+    {
+      "id": "blade_of_blood",
+      "name": "Blade of blood",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Khorne"
+        }
+      ]
+    },
+    {
+      "id": "khorne_hellforged_weapons_strike",
+      "name": "Hellforged weapons — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "8",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "khorne_hellforged_weapons_sweep",
+      "name": "Hellforged weapons — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "16",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "juggernauts_bladed_horn",
+      "name": "Juggernaut's bladed horn",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Extra Attacks", "Lance"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "hasChoice",
+          "groupId": "other_specialisms",
+          "optionId": "juggernaut_of_khorne"
+        }
+      ]
+    },
+    {
+      "id": "acidic_maw",
+      "name": "Acidic maw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "7",
+      "ap": "-4",
+      "damage": "3",
+      "keywords": ["Devastating Wounds", "Extra Attacks"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "diseased_claws_and_teeth",
+      "name": "Diseased claws and teeth",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        }
+      ]
+    },
+    {
+      "id": "foul_balesword",
+      "name": "Foul balesword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        }
+      ]
+    },
+    {
+      "id": "foul_mouthparts",
+      "name": "Foul mouthparts",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Extra Attacks", "Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "nurgle_hellforged_weapons_strike",
+      "name": "Hellforged weapons — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "nurgle_hellforged_weapons_sweep",
+      "name": "Hellforged weapons — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "14",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "tiny_balesword",
+      "name": "Tiny balesword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "2",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        }
+      ]
+    },
+    {
+      "id": "tiny_corrupted_staff",
+      "name": "Tiny corrupted staff",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        }
+      ]
+    },
+    {
+      "id": "bladed_axle",
+      "name": "Bladed axle",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Extra Attacks"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "slaanesh_hellforged_weapons_strike",
+      "name": "Hellforged weapons — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Precision"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "slaanesh_hellforged_weapons_sweep",
+      "name": "Hellforged weapons — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "14",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "lashing_tongue",
+      "name": "Lashing tongue",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Extra Attacks", "Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "ravaging_claws",
+      "name": "Ravaging claws",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Devastating Wounds"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        }
+      ]
+    },
+    {
+      "id": "seeker_tongues",
+      "name": "Seeker tongues",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Extra Attacks"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "tzeentch_close_combat_weapon",
+      "name": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        }
+      ]
+    },
+    {
+      "id": "tzeentch_hellforged_weapons_strike",
+      "name": "Hellforged weapons — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Devastating Wounds", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "tzeentch_hellforged_weapons_sweep",
+      "name": "Hellforged weapons — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "12",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Devastating Wounds", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "screamer_bites",
+      "name": "Screamer bites",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Extra Attacks"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the relevant sections of the following: up to one ranged weapon; one or two melee weapons.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with.",
+    "Patron restrictions apply to abilities and weapons: Khorne only, Nurgle only, Slaanesh only, Tzeentch only.",
+    "* Monster only.",
+    "** Daemonic Charioteer only. A model cannot have more than one of this weapon.",
+    "*** Mounted model only. A model cannot have more than one of this weapon."
+  ]
+}
