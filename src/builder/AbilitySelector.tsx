@@ -1,81 +1,60 @@
-import type { BuildInput, FactionRules } from "../engine/schema";
-import { getChoiceRequirementStatus } from "../engine/weaponRequirements";
-import { getAbilityPickCount } from "../engine/choicePicks";
+import type { AbilityOptionsView } from "./hooks/useAbilityOptions";
 
 export type AbilitySelectorProps = {
-  input: BuildInput;
-  setInput: React.Dispatch<React.SetStateAction<BuildInput>>;
-  faction: FactionRules;
+  view: AbilityOptionsView;
+  onToggleAbility: (abilityId: string, checked: boolean) => void;
 };
 
 export const AbilitySelector = ({
-  input,
-  setInput,
-  faction,
+  view,
+  onToggleAbility,
 }: AbilitySelectorProps) => {
-  const pickCount = getAbilityPickCount(faction, input.archetypeId);
-  const selectedCount = input.abilityIds.length;
-
   return (
     <section className="builder-section">
       <h2 className="builder-section-title">
-        {pickCount > 1 ? "Abilities" : "Ability"} ({selectedCount}/{pickCount})
+        {view.pickCount > 1 ? "Abilities" : "Ability"} ({view.selectedCount}/
+        {view.pickCount})
       </h2>
-      {faction.abilities.options.map((ability) => {
-        const requirementStatus = getChoiceRequirementStatus(ability, input, faction);
-        const selected = input.abilityIds.includes(ability.id);
-        const atCap = !selected && selectedCount >= pickCount;
-        const disabled = !selected && (!requirementStatus.met || atCap);
-        return (
-          <div
-            key={ability.id}
-            className={`builder-option ${disabled ? "builder-option-disabled" : ""}`}
-          >
-            <label className="builder-option-label">
-              <input
-                type="checkbox"
-                value={ability.id}
-                checked={selected}
-                onChange={(e) =>
-                  setInput((prev) => ({
-                    ...prev,
-                    abilityIds:
-                      e.target.checked ?
-                        [...prev.abilityIds, ability.id] :
-                        prev.abilityIds.filter((id) => id !== ability.id),
-                  }))
-                }
-                disabled={disabled}
-              />
-              <span>
-                <span className="builder-option-title">
-                  {ability.name}
-                  {ability.points > 0 ?
-                    ` (+${ability.points}pts)` : null}
-                </span>
+      {view.options.map((ability) => (
+        <div
+          key={ability.id}
+          className={`builder-option ${ability.disabled ? "builder-option-disabled" : ""}`}
+        >
+          <label className="builder-option-label">
+            <input
+              type="checkbox"
+              value={ability.id}
+              checked={ability.selected}
+              onChange={(event) => onToggleAbility(ability.id, event.target.checked)}
+              disabled={ability.disabled}
+            />
+            <span>
+              <span className="builder-option-title">
+                {ability.name}
+                {ability.points > 0 ? ` (+${ability.points}pts)` : null}
               </span>
-            </label>
-            <div className="builder-option-meta">
-              {ability.text}
-              {requirementStatus.labels.length > 0 && (
-                <div style={{ marginTop: 4 }}>
-                  <strong>Requires:</strong> {requirementStatus.labels.join(" + ")}
-                </div>
-              )}
-              {!requirementStatus.met && (
-                <div className="builder-option-warning">
-                  Unavailable: {requirementStatus.unmet.join(" and ")}
-                </div>
-              )}
-              {atCap && (
-                <div className="builder-option-warning">
-                  Unavailable: Ability cap reached
-                </div>
-              )}
-            </div>
+            </span>
+          </label>
+          <div className="builder-option-meta">
+            {ability.text}
+            {ability.requirementLabels.length > 0 && (
+              <div style={{ marginTop: 4 }}>
+                <strong>Requires:</strong> {ability.requirementLabels.join(" + ")}
+              </div>
+            )}
+            {ability.unmetRequirements.length > 0 && (
+              <div className="builder-option-warning">
+                Unavailable: {ability.unmetRequirements.join(" and ")}
+              </div>
+            )}
+            {ability.atCap && (
+              <div className="builder-option-warning">
+                Unavailable: Ability cap reached
+              </div>
+            )}
           </div>
-        );
-      })}
+        </div>
+      ))}
     </section>
   );
 };

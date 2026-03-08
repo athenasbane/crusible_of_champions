@@ -2,14 +2,14 @@ import type { BuildInput, FactionRules } from "../engine/schema";
 
 export type ArchetypeSelectorProps = {
   input: BuildInput;
-  setInput: React.Dispatch<React.SetStateAction<BuildInput>>;
   faction: FactionRules;
+  onSelectArchetype: (archetypeId: string) => void;
 };
 
 export const ArchetypeSelector = ({
   input,
-  setInput,
   faction,
+  onSelectArchetype,
 }: ArchetypeSelectorProps) => {
   return (
     <section className="builder-section">
@@ -22,17 +22,12 @@ export const ArchetypeSelector = ({
               name="archetype"
               value={archetype.id}
               checked={input.archetypeId === archetype.id}
-              onChange={(e) =>
-                setInput((prev) => ({
-                  ...prev,
-                  archetypeId: e.target.value,
-                }))
-              }
+              onChange={(event) => onSelectArchetype(event.target.value)}
             />
             <span>
               <span className="builder-option-title">
-              {archetype.name}
-              {archetype.points > 0 ? ` (+${archetype.points}pts)` : null}
+                {archetype.name}
+                {archetype.points > 0 ? ` (+${archetype.points}pts)` : null}
               </span>
             </span>
           </label>
@@ -56,8 +51,8 @@ export const ArchetypeSelector = ({
             </div>
           </div>
           <div className="builder-option-meta">
-            {archetype.abilitiesText.map((ability, i) => (
-              <div key={i} style={{ marginBottom: 8 }}>
+            {archetype.abilitiesText.map((ability, index) => (
+              <div key={index} style={{ marginBottom: 8 }}>
                 <strong>{ability.title}:</strong> {ability.text}
               </div>
             ))}
