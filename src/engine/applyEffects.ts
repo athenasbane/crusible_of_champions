@@ -7,9 +7,6 @@ export function applyEffectsToProfile(
 ): Profile {
   return effects.reduce((current, effect) => {
     switch (effect.kind) {
-      case "setInvuln":
-        return { ...current, invuln: effect.value };
-
       case "set":
         return { ...current, [effect.field]: effect.value };
 

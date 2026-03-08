@@ -187,7 +187,8 @@
             "value": 5
           },
           {
-            "kind": "setInvuln",
+            "kind": "set",
+            "field": "invuln",
             "value": 4
           },
           {

@@ -220,7 +220,8 @@
           "points": 0,
           "effects": [
             {
-              "kind": "setInvuln",
+              "kind": "set",
+              "field": "invuln",
               "value": 4
             },
             {
@@ -304,15 +305,29 @@
               "keyword": "Nurgle"
             },
             {
-              "kind": "keywordHas",
-              "keyword": "Infantry"
+              "kind": "oneOf",
+              "requirements": [
+                {
+                  "kind": "keywordHas",
+                  "keyword": "Infantry"
+                },
+                {
+                  "kind": "keywordHas",
+                  "keyword": "Swarm"
+                }
+              ]
             }
           ],
           "points": 0,
           "effects": [
             {
               "kind": "addKeywords",
-              "value": ["Swarms"]
+              "value": ["Swarm"]
+            },
+            {
+              "kind": "remove",
+              "field": "keywords",
+              "value": "Infantry"
             },
             {
               "kind": "setLeaderUnits",

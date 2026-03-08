@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Crusible of Champions icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3f4f6" />
+      <stop offset="100%" stop-color="#d1d5db" />
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#bg)" />
+  <path d="M64 18 98 34v28c0 21-13 39-34 48C43 101 30 83 30 62V34z" fill="url(#shield)" />
+  <path d="M64 30 74 52l-7 7v31h-6V59l-7-7z" fill="url(#blade)" />
+  <rect x="50" y="64" width="28" height="6" rx="3" fill="#92400e" />
+  <circle cx="64" cy="67" r="3" fill="#fbbf24" />
+</svg>

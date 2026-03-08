@@ -213,7 +213,8 @@
             "value": 9
           },
           {
-            "kind": "setInvuln",
+            "kind": "set",
+            "field": "invuln",
             "value": 5
           },
           {
@@ -260,7 +261,8 @@
         "points": 0,
         "effects": [
           {
-            "kind": "setInvuln",
+            "kind": "set",
+            "field": "invuln",
             "value": 4
           }
         ]
@@ -298,7 +300,8 @@
             "value": 5
           },
           {
-            "kind": "setInvuln",
+            "kind": "set",
+            "field": "invuln",
             "value": 4
           },
           {

@@ -18,10 +18,6 @@ export const ArchetypeAbilitiesSchema = z.object({
 
 export const EffectSchema = z.union([
   z.object({
-    kind: z.literal("setInvuln"),
-    value: z.number(),
-  }),
-  z.object({
     kind: z.literal("set"),
     field: z.enum([
       "move",
@@ -84,10 +80,12 @@ type BaseRequirement =
       keyword: string;
     };
 
-export type Requirement = BaseRequirement | {
-  kind: "oneOf";
-  requirements: Requirement[];
-};
+export type Requirement =
+  | BaseRequirement
+  | {
+      kind: "oneOf";
+      requirements: Requirement[];
+    };
 
 const BaseRequirementSchema = z.union([
   z.object({

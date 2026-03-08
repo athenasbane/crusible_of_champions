@@ -40,9 +40,7 @@
           "text": "In your Command phase, if this model is leading a unit, you can roll one D6: on a 1, that unit suffers D3 mortal wounds; on a 2+, you can return 1 destroyed Bodyguard model to that unit."
         }
       ],
-      "leaderUnits": [
-        "Rubric Marines"
-      ],
+      "leaderUnits": ["Rubric Marines"],
       "unitComposition": "1 Magister",
       "keywords": [
         "Infantry",
@@ -53,9 +51,7 @@
         "Tzeentch",
         "Magister"
       ],
-      "factionKeywords": [
-        "Thousand Sons"
-      ]
+      "factionKeywords": ["Thousand Sons"]
     },
     {
       "id": "brayherd_chieftain",
@@ -81,9 +77,7 @@
           "text": "If this unit starts the game in Strategic Reserves, it can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. If this unit is in Strategic Reserves, for the purposes of setting up this unit on the battlefield, treat the current battle round number as being one higher than it actually is."
         }
       ],
-      "leaderUnits": [
-        "Tzaangors"
-      ],
+      "leaderUnits": ["Tzaangors"],
       "unitComposition": "1 Brayherd Chieftain",
       "keywords": [
         "Infantry",
@@ -93,9 +87,7 @@
         "Mutant",
         "Brayherd Chieftain"
       ],
-      "factionKeywords": [
-        "Thousand Sons"
-      ]
+      "factionKeywords": ["Thousand Sons"]
     },
     {
       "id": "brayherd_shaman",
@@ -125,9 +117,7 @@
           "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
         }
       ],
-      "leaderUnits": [
-        "Tzaangors"
-      ],
+      "leaderUnits": ["Tzaangors"],
       "unitComposition": "1 Brayherd Shaman",
       "keywords": [
         "Infantry",
@@ -138,9 +128,7 @@
         "Mutant",
         "Brayherd Shaman"
       ],
-      "factionKeywords": [
-        "Thousand Sons"
-      ]
+      "factionKeywords": ["Thousand Sons"]
     }
   ],
   "specialisms": {
@@ -161,16 +149,11 @@
           },
           {
             "kind": "addKeywords",
-            "value": [
-              "Mounted",
-              "Fly"
-            ]
+            "value": ["Mounted", "Fly"]
           },
           {
             "kind": "addLeaderUnits",
-            "value": [
-              "Tzaangor Enlightened"
-            ]
+            "value": ["Tzaangor Enlightened"]
           }
         ]
       },
@@ -207,21 +190,17 @@
             "value": 5
           },
           {
-            "kind": "setInvuln",
+            "kind": "set",
+            "field": "invuln",
             "value": 4
           },
           {
             "kind": "addKeywords",
-            "value": [
-              "Deep Strike",
-              "Terminator"
-            ]
+            "value": ["Deep Strike", "Terminator"]
           },
           {
             "kind": "setLeaderUnits",
-            "value": [
-              "Scarab Occult Terminators"
-            ]
+            "value": ["Scarab Occult Terminators"]
           }
         ]
       }
@@ -317,11 +296,7 @@
       "strength": "6",
       "ap": "-2",
       "damage": "D3",
-      "keywords": [
-        "Ignores Cover",
-        "Psychic",
-        "Torrent"
-      ],
+      "keywords": ["Ignores Cover", "Psychic", "Torrent"],
       "requirements": [
         {
           "kind": "keywordHas",
@@ -339,11 +314,7 @@
       "strength": "6",
       "ap": "-2",
       "damage": "D3",
-      "keywords": [
-        "Blast",
-        "Devastating Wounds",
-        "Psychic"
-      ],
+      "keywords": ["Blast", "Devastating Wounds", "Psychic"],
       "requirements": [
         {
           "kind": "keywordHas",
@@ -361,11 +332,7 @@
       "strength": "9",
       "ap": "0",
       "damage": "1",
-      "keywords": [
-        "Blast",
-        "Devastating Wounds",
-        "Psychic"
-      ]
+      "keywords": ["Blast", "Devastating Wounds", "Psychic"]
     },
     {
       "id": "fatecaster_greatbow",
@@ -377,11 +344,7 @@
       "strength": "5",
       "ap": "-2",
       "damage": "2",
-      "keywords": [
-        "Ignores Cover",
-        "Lethal Hits",
-        "Precision"
-      ]
+      "keywords": ["Ignores Cover", "Lethal Hits", "Precision"]
     },
     {
       "id": "fires_of_the_abyss_witchfire",
@@ -393,10 +356,7 @@
       "strength": "6",
       "ap": "-2",
       "damage": "1",
-      "keywords": [
-        "Psychic",
-        "Torrent"
-      ],
+      "keywords": ["Psychic", "Torrent"],
       "requirements": [
         {
           "kind": "keywordHas",
@@ -414,11 +374,7 @@
       "strength": "6",
       "ap": "-2",
       "damage": "1",
-      "keywords": [
-        "Hazardous",
-        "Psychic",
-        "Torrent"
-      ],
+      "keywords": ["Hazardous", "Psychic", "Torrent"],
       "requirements": [
         {
           "kind": "keywordHas",
@@ -453,10 +409,7 @@
       "strength": "5",
       "ap": "-2",
       "damage": "1",
-      "keywords": [
-        "Ignores Cover",
-        "Torrent"
-      ],
+      "keywords": ["Ignores Cover", "Torrent"],
       "requirements": [
         {
           "kind": "hasChoice",
@@ -506,9 +459,7 @@
       "strength": "4",
       "ap": "-2",
       "damage": "1",
-      "keywords": [
-        "Rapid Fire 2"
-      ]
+      "keywords": ["Rapid Fire 2"]
     },
     {
       "id": "inferno_combi_weapon",
@@ -520,11 +471,7 @@
       "strength": "4",
       "ap": "-2",
       "damage": "1",
-      "keywords": [
-        "Anti-Infantry 4+",
-        "Devastating Wounds",
-        "Rapid Fire 1"
-      ]
+      "keywords": ["Anti-Infantry 4+", "Devastating Wounds", "Rapid Fire 1"]
     },
     {
       "id": "pandaemonic_delusion",
@@ -536,10 +483,7 @@
       "strength": "5",
       "ap": "-1",
       "damage": "1",
-      "keywords": [
-        "Psychic",
-        "Sustained Hits 3"
-      ]
+      "keywords": ["Psychic", "Sustained Hits 3"]
     },
     {
       "id": "soulreaper_cannon",
@@ -551,9 +495,7 @@
       "strength": "6",
       "ap": "-2",
       "damage": "1",
-      "keywords": [
-        "Devastating Wounds"
-      ]
+      "keywords": ["Devastating Wounds"]
     },
     {
       "id": "warpflamer",
@@ -565,10 +507,7 @@
       "strength": "4",
       "ap": "-1",
       "damage": "1",
-      "keywords": [
-        "Ignores Cover",
-        "Torrent"
-      ]
+      "keywords": ["Ignores Cover", "Torrent"]
     },
     {
       "id": "autopistol",
@@ -580,9 +519,7 @@
       "strength": "3",
       "ap": "0",
       "damage": "1",
-      "keywords": [
-        "Pistol"
-      ]
+      "keywords": ["Pistol"]
     },
     {
       "id": "inferno_bolt_pistol",
@@ -594,9 +531,7 @@
       "strength": "4",
       "ap": "-1",
       "damage": "1",
-      "keywords": [
-        "Pistol"
-      ]
+      "keywords": ["Pistol"]
     },
     {
       "id": "warpflame_pistol",
@@ -608,11 +543,7 @@
       "strength": "3",
       "ap": "-1",
       "damage": "1",
-      "keywords": [
-        "Ignores Cover",
-        "Pistol",
-        "Torrent"
-      ]
+      "keywords": ["Ignores Cover", "Pistol", "Torrent"]
     },
     {
       "id": "chainsword",
@@ -624,9 +555,7 @@
       "strength": "4",
       "ap": "0",
       "damage": "1",
-      "keywords": [
-        "Precision"
-      ]
+      "keywords": ["Precision"]
     },
     {
       "id": "close_combat_weapon",
@@ -650,10 +579,7 @@
       "strength": "5",
       "ap": "-1",
       "damage": "2",
-      "keywords": [
-        "Lance",
-        "Precision"
-      ]
+      "keywords": ["Lance", "Precision"]
     },
     {
       "id": "force_weapon",
@@ -665,9 +591,7 @@
       "strength": "6",
       "ap": "-1",
       "damage": "D3",
-      "keywords": [
-        "Psychic"
-      ],
+      "keywords": ["Psychic"],
       "requirements": [
         {
           "kind": "keywordHas",
