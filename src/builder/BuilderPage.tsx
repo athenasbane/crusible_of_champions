@@ -29,24 +29,26 @@ import {
 import "./builder.css";
 
 const factionData: Record<string, unknown> = {
-  "emperors-children": emperors_children_raw,
+  "adeptus-astartes": adeptus_astartes_raw,
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
   "chaos-daemons": chaos_daemons_raw,
+  "emperors-children": emperors_children_raw,
   tyranids: tyranids_raw,
-  "adeptus-astartes": adeptus_astartes_raw,
+
   // Placeholder until we have more factions
 };
 
 const availableFactions = [
+  { id: "adeptus-astartes", name: "Adeptus Astartes" },
   { id: "emperors-children", name: "Emperor's Children" },
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },
   { id: "thousand-sons", name: "Thousand Sons" },
   { id: "chaos-daemons", name: "Chaos Daemons" },
   { id: "tyranids", name: "Tyranids" },
-  { id: "adeptus-astartes", name: "Adeptus Astartes" },
+
   // Add more factions here
 ];
 
@@ -125,7 +127,7 @@ function sanitizeInputChoices(
 
 export function BuilderPage() {
   const [selectedFactionId, setSelectedFactionId] =
-    useState("emperors-children");
+    useState("adeptus-astartes");
 
   const faction = useMemo(() => {
     const raw = factionData[selectedFactionId];
