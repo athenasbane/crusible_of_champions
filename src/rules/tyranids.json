@@ -1,0 +1,870 @@
+{
+  "id": "tyranids",
+  "name": "Tyranids",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 0,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "node_organism",
+      "name": "Node Organism",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 5,
+        "save": 4,
+        "wounds": 6,
+        "leadership": 7,
+        "objectiveControl": 1
+      },
+      "points": 80,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Shadow in the Warp, Synapse"
+        },
+        {
+          "title": "Alpha Warrior",
+          "text": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability."
+        }
+      ],
+      "leaderUnits": [
+        "Tyranid Warriors with Melee Bio-weapons",
+        "Tyranid Warriors with Ranged Bio-weapons"
+      ],
+      "unitComposition": "1 Node Organism",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Great Devourer",
+        "Synapse",
+        "Node Organism"
+      ],
+      "factionKeywords": ["Tyranids"]
+    },
+    {
+      "id": "prime_organism",
+      "name": "Prime Organism",
+      "modelCount": 1,
+      "profile": {
+        "move": 8,
+        "toughness": 9,
+        "save": 2,
+        "wounds": 9,
+        "leadership": 7,
+        "objectiveControl": 3
+      },
+      "points": 135,
+      "loadout": {
+        "caps": {
+          "ranged": 2,
+          "pistol": 0,
+          "melee": 2
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise D3, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Synapse"
+        },
+        {
+          "title": "Monstrous Rampage",
+          "text": "This unit is eligible to shoot and declare a charge in a turn in which it Advanced."
+        }
+      ],
+      "leaderUnits": ["Carnifexes", "Tyrant Guard"],
+      "unitComposition": "1 Prime Organism. This Crucible Champion can be equipped with up to two ranged weapons instead of up to one.",
+      "keywords": ["Monster", "Character", "Great Devourer", "Prime Organism"],
+      "factionKeywords": ["Tyranids"]
+    },
+    {
+      "id": "macro_organism",
+      "name": "Macro Organism",
+      "modelCount": 1,
+      "profile": {
+        "move": 8,
+        "toughness": 10,
+        "save": 3,
+        "wounds": 14,
+        "leadership": 8,
+        "objectiveControl": 4
+      },
+      "points": 150,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise D3"
+        },
+        {
+          "title": "Faction",
+          "text": "Synapse"
+        },
+        {
+          "title": "Unstoppable Monstrosity",
+          "text": "At the start of each player's Command phase, this model regains up to D3 lost wounds."
+        }
+      ],
+      "leaderUnits": [],
+      "unitComposition": "1 Macro Organism",
+      "keywords": ["Monster", "Character", "Great Devourer", "Macro Organism"],
+      "factionKeywords": ["Tyranids"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "armoured_shell",
+        "name": "Armoured Shell",
+        "text": "(MACRO ORGANISM only): Change this model's Save characteristic to 2+, and change its Deadly Demise D3 ability to Deadly Demise D6.",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "macro_organism"
+          }
+        ],
+        "points": 20,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Deadly Demise D3"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Deadly Demise D6"]
+          }
+        ]
+      },
+      {
+        "id": "burrowing_claws",
+        "name": "Burrowing Claws",
+        "text": "Change this model's Move characteristic to 10\", add the VANGUARD INVADER keyword, and it gains the Deep Strike ability. If it is an INFANTRY model, replace the list of units this model can be attached to: Raveners.",
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 10
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Vanguard Invader", "Deep Strike"]
+          }
+        ]
+      },
+      {
+        "id": "floating_horror",
+        "name": "Floating Horror",
+        "text": "(NODE ORGANISM only): Add the FLY keyword, and replace the list of units this model can be attached to: Venomthropes, Zoanthropes.",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "node_organism"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Fly"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Venomthropes", "Zoanthropes"]
+          }
+        ]
+      },
+      {
+        "id": "leader_beast",
+        "name": "Leader-beast",
+        "text": "This model has a 4+ invulnerable save, add the PSYKER and SYNAPSE keywords, and it gains the Shadow in the Warp ability. If it is an INFANTRY model, add the following unit to the list of units this model can be attached to: Neurogaunts.",
+        "points": 15,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "invuln",
+            "value": 4
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Psyker", "Synapse", "Shadow in the Warp"]
+          },
+          {
+            "kind": "addLeaderUnits",
+            "value": ["Neurogaunts"]
+          }
+        ]
+      },
+      {
+        "id": "vanguard_beast",
+        "name": "Vanguard-beast",
+        "text": "(NODE ORGANISM only): Change this model's Move characteristic to 8\", add the VANGUARD INVADER keyword, and it gains the Fights First, Infiltrators, Lone Operative and Stealth abilities. Replace the list of units this model can be attached to: Hormagaunts, Von Ryan's Leapers.",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "node_organism"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 8
+          },
+          {
+            "kind": "addKeywords",
+            "value": [
+              "Vanguard Invader",
+              "Fights First",
+              "Infiltrators",
+              "Lone Operative",
+              "Stealth"
+            ]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Hormagaunts", "Von Ryan's Leapers"]
+          }
+        ]
+      },
+      {
+        "id": "winged_biomorph",
+        "name": "Winged Biomorph",
+        "text": "(NODE ORGANISM or PRIME ORGANISM only): Change this model's Move characteristic to 12\", add the FLY and VANGUARD INVADER keywords, and it gains the Deep Strike ability. If it is an INFANTRY model, replace the list of units this model can be attached to: Gargoyles.",
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "archetypeIs",
+                "archetypeId": "node_organism"
+              },
+              {
+                "kind": "archetypeIs",
+                "archetypeId": "prime_organism"
+              }
+            ]
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Fly", "Vanguard Invader", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Gargoyles"]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "fear_of_the_unseen",
+        "name": "Fear of the Unseen",
+        "text": "(Aura): While an enemy unit is within 6\" of this model, worsen the Leadership characteristic of models in that unit by 1. In addition, in the Battle-shock step of your opponent's Command phase, if such an enemy unit is below its Starting Strength, it must take a Battle-shock test.",
+        "points": 0
+      },
+      {
+        "id": "feeder_tendrils",
+        "name": "Feeder Tendrils",
+        "text": "Each time a melee attack made by a model in this unit destroys an enemy CHARACTER model, you gain 1CP.",
+        "points": 0
+      },
+      {
+        "id": "hyperstimulation",
+        "name": "Hyperstimulation",
+        "text": "You can re-roll Advance and Charge rolls made for this unit.",
+        "points": 0
+      },
+      {
+        "id": "psychic_terror",
+        "name": "Psychic Terror",
+        "text": "(Psychic) (PSYKER only): If one or more models from your army with this ability are on the battlefield when you unleash the Shadow in the Warp, subtract 1 from the Battle-shock test each enemy unit on the battlefield must take as a result.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "synaptic_senses",
+        "name": "Synaptic Senses",
+        "text": "(Psychic) (PSYKER only): Ranged weapons equipped by models in this unit have the [LETHAL HITS] ability.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ],
+        "points": 0
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "acid_spray",
+      "name": "Acid spray",
+      "type": "ranged",
+      "range": "16\"",
+      "attacks": "D6+6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Torrent"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "barbed_strangler",
+      "name": "Barbed strangler",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D6+1",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Blast"]
+    },
+    {
+      "id": "bio_electric_pulse",
+      "name": "Bio-electric pulse",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Sustained Hits 2"]
+    },
+    {
+      "id": "bio_plasma",
+      "name": "Bio-plasma",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Assault", "Blast"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "bio_plasmic_cannon",
+      "name": "Bio-plasmic cannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D6+3",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": ["Blast", "Heavy"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "deathspitter",
+      "name": "Deathspitter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "deathspitters_with_slimer_maggots",
+      "name": "Deathspitters with slimer maggots",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "devourer",
+      "name": "Devourer",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "devourers_with_brainleech_worms",
+      "name": "Devourers with brainleech worms",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "12",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "fleshborer_hive",
+      "name": "Fleshborer hive",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "20",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Heavy", "Sustained Hits 1", "Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "heavy_venom_cannon",
+      "name": "Heavy venom cannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Blast"]
+    },
+    {
+      "id": "psychic_overload",
+      "name": "Psychic Overload",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6+3",
+      "skill": "3+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Blast", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "psychic_scream",
+      "name": "Psychic Scream",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Ignores Cover", "Psychic", "Torrent"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "psychoclastic_torrent",
+      "name": "Psychoclastic torrent",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "rupture_cannon",
+      "name": "Rupture cannon",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "18",
+      "ap": "-4",
+      "damage": "2D6",
+      "keywords": ["Heavy"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "spine_banks",
+      "name": "Spine banks",
+      "type": "ranged",
+      "range": "6\"",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "spinefists",
+      "name": "Spinefists",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault", "Pistol", "Twin-linked"]
+    },
+    {
+      "id": "stinger_salvoes",
+      "name": "Stinger salvoes",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "8",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "stranglethorn_cannon",
+      "name": "Stranglethorn cannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D6+1",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Blast"]
+    },
+    {
+      "id": "thoracic_bio_weapon",
+      "name": "Thoracic bio-weapon",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault"]
+    },
+    {
+      "id": "venom_cannon",
+      "name": "Venom cannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Blast"]
+    },
+    {
+      "id": "crushing_claws",
+      "name": "Crushing claws",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "massive_scything_talons_strike",
+      "name": "Massive scything talons — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "D6",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "massive_scything_talons_sweep",
+      "name": "Massive scything talons — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "10",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "monster_beast_weapons",
+      "name": "Monster-beast weapons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "12",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "monstrous_bonesword_and_lash_whip",
+      "name": "Monstrous bonesword and lash whip",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Twin-linked"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "monstrous_scything_talons",
+      "name": "Monstrous scything talons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Extra Attacks"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "piercing_claws_and_talons",
+      "name": "Piercing claws and talons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Precision"]
+    },
+    {
+      "id": "ravener_claws_and_talons",
+      "name": "Ravener claws and talons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Twin-linked"]
+    },
+    {
+      "id": "ravenous_maw",
+      "name": "Ravenous maw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "14",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "macro_organism"
+        }
+      ]
+    },
+    {
+      "id": "scything_talons",
+      "name": "Scything talons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "tyrant_beast_weapons",
+      "name": "Tyrant-beast weapons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "warrior_beast_weapons",
+      "name": "Warrior-beast weapons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": []
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon; one or two melee weapons.",
+    "Prime Organism can be equipped with up to two ranged weapons instead of up to one.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with.",
+    "* Monster only.",
+    "** Psyker only.",
+    "*** Macro Organism only."
+  ]
+}

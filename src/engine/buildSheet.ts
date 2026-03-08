@@ -124,6 +124,7 @@ export function buildSheet(
       abilities.reduce((sum, ability) => sum + ability.points, 0),
     factionName: faction.name,
     archetypeName: archetype.name,
+    archetypeAbilities: archetype.abilitiesText,
     modelCount: archetype.modelCount,
     name: input.name,
     profile,

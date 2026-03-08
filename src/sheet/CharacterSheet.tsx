@@ -28,6 +28,11 @@ export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
 
       <div className="cs-body">
         <div className="cs-left">
+          {sheet.archetypeAbilities.map((ability) => (
+            <Block key={`${ability.title}:${ability.text}`} title={ability.title}>
+              {ability.text}
+            </Block>
+          ))}
           {sheet.specialisms.map((specialism) => (
             <Block key={specialism.id} title={specialism.name}>
               {specialism.text}

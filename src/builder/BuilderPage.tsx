@@ -5,6 +5,7 @@ import { loadFaction } from "../rules/loadFaction";
 import emperors_children_raw from "../rules/emperors-children.json";
 import chaos_space_marines_raw from "../rules/chaos-space-marines.json";
 import death_guard_raw from "../rules/death-guard.json";
+import tyranids_raw from "../rules/tyranids.json";
 import thousand_sons_raw from "../rules/thousand-sons.json";
 import chaos_daemons_raw from "../rules/chaos_daemons.json";
 import { CharacterSheet } from "../sheet/CharacterSheet";
@@ -20,7 +21,10 @@ import {
 import { getWeaponRequirementStatus } from "../engine/weaponRequirements";
 import { getWeaponGroupKey } from "../engine/weaponGrouping";
 import { getAbilityPickCount } from "../engine/choicePicks";
-import { getSelectedSpecialismIds, getSpecialismGroups } from "../engine/specialisms";
+import {
+  getSelectedSpecialismIds,
+  getSpecialismGroups,
+} from "../engine/specialisms";
 import "./builder.css";
 
 const factionData: Record<string, unknown> = {
@@ -29,6 +33,7 @@ const factionData: Record<string, unknown> = {
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
   "chaos-daemons": chaos_daemons_raw,
+  tyranids: tyranids_raw,
   // Placeholder until we have more factions
 };
 
@@ -38,6 +43,7 @@ const availableFactions = [
   { id: "death-guard", name: "Death Guard" },
   { id: "thousand-sons", name: "Thousand Sons" },
   { id: "chaos-daemons", name: "Chaos Daemons" },
+  { id: "tyranids", name: "Tyranids" },
   // Add more factions here
 ];
 
@@ -84,8 +90,12 @@ function sanitizeInputChoices(
   const abilityPickCount = getAbilityPickCount(faction, input.archetypeId);
   const specialismGroups = getSpecialismGroups(faction);
   const selectedSpecialismIds = getSelectedSpecialismIds(input);
-  const allSpecialismOptions = specialismGroups.flatMap((group) => group.options);
-  const specialismOptionIds = new Set(allSpecialismOptions.map((option) => option.id));
+  const allSpecialismOptions = specialismGroups.flatMap(
+    (group) => group.options,
+  );
+  const specialismOptionIds = new Set(
+    allSpecialismOptions.map((option) => option.id),
+  );
 
   const specialismIds = selectedSpecialismIds.filter((specialismId) =>
     specialismOptionIds.has(specialismId),

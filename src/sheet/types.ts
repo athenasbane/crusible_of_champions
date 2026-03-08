@@ -3,6 +3,7 @@ import type { Profile, Weapon, ChoiceOption } from "../engine/schema";
 export type BuiltSheet = {
   factionName: string;
   archetypeName: string;
+  archetypeAbilities: { title: string; text: string }[];
   modelCount: number;
   name?: string;
   leaderUnits?: string[];
