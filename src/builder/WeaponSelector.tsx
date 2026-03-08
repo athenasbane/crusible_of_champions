@@ -1,5 +1,8 @@
 import type { BuildInput, FactionRules } from "../engine/schema";
-import { countWeapons, getEffectiveLoadoutRules } from "../engine/validateWeapons";
+import {
+  countWeapons,
+  getEffectiveLoadoutRules,
+} from "../engine/validateWeapons";
 import { getWeaponRequirementStatus } from "../engine/weaponRequirements";
 import { groupWeapons } from "../engine/weaponGrouping";
 
@@ -15,7 +18,9 @@ export const WeaponSelector = ({
   faction,
 }: WeaponSelectorProps) => {
   const loadoutRules = getEffectiveLoadoutRules(faction, input.archetypeId);
-  const selectedWeapons = faction.weapons.filter((w) => input.weaponIds.includes(w.id));
+  const selectedWeapons = faction.weapons.filter((w) =>
+    input.weaponIds.includes(w.id),
+  );
   const counts = countWeapons(selectedWeapons);
 
   const rangedWeapons = faction.weapons.filter((w) => w.type === "ranged");
@@ -29,19 +34,27 @@ export const WeaponSelector = ({
     <div style={{ marginBottom: 12 }}>
       <h3 style={{ marginBottom: 10 }}>{title}</h3>
       {groupWeapons(weapons).map((group) => {
-        const selected = group.weapons.some((weapon) => input.weaponIds.includes(weapon.id));
+        const selected = group.weapons.some((weapon) =>
+          input.weaponIds.includes(weapon.id),
+        );
         const groupPoints = Math.max(
           ...group.weapons.map((weapon) => weapon.points ?? 0),
         );
-        const requirementStatus = getWeaponRequirementStatus(group.weapons[0], input, faction);
+        const requirementStatus = getWeaponRequirementStatus(
+          group.weapons[0],
+          input,
+          faction,
+        );
         const overTypeCap =
           !selected && counts[group.type] >= loadoutRules.caps[group.type];
         const disabled = !selected && (!requirementStatus.met || overTypeCap);
         const unavailableReasons = [
           ...requirementStatus.unmet,
-          ...(overTypeCap ?
-            [`${group.type[0].toUpperCase()}${group.type.slice(1)} cap reached`] :
-            []),
+          ...(overTypeCap
+            ? [
+                `${group.type[0].toUpperCase()}${group.type.slice(1)} cap reached`,
+              ]
+            : []),
         ];
 
         return (
@@ -64,45 +77,63 @@ export const WeaponSelector = ({
               </span>
             </label>
             <div className="builder-option-meta">
-              {group.weapons.map((weaponProfile) => (
+              {group.weapons.map((weaponProfile, _, weapons) => (
                 <div key={weaponProfile.id} className="builder-weapon-profile">
-                  <strong className="builder-weapon-profile-name">{weaponProfile.name}</strong>
+                  {weapons.length > 1 ? (
+                    <strong className="builder-weapon-profile-name">
+                      {weaponProfile.name}
+                    </strong>
+                  ) : null}
                   <div className="builder-weapon-stats">
                     <span className="builder-weapon-stat">
                       <span className="builder-weapon-stat-label">R</span>
-                      <span className="builder-weapon-stat-value">{weaponProfile.range}</span>
+                      <span className="builder-weapon-stat-value">
+                        {weaponProfile.range}
+                      </span>
                     </span>
                     <span className="builder-weapon-stat">
                       <span className="builder-weapon-stat-label">A</span>
-                      <span className="builder-weapon-stat-value">{weaponProfile.attacks}</span>
+                      <span className="builder-weapon-stat-value">
+                        {weaponProfile.attacks}
+                      </span>
                     </span>
                     <span className="builder-weapon-stat">
                       <span className="builder-weapon-stat-label">Skill</span>
-                      <span className="builder-weapon-stat-value">{weaponProfile.skill ?? "—"}</span>
+                      <span className="builder-weapon-stat-value">
+                        {weaponProfile.skill ?? "—"}
+                      </span>
                     </span>
                     <span className="builder-weapon-stat">
                       <span className="builder-weapon-stat-label">S</span>
-                      <span className="builder-weapon-stat-value">{weaponProfile.strength}</span>
+                      <span className="builder-weapon-stat-value">
+                        {weaponProfile.strength}
+                      </span>
                     </span>
                     <span className="builder-weapon-stat">
                       <span className="builder-weapon-stat-label">AP</span>
-                      <span className="builder-weapon-stat-value">{weaponProfile.ap}</span>
+                      <span className="builder-weapon-stat-value">
+                        {weaponProfile.ap}
+                      </span>
                     </span>
                     <span className="builder-weapon-stat">
                       <span className="builder-weapon-stat-label">D</span>
-                      <span className="builder-weapon-stat-value">{weaponProfile.damage}</span>
+                      <span className="builder-weapon-stat-value">
+                        {weaponProfile.damage}
+                      </span>
                     </span>
                   </div>
-                  {weaponProfile.keywords && weaponProfile.keywords.length > 0 && (
-                    <div>
-                      <em>Special: {weaponProfile.keywords.join(", ")}</em>
-                    </div>
-                  )}
+                  {weaponProfile.keywords &&
+                    weaponProfile.keywords.length > 0 && (
+                      <div>
+                        <em>Special: {weaponProfile.keywords.join(", ")}</em>
+                      </div>
+                    )}
                 </div>
               ))}
               {requirementStatus.labels.length > 0 && (
                 <div style={{ marginTop: 4 }}>
-                  <strong>Requires:</strong> {requirementStatus.labels.join(" + ")}
+                  <strong>Requires:</strong>{" "}
+                  {requirementStatus.labels.join(" + ")}
                 </div>
               )}
               {unavailableReasons.length > 0 && (
