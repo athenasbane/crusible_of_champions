@@ -9,6 +9,8 @@ import death_guard_raw from "../../rules/death-guard.json";
 import tyranids_raw from "../../rules/tyranids.json";
 import thousand_sons_raw from "../../rules/thousand-sons.json";
 import chaos_daemons_raw from "../../rules/chaos_daemons.json";
+import dark_angels_raw from "../../rules/dark_angels.json";
+import blood_angels_raw from "../../rules/blood_angels.json";
 import { countWeapons, getEffectiveLoadoutRules } from "../../engine/validateWeapons";
 import { getWeaponRequirementStatus } from "../../engine/weaponRequirements";
 import { getWeaponGroupKey } from "../../engine/weaponGrouping";
@@ -17,6 +19,8 @@ import { getSelectedSpecialismIds, getSpecialismGroups } from "../../engine/spec
 
 const factionData: Record<string, unknown> = {
   "adeptus-astartes": adeptus_astartes_raw,
+  "dark-angels": dark_angels_raw,
+  "blood-angels": blood_angels_raw,
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
@@ -27,6 +31,8 @@ const factionData: Record<string, unknown> = {
 
 export const availableFactions = [
   { id: "adeptus-astartes", name: "Adeptus Astartes" },
+  { id: "dark-angels", name: "Dark Angels" },
+  { id: "blood-angels", name: "Blood Angels" },
   { id: "emperors-children", name: "Emperor's Children" },
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },
