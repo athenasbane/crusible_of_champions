@@ -1,0 +1,1228 @@
+{
+  "id": "adeptus_astartes",
+  "name": "Adeptus Astartes",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "champion_of_the_chapter",
+      "name": "Champion of the Chapter",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 4,
+        "save": 3,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1
+      },
+      "points": 70,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Oath of Moment"
+        },
+        {
+          "title": "Exemplar Warrior",
+          "text": "Once per turn, when this model's unit is selected to shoot or fight, it can use this ability. If it does, until the end of the phase, each time this model makes an attack, you can re-roll the Wound roll."
+        }
+      ],
+      "leaderUnits": [
+        "Tacticus (excluding Character and Fly)",
+        "Tactical Squad"
+      ],
+      "unitComposition": "1 Champion of the Chapter",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Imperium",
+        "Tacticus",
+        "Champion of the Chapter"
+      ],
+      "factionKeywords": ["Adeptus Astartes"]
+    },
+    {
+      "id": "librarius_adept",
+      "name": "Librarius Adept",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 4,
+        "save": 3,
+        "wounds": 3,
+        "leadership": 6,
+        "objectiveControl": 1
+      },
+      "points": 70,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Oath of Moment"
+        },
+        {
+          "title": "Veil of Time (Psychic)",
+          "text": "Weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability."
+        }
+      ],
+      "leaderUnits": [
+        "Tacticus (excluding Character and Fly)",
+        "Tactical Squad"
+      ],
+      "unitComposition": "1 Librarius Adept",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Psyker",
+        "Imperium",
+        "Tacticus",
+        "Librarius Adept"
+      ],
+      "factionKeywords": ["Adeptus Astartes"]
+    },
+    {
+      "id": "venerable_battle_brother",
+      "name": "Venerable Battle-Brother",
+      "modelCount": 1,
+      "profile": {
+        "move": 8,
+        "toughness": 10,
+        "save": 2,
+        "wounds": 12,
+        "leadership": 6,
+        "objectiveControl": 4
+      },
+      "points": 160,
+      "loadout": {
+        "caps": {
+          "ranged": 4,
+          "pistol": 0,
+          "melee": 2
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise D3"
+        },
+        {
+          "title": "Faction",
+          "text": "Oath of Moment"
+        },
+        {
+          "title": "Wisdom of the Ancients (Aura)",
+          "text": "While a friendly ADEPTUS ASTARTES INFANTRY unit is within 6\" of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1."
+        }
+      ],
+      "leaderUnits": [],
+      "unitComposition": "1 Venerable Battle-Brother",
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Character",
+        "Imperium",
+        "Dreadnought",
+        "Venerable Battle-Brother"
+      ],
+      "factionKeywords": ["Adeptus Astartes"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "conversion_field",
+        "name": "Conversion Field",
+        "text": "This model has a 4+ invulnerable save.",
+        "points": 10,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "invuln",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "id": "heavy_jump_pack_and_mk_x_gravis_armour",
+        "name": "Heavy Jump Pack and Mk X Gravis Armour",
+        "text": "(INFANTRY only): Change this model's Move characteristic to 10\", its Toughness characteristic to 6 and its Wounds characteristic to 5. Remove the TACTICUS keyword, add the JUMP PACK, FLY and GRAVIS keywords, it gains the Deep Strike ability and replace the list of units this model can be attached to: Inceptor Squad.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 10
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Jump Pack", "Fly", "Gravis", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Inceptor Squad"]
+          }
+        ]
+      },
+      {
+        "id": "jump_pack",
+        "name": "Jump Pack",
+        "text": "(INFANTRY only): Change this model's Move characteristic to 12\", add the FLY and JUMP PACK keywords, it gains the Deep Strike ability and replace the list of units this model can be attached to: Assault Intercessors with Jump Packs, Vanguard Veteran Squad with Jump Packs.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Fly", "Jump Pack", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Assault Intercessors with Jump Packs",
+              "Vanguard Veteran Squad with Jump Packs"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mk_x_gravis_armour",
+        "name": "Mk X Gravis Armour",
+        "text": "(INFANTRY only): Change this model's Move characteristic to 5\", its Toughness characteristic to 6 and its Wounds characteristic to 5. Remove the TACTICUS keyword, add the GRAVIS keyword and replace the list of units this model can be attached to: Gravis (excluding Fly).",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Gravis"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Gravis (excluding Fly)"]
+          }
+        ]
+      },
+      {
+        "id": "mk_x_phobos_armour",
+        "name": "Mk X Phobos Armour",
+        "text": "(INFANTRY only): This model gains the Infiltrators and Stealth abilities, remove the TACTICUS keyword, add the PHOBOS keyword and replace the list of units this model can be attached to: Eliminator Squad, Incursor Squad, Infiltrator Squad, Reiver Squad, Scout Squad.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Phobos", "Infiltrators", "Stealth"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Eliminator Squad",
+              "Incursor Squad",
+              "Infiltrator Squad",
+              "Reiver Squad",
+              "Scout Squad"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raider_pattern_bike",
+        "name": "Raider-pattern Bike",
+        "text": "(INFANTRY only): Change this model's Move characteristic to 12\", its Toughness characteristic to 5, and its Wounds characteristic to 5. Remove the INFANTRY and TACTICUS keywords, add the MOUNTED keyword, it is equipped with 1 twin bolt rifle in addition to the weapons you choose in the next step, and replace the list of units this model can be attached to: Outrider Squad.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 15,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted"]
+          },
+          {
+            "kind": "addWeapons",
+            "value": ["twin_bolt_rifle"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Outrider Squad"]
+          }
+        ]
+      },
+      {
+        "id": "terminator_armour",
+        "name": "Terminator Armour",
+        "text": "(INFANTRY only): Change this model's Move characteristic to 5\", its Toughness characteristic to 5, its Save characteristic to 2+, and its Wounds characteristic to 5. Remove the TACTICUS keyword, add the TERMINATOR keyword, it has a 4+ invulnerable save, it gains the Deep Strike ability, and replace the list of units this model can be attached to: Terminator Assault Squad, Terminator Squad.",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 15,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "invuln",
+            "value": 4
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Terminator", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Terminator Assault Squad", "Terminator Squad"]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "adamantine_will",
+        "name": "Adamantine Will",
+        "text": "While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks.",
+        "points": 0
+      },
+      {
+        "id": "astartes_banner",
+        "name": "Astartes Banner",
+        "text": "Add 1 to the Objective Control characteristic of models in this unit.",
+        "points": 0
+      },
+      {
+        "id": "blessing_of_the_omnissiah",
+        "name": "Blessing of the Omnissiah",
+        "text": "(INFANTRY or MOUNTED only): In your Command phase, you can select one friendly ADEPTUS ASTARTES VEHICLE model within 3\" of this model. That model regains up to D3 lost wounds and, until the start of your next Command phase, each time that VEHICLE model makes an attack, add 1 to the Hit roll. Each model can only be selected for this ability once per turn.",
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "keywordHas",
+                "keyword": "Infantry"
+              },
+              {
+                "kind": "keywordHas",
+                "keyword": "Mounted"
+              }
+            ]
+          }
+        ],
+        "points": 0
+      },
+      {
+        "id": "litany_of_hate",
+        "name": "Litany of Hate",
+        "text": "Each time a model in this unit makes a melee attack, add 1 to the Wound roll.",
+        "points": 10
+      },
+      {
+        "id": "narthecium",
+        "name": "Narthecium",
+        "text": "While this model is leading a unit, in your Command phase, you can return 1 destroyed model (excluding CHARACTER models) to that unit.",
+        "points": 0
+      },
+      {
+        "id": "rites_of_battle",
+        "name": "Rites of Battle",
+        "text": "Once per battle round, one unit from your army with this ability can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase.",
+        "points": 0
+      },
+      {
+        "id": "tactical_precision",
+        "name": "Tactical Precision",
+        "text": "Weapons equipped by models in this unit have the [LETHAL HITS] ability.",
+        "points": 0
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "combi_weapon",
+      "name": "Combi-weapon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Devastating Wounds", "Rapid Fire 1"]
+    },
+    {
+      "id": "forge_bolter",
+      "name": "Forge bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "master_crafted_bolt_carbine",
+      "name": "Master-crafted bolt carbine",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Precision"]
+    },
+    {
+      "id": "master_crafted_bolter",
+      "name": "Master-crafted bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "master_crafted_heavy_bolt_rifle",
+      "name": "Master-crafted heavy bolt rifle",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "3",
+      "keywords": []
+    },
+    {
+      "id": "smite_witchfire",
+      "name": "Smite — witchfire",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "smite_focused_witchfire",
+      "name": "Smite — focused witchfire",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": ["Devastating Wounds", "Hazardous", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "storm_bolter",
+      "name": "Storm bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 2"]
+    },
+    {
+      "id": "twin_bolt_rifle",
+      "name": "Twin bolt rifle",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Twin-linked"]
+    },
+    {
+      "id": "absolvor_bolt_pistol",
+      "name": "Absolvor bolt pistol",
+      "type": "pistol",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "bolt_pistol",
+      "name": "Bolt pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "boltstorm_gauntlet",
+      "name": "Boltstorm gauntlet",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "grav_pistol",
+      "name": "Grav pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Anti-Vehicle 2+", "Pistol"]
+    },
+    {
+      "id": "hand_flamer",
+      "name": "Hand flamer",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Pistol", "Torrent"]
+    },
+    {
+      "id": "heavy_bolt_pistol",
+      "name": "Heavy bolt pistol",
+      "type": "pistol",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "inferno_pistol",
+      "name": "Inferno pistol",
+      "type": "pistol",
+      "range": "6\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-4",
+      "damage": "D3",
+      "keywords": ["Melta 2", "Pistol"]
+    },
+    {
+      "id": "neo_volkite_pistol",
+      "name": "Neo-volkite pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Devastating Wounds", "Pistol"]
+    },
+    {
+      "id": "plasma_pistol_standard",
+      "name": "Plasma pistol — standard",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "plasma_pistol_supercharge",
+      "name": "Plasma pistol — supercharge",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Hazardous", "Pistol"]
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "crozius_arcanum",
+      "name": "Crozius arcanum",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "force_weapon",
+      "name": "Force weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "master_crafted_chainsword",
+      "name": "Master-crafted chainsword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Sustained Hits 1"]
+    },
+    {
+      "id": "master_crafted_power_weapon",
+      "name": "Master-crafted power weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "omnissian_power_axe",
+      "name": "Omnissian power axe",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "power_fist",
+      "name": "Power fist",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "servo_arm",
+      "name": "Servo-arm",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Extra Attacks"]
+    },
+    {
+      "id": "thunder_hammer",
+      "name": "Thunder hammer",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Devastating Wounds"]
+    },
+    {
+      "id": "twin_lightning_claws",
+      "name": "Twin lightning claws",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Twin-linked"]
+    },
+    {
+      "id": "ballistus_lascannon",
+      "name": "Ballistus lascannon",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": [],
+      "points": 10,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "ballistus_missile_launcher_frag",
+      "name": "Ballistus missile launcher — frag",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "2D6",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "ballistus_missile_launcher_krak",
+      "name": "Ballistus missile launcher — krak",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "D6",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "brutalis_bolt_rifles",
+      "name": "Brutalis bolt rifles",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "dreadnought_heavy_flamer",
+      "name": "Heavy flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "heavy_onslaught_gatling_cannon",
+      "name": "Heavy onslaught gatling cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "12",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Devastating Wounds"],
+      "points": 10,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "icarus_rocket_pod",
+      "name": "Icarus rocket pod",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D3",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Anti-Fly 2+"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "macro_plasma_incinerator_standard",
+      "name": "Macro plasma incinerator — standard",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D6+1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Blast"],
+      "points": 10,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "macro_plasma_incinerator_supercharge",
+      "name": "Macro plasma incinerator — supercharge",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D6+1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "3",
+      "keywords": ["Blast", "Hazardous"],
+      "points": 10,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "onslaught_gatling_cannon",
+      "name": "Onslaught gatling cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "8",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Devastating Wounds"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "twin_fragstorm_grenade_launcher",
+      "name": "Twin fragstorm grenade launcher",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast", "Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "twin_heavy_bolter",
+      "name": "Twin heavy bolter",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Sustained Hits 1", "Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "twin_icarus_ironhail_heavy_stubber",
+      "name": "Twin Icarus ironhail heavy stubber",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Fly 4+", "Rapid Fire 3", "Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "twin_multi_melta",
+      "name": "Twin multi-melta",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 2", "Twin-linked"],
+      "points": 10,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "twin_storm_bolter",
+      "name": "Twin storm bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 2", "Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "armoured_feet",
+      "name": "Armoured feet",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "brutalis_fists",
+      "name": "Brutalis fists",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "brutalis_talons_strike",
+      "name": "Brutalis talons — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "brutalis_talons_sweep",
+      "name": "Brutalis talons — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "10",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    },
+    {
+      "id": "redemptor_fist",
+      "name": "Redemptor fist",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "venerable_battle_brother"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Dreadnought Crucible Champions use the Dreadnought weapon options instead of the standard Step 4 options.",
+    "For Dreadnoughts, first select one of: Ballistus missile launcher and armoured feet; Brutalis bolt rifles and Brutalis fists; Brutalis talons; Heavy flamer and Redemptor fist; Onslaught gatling cannon and Redemptor fist.",
+    "Then, if your Dreadnought is not equipped with Brutalis bolt rifles and Brutalis fists, or Brutalis talons, it is equipped with one of: Ballistus lascannon (+10 pts); Heavy onslaught gatling cannon (+10 pts); Macro plasma incinerator (+10 pts).",
+    "Then select one of: Twin fragstorm grenade launcher; Twin heavy bolter and twin Icarus ironhail heavy stubber; Twin multi-melta and twin Icarus ironhail heavy stubber (+10 pts); Twin storm bolter.",
+    "Finally, if your Dreadnought is not equipped with a twin Icarus ironhail heavy stubber, it can be equipped with 1 Icarus rocket pod.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with.",
+    "* Psyker model only.",
+    "** Mounted model only."
+  ]
+}

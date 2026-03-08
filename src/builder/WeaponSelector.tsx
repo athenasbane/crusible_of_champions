@@ -30,6 +30,9 @@ export const WeaponSelector = ({
       <h3 style={{ marginBottom: 10 }}>{title}</h3>
       {groupWeapons(weapons).map((group) => {
         const selected = group.weapons.some((weapon) => input.weaponIds.includes(weapon.id));
+        const groupPoints = Math.max(
+          ...group.weapons.map((weapon) => weapon.points ?? 0),
+        );
         const requirementStatus = getWeaponRequirementStatus(group.weapons[0], input, faction);
         const overTypeCap =
           !selected && counts[group.type] >= loadoutRules.caps[group.type];
@@ -54,7 +57,10 @@ export const WeaponSelector = ({
                 disabled={disabled}
               />
               <span>
-                <span className="builder-option-title">{group.name}</span>
+                <span className="builder-option-title">
+                  {group.name}
+                  {groupPoints > 0 ? ` (+${groupPoints}pts)` : null}
+                </span>
               </span>
             </label>
             <div className="builder-option-meta">

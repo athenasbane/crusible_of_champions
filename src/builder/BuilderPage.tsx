@@ -8,6 +8,7 @@ import death_guard_raw from "../rules/death-guard.json";
 import tyranids_raw from "../rules/tyranids.json";
 import thousand_sons_raw from "../rules/thousand-sons.json";
 import chaos_daemons_raw from "../rules/chaos_daemons.json";
+import adeptus_astartes_raw from "../rules/adeptus_astartes.json";
 import { CharacterSheet } from "../sheet/CharacterSheet";
 import { ArchetypeSelector } from "./ArchetypeSelector";
 import { SpecialismSelector } from "./SpecialismSelector";
@@ -34,6 +35,7 @@ const factionData: Record<string, unknown> = {
   "thousand-sons": thousand_sons_raw,
   "chaos-daemons": chaos_daemons_raw,
   tyranids: tyranids_raw,
+  "adeptus-astartes": adeptus_astartes_raw,
   // Placeholder until we have more factions
 };
 
@@ -44,6 +46,7 @@ const availableFactions = [
   { id: "thousand-sons", name: "Thousand Sons" },
   { id: "chaos-daemons", name: "Chaos Daemons" },
   { id: "tyranids", name: "Tyranids" },
+  { id: "adeptus-astartes", name: "Adeptus Astartes" },
   // Add more factions here
 ];
 

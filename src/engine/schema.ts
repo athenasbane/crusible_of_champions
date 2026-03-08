@@ -52,6 +52,10 @@ export const EffectSchema = z.union([
     value: z.array(z.string()),
   }),
   z.object({
+    kind: z.literal("addWeapons"),
+    value: z.array(z.string()),
+  }),
+  z.object({
     kind: z.literal("add"),
     field: z.enum([
       "move",
@@ -124,6 +128,7 @@ export const WeaponSchema = z.object({
   ap: z.string(),
   damage: z.string(),
   keywords: z.array(z.string()),
+  points: z.number().optional(),
   requirements: z.array(RequirementSchema).optional(),
   effects: z.array(EffectSchema).optional(),
 });
