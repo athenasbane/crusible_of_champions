@@ -52,16 +52,18 @@
             "value": 5
           },
           {
-            "kind": "removeKeyword",
+            "kind": "remove",
+            "field": "keywords",
             "value": "Infantry"
           },
           {
-            "kind": "removeKeyword",
+            "kind": "remove",
+            "field": "keywords",
             "value": "Tacticus"
           },
           {
-            "kind": "addKeyword",
-            "value": "Mounted"
+            "kind": "addKeywords",
+            "value": ["Mounted"]
           },
           {
             "kind": "setLeaderUnits",

@@ -70,14 +70,6 @@ function normalizeEffects(
           return [effect];
         }
 
-        if (effect.kind === "removeKeyword") {
-          return [{ kind: "remove", field: "keywords", value: effect.value }];
-        }
-
-        if (effect.kind === "addKeyword") {
-          return [{ kind: "addKeywords", value: [effect.value] }];
-        }
-
         return [effect];
       })
     : [];
@@ -102,8 +94,7 @@ function normalizeChoiceGroup(group: unknown) {
 
       return {
         ...option,
-        points:
-          typeof option.points === "number" ? option.points : 0,
+        points: typeof option.points === "number" ? option.points : 0,
         requirements: normalizeRequirements(option.requirements),
         effects: normalizeEffects(option.effects, option.bonusWeaponChoices),
       };
@@ -128,7 +119,8 @@ function normalizeWeapons(weapons: unknown) {
       ...weapon,
       range: weapon.range != null ? String(weapon.range) : weapon.range,
       attacks: weapon.attacks != null ? String(weapon.attacks) : weapon.attacks,
-      strength: weapon.strength != null ? String(weapon.strength) : weapon.strength,
+      strength:
+        weapon.strength != null ? String(weapon.strength) : weapon.strength,
       ap: weapon.ap != null ? String(weapon.ap) : weapon.ap,
       damage: weapon.damage != null ? String(weapon.damage) : weapon.damage,
       keywords: Array.isArray(weapon.keywords) ? weapon.keywords : [],
@@ -229,8 +221,9 @@ function resolveInheritance(data: unknown): unknown {
     defaultLoadout: faction.defaultLoadout ?? base.defaultLoadout,
   } as UnknownRecord;
 
-  const factionKeywords =
-    Array.isArray(faction.factionKeywords) ? faction.factionKeywords : undefined;
+  const factionKeywords = Array.isArray(faction.factionKeywords)
+    ? faction.factionKeywords
+    : undefined;
 
   if (factionKeywords && Array.isArray(merged.archetypes)) {
     merged.archetypes = merged.archetypes.map((archetype) => {
