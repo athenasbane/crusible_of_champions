@@ -11,16 +11,28 @@ import thousand_sons_raw from "../../rules/thousand-sons.json";
 import chaos_daemons_raw from "../../rules/chaos_daemons.json";
 import dark_angels_raw from "../../rules/dark_angels.json";
 import blood_angels_raw from "../../rules/blood_angels.json";
-import { countWeapons, getEffectiveLoadoutRules } from "../../engine/validateWeapons";
+import space_wolves_raw from "../../rules/space_wolves.json";
+import adeptus_custodes_raw from "../../rules/adeptus_custodes.json";
+import black_templars_raw from "../../rules/black_templars.json";
+import {
+  countWeapons,
+  getEffectiveLoadoutRules,
+} from "../../engine/validateWeapons";
 import { getWeaponRequirementStatus } from "../../engine/weaponRequirements";
 import { getWeaponGroupKey } from "../../engine/weaponGrouping";
 import { getAbilityPickCount } from "../../engine/choicePicks";
-import { getSelectedSpecialismIds, getSpecialismGroups } from "../../engine/specialisms";
+import {
+  getSelectedSpecialismIds,
+  getSpecialismGroups,
+} from "../../engine/specialisms";
 
 const factionData: Record<string, unknown> = {
   "adeptus-astartes": adeptus_astartes_raw,
   "dark-angels": dark_angels_raw,
   "blood-angels": blood_angels_raw,
+  "space-wolves": space_wolves_raw,
+  "black-templars": black_templars_raw,
+  "adeptus-custodes": adeptus_custodes_raw,
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
@@ -33,6 +45,9 @@ export const availableFactions = [
   { id: "adeptus-astartes", name: "Adeptus Astartes" },
   { id: "dark-angels", name: "Dark Angels" },
   { id: "blood-angels", name: "Blood Angels" },
+  { id: "space-wolves", name: "Space Wolves" },
+  { id: "black-templars", name: "Black Templars" },
+  { id: "adeptus-custodes", name: "Adeptus Custodes" },
   { id: "emperors-children", name: "Emperor's Children" },
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },
@@ -53,7 +68,11 @@ function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {
     const groupKey = getWeaponGroupKey(weapon);
     if (handledGroups.has(groupKey)) continue;
 
-    const requirementStatus = getWeaponRequirementStatus(weapon, input, faction);
+    const requirementStatus = getWeaponRequirementStatus(
+      weapon,
+      input,
+      faction,
+    );
     if (!requirementStatus.met) continue;
 
     if (counts[weapon.type] >= rules.caps[weapon.type]) continue;
@@ -74,7 +93,9 @@ function sanitizeInputChoices(faction: FactionRules, input: BuildInput) {
   const abilityPickCount = getAbilityPickCount(faction, input.archetypeId);
   const specialismGroups = getSpecialismGroups(faction);
   const selectedSpecialismIds = getSelectedSpecialismIds(input);
-  const allSpecialismOptions = specialismGroups.flatMap((group) => group.options);
+  const allSpecialismOptions = specialismGroups.flatMap(
+    (group) => group.options,
+  );
   const specialismOptionIds = new Set(
     allSpecialismOptions.map((option) => option.id),
   );
@@ -112,7 +133,8 @@ function getEmptyInput(faction: FactionRules): BuildInput {
 }
 
 export function useBuilderState() {
-  const [selectedFactionId, setSelectedFactionId] = useState("adeptus-astartes");
+  const [selectedFactionId, setSelectedFactionId] =
+    useState("adeptus-astartes");
 
   const faction = useMemo(() => {
     const raw = factionData[selectedFactionId];
@@ -144,26 +166,32 @@ export function useBuilderState() {
   }
 
   function clearSpecialismGroup(groupId: string) {
-    const group = getSpecialismGroups(faction).find((item) => item.id === groupId);
+    const group = getSpecialismGroups(faction).find(
+      (item) => item.id === groupId,
+    );
     if (!group) return;
 
     setInputSanitized((prev) => ({
       ...prev,
       specialismIds: prev.specialismIds.filter(
-        (selectedId) => !group.options.some((option) => option.id === selectedId),
+        (selectedId) =>
+          !group.options.some((option) => option.id === selectedId),
       ),
     }));
   }
 
   function selectSpecialism(groupId: string, specialismId: string) {
-    const group = getSpecialismGroups(faction).find((item) => item.id === groupId);
+    const group = getSpecialismGroups(faction).find(
+      (item) => item.id === groupId,
+    );
     if (!group) return;
 
     setInputSanitized((prev) => ({
       ...prev,
       specialismIds: [
         ...prev.specialismIds.filter(
-          (selectedId) => !group.options.some((option) => option.id === selectedId),
+          (selectedId) =>
+            !group.options.some((option) => option.id === selectedId),
         ),
         specialismId,
       ],
@@ -205,7 +233,8 @@ export function useBuilderState() {
   const result = useMemo(() => buildSheet(faction, input), [faction, input]);
 
   const selectedWeapons = useMemo(
-    () => faction.weapons.filter((weapon) => input.weaponIds.includes(weapon.id)),
+    () =>
+      faction.weapons.filter((weapon) => input.weaponIds.includes(weapon.id)),
     [faction, input.weaponIds],
   );
 

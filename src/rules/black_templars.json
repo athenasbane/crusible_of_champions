@@ -1,0 +1,138 @@
+{
+  "id": "black_templars",
+  "name": "Black Templars",
+
+  "inheritsFrom": "adeptus_astartes",
+
+  "archetypes": "inherit",
+  "specialismsMode": "extend",
+  "abilitiesMode": "extend",
+  "weaponsMode": "extend",
+
+  "factionKeywords": ["Black Templars"],
+
+  "notes": [
+    "When creating an Adeptus Astartes Crucible Champion (excluding Psykers), you can make that character a Black Templars character. Add the BLACK TEMPLARS faction keyword at Step 1, then follow the remaining steps adding the options below to those on the Adeptus Astartes pages."
+  ],
+
+  "abilities": {
+    "pick": 1,
+    "options": [
+      {
+        "id": "armour_of_faith",
+        "name": "Armour of Faith",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "keywordHas",
+                "keyword": "Infantry"
+              },
+              {
+                "kind": "keywordHas",
+                "keyword": "Mounted"
+              }
+            ]
+          }
+        ],
+        "text": "Once per phase, when an attack is allocated to this model and the saving throw is failed, you can change the Damage characteristic of that attack to 0."
+      },
+      {
+        "id": "condemnatory_annihilation",
+        "name": "Condemnatory Annihilation",
+        "points": 0,
+        "text": "Each time this model’s unit has fought, if one or more enemy units were destroyed as a result of those attacks, each enemy unit within 6\" of this model must take a Battle-shock test."
+      },
+      {
+        "id": "inspirational_exemplar",
+        "name": "Inspirational Exemplar",
+        "points": 0,
+        "text": "While this model is leading a unit, each time a model in that unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+      },
+      {
+        "id": "remorseless_persecution",
+        "name": "Remorseless Persecution",
+        "points": 10,
+        "text": "While this model is leading a unit, that unit is eligible to declare a charge in a turn in which it Advanced."
+      },
+      {
+        "id": "vehement_aggression",
+        "name": "Vehement Aggression",
+        "points": 20,
+        "text": "While this model is leading a unit, each time that unit is selected to fight, take a Leadership test for that unit: if passed, until the end of the phase each time a model in that unit makes an attack you can re-roll the Hit roll; if failed, until the end of the phase each time a model in that unit makes an attack, re-roll a Hit roll of 1."
+      },
+      {
+        "id": "vengeful_exhortation",
+        "name": "Vengeful Exhortation",
+        "points": 0,
+        "text": "While this model is leading a unit, each time a model in that unit is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 4+ do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
+      }
+    ]
+  },
+  "specialisms": {
+    "pick": 1,
+    "options": []
+  },
+
+  "weapons": [
+    {
+      "id": "pyreblaster",
+      "name": "Pyreblaster",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"],
+      "points": 0
+    },
+    {
+      "id": "pyre_pistol",
+      "name": "Pyre pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Pistol", "Torrent"],
+      "points": 0
+    },
+    {
+      "id": "black_sword_strike",
+      "name": "Black Sword — strike",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Anti-Character 5+", "Precision"],
+      "points": 0
+    },
+    {
+      "id": "black_sword_sweep",
+      "name": "Black Sword — sweep",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "10",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    }
+  ],
+
+  "notesExtra": [
+    "No more than one per army. You cannot include this model in an army that includes an Emperor's Champion model.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with."
+  ]
+}

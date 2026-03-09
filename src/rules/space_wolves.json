@@ -1,0 +1,281 @@
+{
+  "id": "space_wolves",
+  "name": "Space Wolves",
+
+  "inheritsFrom": "adeptus_astartes",
+
+  "archetypes": "inherit",
+  "specialismsMode": "extend",
+  "abilitiesMode": "extend",
+  "weaponsMode": "extend",
+
+  "factionKeywords": ["Space Wolves"],
+
+  "notes": [
+    "When creating an Adeptus Astartes Crucible Champion, you can make that character a Space Wolves character. Add the SPACE WOLVES faction keyword at Step 1, then follow the remaining steps adding the Space Wolves options to those on the Adeptus Astartes pages."
+  ],
+
+  "specialisms": {
+    "pick": 1,
+    "options": [
+      {
+        "id": "curse_of_the_wulfen",
+        "name": "Curse of the Wulfen",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "champion_of_the_chapter"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Move characteristic to 9\", change its Toughness characteristic to 6, and change its Save characteristic to 4+. Remove the TACTICUS keyword, add the WULFEN keyword and replace the list of units this model can be attached to: Wulfen, Wulfen with Storm Shields.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 9
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 4
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Wulfen"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Wulfen", "Wulfen with Storm Shields"]
+          }
+        ]
+      },
+      {
+        "id": "fenrisian_terminator_armour",
+        "name": "Fenrisian Terminator Armour",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Move characteristic to 5\", its Toughness characteristic to 5, its Save characteristic to 2+, and its Wounds characteristic to 5. Remove the TACTICUS keyword, add the TERMINATOR keyword, it has a 4+ invulnerable save, it gains the Deep Strike ability and replace the list of units this model can be attached to: Wolf Guard Terminators.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "invuln",
+            "value": 4
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Terminator", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Wolf Guard Terminators"]
+          }
+        ]
+      },
+      {
+        "id": "thunderwolf_mount",
+        "name": "Thunderwolf Mount",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "champion_of_the_chapter"
+          }
+        ],
+        "points": 20,
+        "text": "Change this model's Move characteristic to 12\", its Toughness characteristic to 6, and its Wounds characteristic to 7. Remove the INFANTRY and TACTICUS keywords and add the MOUNTED keyword. It is equipped with 1 teeth and claws in addition to the weapons you choose in Step 4, and replace the list of units this model can be attached to: Thunderwolf Cavalry.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 7
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Tacticus"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted"]
+          },
+          {
+            "kind": "addWeapons",
+            "value": ["teeth_and_claws"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Thunderwolf Cavalry"]
+          }
+        ]
+      },
+      {
+        "id": "wolf_lords_chosen",
+        "name": "Wolf Lord's Chosen",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Move characteristic to 7\", and add to the list of units this model can be attached to: Blood Claws, Grey Hunters, Wolf Guard Headtakers.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 7
+          },
+          {
+            "kind": "addLeaderUnits",
+            "value": ["Blood Claws", "Grey Hunters", "Wolf Guard Headtakers"]
+          }
+        ]
+      }
+    ]
+  },
+
+  "abilities": {
+    "pick": 1,
+    "options": [
+      {
+        "id": "storm_shield",
+        "name": "Storm Shield",
+        "points": 0,
+        "text": "This model has a 4+ invulnerable save.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "invuln",
+            "value": 4
+          }
+        ]
+      }
+    ]
+  },
+
+  "weapons": [
+    {
+      "id": "stormfrag_auto_launcher",
+      "name": "Stormfrag auto-launcher",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault", "Blast"]
+    },
+    {
+      "id": "helfrost_pistol_dispersed",
+      "name": "Helfrost pistol — dispersed",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Pistol", "Torrent"]
+    },
+    {
+      "id": "helfrost_pistol_focused",
+      "name": "Helfrost pistol — focused",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "teeth_and_claws",
+      "name": "Teeth and claws",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Extra Attacks"],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "thunderwolf_mount"
+        }
+      ]
+    }
+  ],
+
+  "weaponRules": [
+    {
+      "id": "thunderwolf_mount_bonus_weapon_rule",
+      "text": "A model with Thunderwolf Mount can have one Teeth and claws weapon in addition to the weapons you choose in Step 4."
+    }
+  ],
+
+  "notesExtra": [
+    "* Wulfen only.",
+    "** Model with Thunderwolf Mount only. A model cannot have more than one of this weapon.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with."
+  ]
+}

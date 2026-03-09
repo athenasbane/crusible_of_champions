@@ -1,0 +1,560 @@
+{
+  "id": "adeptus_custodes",
+  "name": "Adeptus Custodes",
+
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+
+  "archetypes": [
+    {
+      "id": "guardian_of_the_throne",
+      "name": "Guardian of the Throne",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 6,
+        "save": 2,
+        "wounds": 6,
+        "leadership": 6,
+        "objectiveControl": 2,
+        "invuln": 4
+      },
+      "points": 130,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deep Strike, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Martial Ka'tah"
+        },
+        {
+          "title": "Ka'tah Master",
+          "text": "Once per phase, you can re-roll one Hit roll or one Wound roll for an attack made by this model."
+        }
+      ],
+      "leaderUnits": ["Custodian Guard", "Custodian Wardens"],
+      "unitComposition": "1 Guardian of the Throne",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Imperium",
+        "Guardian of the Throne"
+      ],
+      "factionKeywords": ["Adeptus Custodes"]
+    },
+    {
+      "id": "null_maiden",
+      "name": "Null Maiden",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 3,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 65,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader, Scouts 6\""
+        },
+        {
+          "title": "Daughter of the Abyss",
+          "text": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds."
+        }
+      ],
+      "leaderUnits": ["Prosecutors", "Vigilators", "Witchseekers"],
+      "unitComposition": "1 Null Maiden. This Crucible Champion can only be equipped with Null Maiden weapons.",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Imperium",
+        "Anathema Psykana",
+        "Null Maiden"
+      ],
+      "factionKeywords": ["Adeptus Custodes"]
+    },
+    {
+      "id": "kataphraktoi_exemplar",
+      "name": "Kataphraktoi Exemplar",
+      "modelCount": 1,
+      "profile": {
+        "move": 12,
+        "toughness": 7,
+        "save": 2,
+        "wounds": 8,
+        "leadership": 6,
+        "objectiveControl": 2,
+        "invuln": 4
+      },
+      "points": 150,
+      "loadout": {
+        "caps": {
+          "ranged": 2,
+          "pistol": 2,
+          "melee": 2
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Martial Ka'tah"
+        },
+        {
+          "title": "Fiend Slayer",
+          "text": "Each time this model makes an attack that targets a Monster or Vehicle unit, you can re-roll the Wound roll."
+        }
+      ],
+      "leaderUnits": ["Vertus Praetors"],
+      "unitComposition": "1 Kataphraktoi Exemplar. This Crucible Champion can be equipped with up to two ranged weapons instead of up to one.",
+      "keywords": [
+        "Mounted",
+        "Character",
+        "Fly",
+        "Imperium",
+        "Dawneagle Jetbike",
+        "Kataphraktoi Exemplar"
+      ],
+      "factionKeywords": ["Adeptus Custodes"]
+    }
+  ],
+
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "allarus_terminator_armour",
+        "name": "Allarus Terminator Armour",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "guardian_of_the_throne"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Toughness and Wounds characteristics to 7, add the TERMINATOR keyword. It is equipped with 1 Ballistus grenade launcher in addition to the weapons you choose in Step 4, and replace the list of units this model can be attached to: Allarus Custodians.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 7
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 7
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Terminator"]
+          },
+          {
+            "kind": "addWeapons",
+            "value": ["ballistus_grenade_launcher"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Allarus Custodians"]
+          }
+        ]
+      },
+      {
+        "id": "praesidium_shield",
+        "name": "Praesidium Shield",
+        "points": 0,
+        "text": "Add 1 to this model's Wounds characteristic.",
+        "effects": [
+          {
+            "kind": "add",
+            "field": "wounds",
+            "delta": 1
+          }
+        ]
+      }
+    ]
+  },
+
+  "abilities": {
+    "id": "abilities",
+    "title": "Abilities",
+    "pick": 1,
+    "options": [
+      {
+        "id": "abyssal_void",
+        "name": "Abyssal Void",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "null_maiden"
+          }
+        ],
+        "points": 0,
+        "text": "Models in this unit have the Lone Operative ability."
+      },
+      {
+        "id": "singular_expertise",
+        "name": "Singular Expertise",
+        "points": 0,
+        "text": "While this model is not leading a unit, each time this model makes a melee attack, you can re-roll the Hit roll and you can re-roll the Wound roll."
+      },
+      {
+        "id": "swift_onslaught",
+        "name": "Swift Onslaught",
+        "points": 0,
+        "text": "While this model is leading a unit, you can re-roll Charge rolls made for that unit."
+      }
+    ]
+  },
+
+  "weapons": [
+    {
+      "id": "ballistus_grenade_launcher",
+      "name": "Ballistus grenade launcher",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "oneOf",
+          "requirements": [
+            {
+              "kind": "keywordHas",
+              "keyword": "Terminator"
+            },
+            {
+              "kind": "hasChoice",
+              "groupId": "specialisms",
+              "optionId": "allarus_terminator_armour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "castellan_axe_ranged",
+      "name": "Castellan axe",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Assault"],
+      "points": 0
+    },
+    {
+      "id": "guardian_spear_ranged",
+      "name": "Guardian spear",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Assault"],
+      "points": 0
+    },
+    {
+      "id": "master_crafted_boltgun",
+      "name": "Master-crafted boltgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Rapid Fire 1"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Terminator"
+        }
+      ]
+    },
+    {
+      "id": "pyrithite_spear_ranged",
+      "name": "Pyrithite spear",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 2"],
+      "points": 0
+    },
+    {
+      "id": "salvo_launcher",
+      "name": "Salvo launcher",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "vertus_hurricane_bolter",
+      "name": "Vertus hurricane bolter",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 3", "Twin-linked"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "witchseeker_flamer",
+      "name": "Witchseeker flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "value": "null_maiden"
+        }
+      ]
+    },
+
+    {
+      "id": "sentinel_blade_pistol",
+      "name": "Sentinel blade",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Assault", "Pistol"],
+      "points": 0
+    },
+
+    {
+      "id": "castellan_axe",
+      "name": "Castellan axe",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-1",
+      "damage": "3",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "value": "null_maiden"
+        }
+      ]
+    },
+    {
+      "id": "executioner_greatblade",
+      "name": "Executioner greatblade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Anti-Psyker 5+", "Devastating Wounds"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "value": "null_maiden"
+        }
+      ]
+    },
+    {
+      "id": "guardian_spear",
+      "name": "Guardian spear",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "interceptor_lance",
+      "name": "Interceptor lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lance"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "misericordia",
+      "name": "Misericordia",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Extra Attacks"],
+      "points": 0
+    },
+    {
+      "id": "pyrithite_spear",
+      "name": "Pyrithite spear",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "sentinel_blade",
+      "name": "Sentinel blade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "vaultswords_behemor",
+      "name": "Vaultswords — Behemor",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Precision"],
+      "points": 0
+    },
+    {
+      "id": "vaultswords_hurricanis",
+      "name": "Vaultswords — Hurricanis",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "9",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Sustained Hits 1"],
+      "points": 0
+    },
+    {
+      "id": "vaultswords_victus",
+      "name": "Vaultswords — Victus",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": ["Devastating Wounds"],
+      "points": 0
+    }
+  ],
+
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Kataphraktoi Exemplar can be equipped with up to two ranged weapons instead of up to one.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with."
+  ],
+
+  "notesExtra": [
+    "* Mounted only.",
+    "** Terminator only.",
+    "*** Null Maiden only.",
+    "‡ You cannot choose more than one of these options."
+  ]
+}

@@ -147,6 +147,10 @@
   font-size: 10px;
 }
 
+.cs-weapon-cards {
+  display: none;
+}
+
 .cs-weapon-table th,
 .cs-weapon-table td {
   border: 1px solid #545454;
@@ -174,6 +178,123 @@
   font-size: 14px;
   font-weight: 700;
   opacity: 0.8;
+}
+
+@media screen and (max-width: 980px) {
+  .cs-page {
+    width: min(100%, 760px);
+    min-height: 0;
+    margin: 10px auto;
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .cs-header {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cs-archetype {
+    font-size: 24px;
+  }
+
+  .cs-profile {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .cs-stat {
+    padding: 8px 4px;
+  }
+
+  .cs-stat-value {
+    font-size: 17px;
+  }
+
+  .cs-body {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cs-left,
+  .cs-right {
+    gap: 10px;
+  }
+
+  .cs-block-title {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .cs-block-content {
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .cs-inline-list li {
+    font-size: 12px;
+    padding: 5px 9px;
+  }
+
+  .cs-weapon-table-desktop {
+    display: none;
+  }
+
+  .cs-weapon-cards {
+    display: grid;
+    gap: 8px;
+  }
+
+  .cs-weapon-card {
+    border: 1px solid #555;
+    border-radius: 10px;
+    padding: 8px;
+    display: grid;
+    gap: 8px;
+    background: #303030;
+  }
+
+  .cs-weapon-card-name {
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .cs-weapon-card-stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .cs-weapon-card-stat {
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 4px;
+    text-align: center;
+    background: #2b2b2b;
+  }
+
+  .cs-weapon-card-stat dt {
+    font-size: 10px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .cs-weapon-card-stat dd {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .cs-weapon-card-keywords {
+    font-size: 11px;
+    opacity: 0.9;
+    line-height: 1.35;
+  }
 }
 
 /* Print */

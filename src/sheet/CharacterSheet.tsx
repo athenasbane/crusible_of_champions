@@ -143,11 +143,20 @@ function WeaponTable({
 }) {
   if (!weapons.length) return null;
 
+  const weaponStatRows: ReadonlyArray<{ label: string; key: keyof WeaponRow }> = [
+    { label: "Range", key: "range" },
+    { label: "A", key: "attacks" },
+    { label: "Skill", key: "skill" },
+    { label: "S", key: "strength" },
+    { label: "AP", key: "ap" },
+    { label: "D", key: "damage" },
+  ];
+
   return (
     <div className="cs-weapon-table-wrap">
       <div className="cs-weapon-table-title">{title}</div>
 
-      <table className="cs-weapon-table">
+      <table className="cs-weapon-table cs-weapon-table-desktop">
         <thead>
           <tr>
             <th>Weapon</th>
@@ -177,6 +186,32 @@ function WeaponTable({
           ))}
         </tbody>
       </table>
+
+      <div className="cs-weapon-cards" aria-label={`${title} weapons`}>
+        {weapons.map((w) => (
+          <article key={w.id} className="cs-weapon-card">
+            <div className="cs-weapon-card-name">{w.name}</div>
+            <dl className="cs-weapon-card-stats">
+              {weaponStatRows.map((row) => {
+                const value =
+                  row.key === "range"
+                    ? w.range ?? (w.type === "melee" ? "Melee" : "—")
+                    : (w[row.key] ?? "—");
+
+                return (
+                  <div key={row.label} className="cs-weapon-card-stat">
+                    <dt>{row.label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                );
+              })}
+            </dl>
+            <div className="cs-weapon-card-keywords">
+              {(w.keywords ?? []).join(", ") || "—"}
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
