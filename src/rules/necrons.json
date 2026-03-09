@@ -1,0 +1,890 @@
+{
+  "id": "necrons",
+  "name": "Necrons",
+
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 0,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+
+  "archetypes": [
+    {
+      "id": "dynastic_conqueror",
+      "name": "Dynastic Conqueror",
+      "modelCount": 1,
+      "profile": {
+        "move": 5,
+        "toughness": 5,
+        "save": 3,
+        "wounds": 6,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 4
+      },
+      "points": 85,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Reanimation Protocols"
+        },
+        {
+          "title": "Implacable Resilience",
+          "text": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack."
+        }
+      ],
+      "leaderUnits": ["Immortals", "Lychguard", "Necron Warriors"],
+      "unitComposition": "1 Dynastic Conqueror",
+      "keywords": ["Infantry", "Character", "Noble", "Dynastic Conqueror"],
+      "factionKeywords": ["Necrons"]
+    },
+    {
+      "id": "hyperscientist",
+      "name": "Hyperscientist",
+      "modelCount": 1,
+      "profile": {
+        "move": 5,
+        "toughness": 4,
+        "save": 4,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1
+      },
+      "points": 85,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Reanimation Protocols"
+        },
+        {
+          "title": "Hyperintellect",
+          "text": "When choosing abilities in Step 3, you can choose two CRYPTEK abilities instead of choosing one ability."
+        }
+      ],
+      "leaderUnits": ["Immortals", "Necron Warriors"],
+      "unitComposition": "1 Hyperscientist",
+      "keywords": ["Infantry", "Character", "Cryptek", "Hyperscientist"],
+      "factionKeywords": ["Necrons"]
+    },
+    {
+      "id": "triarchal_overseer",
+      "name": "Triarchal Overseer",
+      "modelCount": 1,
+      "profile": {
+        "move": 8,
+        "toughness": 8,
+        "save": 3,
+        "wounds": 12,
+        "leadership": 7,
+        "objectiveControl": 4,
+        "invuln": 4
+      },
+      "points": 120,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise D3, Scouts 8\""
+        },
+        {
+          "title": "Faction",
+          "text": "Reanimation Protocols"
+        },
+        {
+          "title": "Targeting Relay",
+          "text": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, that unit cannot have the Benefit of Cover."
+        }
+      ],
+      "leaderUnits": [],
+      "unitComposition": "1 Triarchal Overseer",
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Character",
+        "Triarch",
+        "Stalker",
+        "Triarchal Overseer"
+      ],
+      "factionKeywords": ["Necrons"]
+    }
+  ],
+
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "dimensional_oubliette",
+        "name": "Dimensional Oubliette",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "text": "This model gains the Deep Strike ability. Replace the list of units this model can be attached to: Deathmarks.",
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Deathmarks"]
+          }
+        ]
+      },
+      {
+        "id": "flayer_curse",
+        "name": "Flayer Curse",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Noble"
+          }
+        ],
+        "points": 10,
+        "text": "This model gains the Infiltrators and Stealth abilities, and cannot be equipped with ranged weapons. Replace the list of units this model can be attached to: Flayed Ones.",
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Infiltrators", "Stealth"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Flayed Ones"]
+          }
+        ]
+      },
+      {
+        "id": "gravity_displacement_pack",
+        "name": "Gravity Displacement Pack",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Move characteristic to 10\", add the Fly keyword, and it gains the Deep Strike ability. Replace the list of units this model can be attached to: Triarch Praetorians.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 10
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Fly", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Triarch Praetorians"]
+          }
+        ]
+      },
+      {
+        "id": "ophydian_lord",
+        "name": "Ophydian Lord",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Noble"
+          }
+        ],
+        "points": 10,
+        "text": "Change this model's Move characteristic to 10\", add the Destroyer Cult keyword, and it gains the Deep Strike ability. Replace the list of units this model can be attached to: Ophydian Destroyers.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 10
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Destroyer Cult", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Ophydian Destroyers"]
+          }
+        ]
+      },
+      {
+        "id": "superior_living_metal",
+        "name": "Superior Living Metal",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Noble"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Save characteristic to 2+.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+
+  "abilities": {
+    "id": "abilities",
+    "title": "Abilities",
+    "pick": 1,
+    "options": [
+      {
+        "id": "adaptive_strategy",
+        "name": "Adaptive Strategy",
+        "points": 0,
+        "text": "This model's unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
+      },
+      {
+        "id": "engramatic_logic",
+        "name": "Engramatic Logic",
+        "points": 0,
+        "text": "Once per battle, at the start of any phase, you can select one friendly NECRONS unit that is Battle-shocked and within 12\" of this model. That unit is no longer Battle-shocked."
+      },
+      {
+        "id": "harbinger_of_despair",
+        "name": "Harbinger of Despair",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Cryptek"
+          }
+        ],
+        "points": 0,
+        "text": "Once per battle round, at the start of a phase during your turn, you can select one enemy unit within 18\" of this model. That unit must take a Battle-shock test, subtracting 1 from the test when it does so."
+      },
+      {
+        "id": "harbinger_of_destruction",
+        "name": "Harbinger of Destruction",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Cryptek"
+          }
+        ],
+        "points": 0,
+        "text": "Each time a model in this unit makes a ranged attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+      },
+      {
+        "id": "living_lightning",
+        "name": "Living Lightning",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Cryptek"
+          }
+        ],
+        "points": 0,
+        "text": "In your Shooting phase, select one enemy unit within 18\" of and visible to this model and roll four D6: for each 4+, that enemy unit suffers 1 mortal wound."
+      },
+      {
+        "id": "my_will_be_done",
+        "name": "My Will Be Done",
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "archetypeIs",
+                "value": "dynastic_conqueror"
+              },
+              {
+                "kind": "archetypeIs",
+                "value": "triarchal_overseer"
+              }
+            ]
+          }
+        ],
+        "points": 0,
+        "text": "Once per battle round, one unit from your army with this ability can be targeted with a Stratagem for 0CP, even if you have already targeted a different unit with that Stratagem this phase."
+      },
+      {
+        "id": "timesplinter_mantle",
+        "name": "Timesplinter Mantle",
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Cryptek"
+          }
+        ],
+        "points": 0,
+        "text": "While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll."
+      },
+      {
+        "id": "united_in_destruction",
+        "name": "United in Destruction",
+        "points": 0,
+        "text": "While this model is leading a unit, melee weapons equipped by models in that unit have the [LETHAL HITS] ability."
+      }
+    ]
+  },
+
+  "weapons": [
+    {
+      "id": "abyssal_lance_ranged",
+      "name": "Abyssal lance",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "chronomancers_stave_ranged",
+      "name": "Chronomancer's stave",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "4+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Cryptek"
+        }
+      ]
+    },
+    {
+      "id": "enmitic_annihilator",
+      "name": "Enmitic annihilator",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Rapid Fire 2"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Destroyer Cult"
+        }
+      ]
+    },
+    {
+      "id": "enmitic_exterminator",
+      "name": "Enmitic exterminator",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Heavy", "Rapid Fire 6", "Sustained Hits 1"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Destroyer Cult"
+        }
+      ]
+    },
+    {
+      "id": "gauss_cannon",
+      "name": "Gauss cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lethal Hits"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Destroyer Cult"
+        }
+      ]
+    },
+    {
+      "id": "gauss_destructor",
+      "name": "Gauss destructor",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "14",
+      "ap": "-4",
+      "damage": "6",
+      "keywords": ["Heavy", "Lethal Hits"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Vehicle"
+        }
+      ]
+    },
+    {
+      "id": "heat_ray_dispersed",
+      "name": "Heat ray — dispersed",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "2D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Vehicle"
+        }
+      ]
+    },
+    {
+      "id": "heat_ray_focused",
+      "name": "Heat ray — focused",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 4"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Vehicle"
+        }
+      ]
+    },
+    {
+      "id": "heavy_gauss_cannon_array",
+      "name": "Heavy gauss cannon array",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lethal Hits"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Destroyer Cult"
+        }
+      ]
+    },
+    {
+      "id": "particle_caster",
+      "name": "Particle caster",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Devastating Wounds", "Pistol"],
+      "points": 0
+    },
+    {
+      "id": "particle_shredder",
+      "name": "Particle shredder",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6+6",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast", "Devastating Wounds"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Vehicle"
+        }
+      ]
+    },
+    {
+      "id": "plasmic_lance_ranged",
+      "name": "Plasmic lance",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "7",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Cryptek"
+        }
+      ]
+    },
+    {
+      "id": "relic_gauss_blaster",
+      "name": "Relic gauss blaster",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Lethal Hits", "Rapid Fire 2"],
+      "points": 0
+    },
+    {
+      "id": "rod_of_covenant_ranged",
+      "name": "Rod of covenant",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "staff_of_light_ranged",
+      "name": "Staff of light",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "tachyon_arrow",
+      "name": "Tachyon arrow",
+      "type": "ranged",
+      "range": "72\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "16",
+      "ap": "-5",
+      "damage": "D6+2",
+      "keywords": ["One Shot"],
+      "points": 0
+    },
+
+    {
+      "id": "abyssal_lance_melee",
+      "name": "Abyssal lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "chronomancers_stave_melee",
+      "name": "Chronomancer's stave",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Cryptek"
+        }
+      ]
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "flayer_claws",
+      "name": "Flayer claws",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Sustained Hits 1", "Twin-linked"],
+      "points": 0
+    },
+    {
+      "id": "flensing_claw",
+      "name": "Flensing claw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "8",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Destroyer Cult"
+        }
+      ]
+    },
+    {
+      "id": "hyperphase_harvester",
+      "name": "Hyperphase harvester",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "10",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Vehicle"
+        }
+      ]
+    },
+    {
+      "id": "hyperphase_sword",
+      "name": "Hyperphase sword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "lords_blade",
+      "name": "Lord's blade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Devastating Wounds"],
+      "points": 0
+    },
+    {
+      "id": "ophydian_hyperphase_weapons",
+      "name": "Ophydian hyperphase weapons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Destroyer Cult"
+        }
+      ]
+    },
+    {
+      "id": "plasmic_lance_melee",
+      "name": "Plasmic lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "7",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Cryptek"
+        }
+      ]
+    },
+    {
+      "id": "rod_of_covenant_melee",
+      "name": "Rod of covenant",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "skorpekh_hyperphase_weapons",
+      "name": "Skorpekh hyperphase weapons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Destroyer Cult"
+        }
+      ]
+    },
+    {
+      "id": "staff_of_light_melee",
+      "name": "Staff of light",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "stalkers_forelimbs",
+      "name": "Stalker's forelimbs",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "3",
+      "keywords": [],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Vehicle"
+        }
+      ]
+    },
+    {
+      "id": "voidblade",
+      "name": "Voidblade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "voidscythe",
+      "name": "Voidscythe",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": ["Devastating Wounds"],
+      "points": 0
+    },
+    {
+      "id": "warscythe",
+      "name": "Warscythe",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Devastating Wounds"],
+      "points": 0
+    }
+  ],
+
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, one or two melee weapons.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with."
+  ],
+
+  "notesExtra": [
+    "* Cryptek only.",
+    "** Destroyer Cult only.",
+    "*** Vehicle only.",
+    "One Shot: The bearer can only shoot with this weapon once per battle."
+  ]
+}

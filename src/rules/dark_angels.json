@@ -215,15 +215,9 @@
       "range": "Melee",
       "attacks": 6,
       "skill": "2+",
-      "strength": 6,
+      "strength": 7,
       "ap": "-2",
-      "damage": 2,
-      "requirements": [
-        {
-          "kind": "keywordHas",
-          "keyword": "Mounted"
-        }
-      ]
+      "damage": 2
     }
   ]
 }
