@@ -15,6 +15,7 @@ import space_wolves_raw from "../../rules/space_wolves.json";
 import adeptus_custodes_raw from "../../rules/adeptus_custodes.json";
 import black_templars_raw from "../../rules/black_templars.json";
 import necrons_raw from "../../rules/necrons.json";
+import tau_raw from "../../rules/tau_empire.json";
 import {
   countWeapons,
   getEffectiveLoadoutRules,
@@ -41,6 +42,7 @@ const factionData: Record<string, unknown> = {
   "emperors-children": emperors_children_raw,
   tyranids: tyranids_raw,
   necrons: necrons_raw,
+  tau: tau_raw,
 };
 
 export const availableFactions = [
@@ -57,6 +59,7 @@ export const availableFactions = [
   { id: "chaos-daemons", name: "Chaos Daemons" },
   { id: "tyranids", name: "Tyranids" },
   { id: "necrons", name: "Necrons" },
+  { id: "tau", name: "Tau Empire" },
 ];
 
 function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {

@@ -1,0 +1,903 @@
+{
+  "id": "tau_empire",
+  "name": "T'au Empire",
+
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+
+  "archetypes": [
+    {
+      "id": "shasnel",
+      "name": "Shas'nel",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 4,
+        "wounds": 3,
+        "leadership": 7,
+        "objectiveControl": 1
+      },
+      "points": 50,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "For the Greater Good"
+        },
+        {
+          "title": "Volley Fire",
+          "text": "While this model is leading a unit, add 1 to the Attacks characteristic of ranged weapons equipped by models in that unit."
+        }
+      ],
+      "leaderUnits": ["Breacher Team", "Strike Team"],
+      "unitComposition": "1 Shas'nel",
+      "keywords": ["Infantry", "Character", "Grenades", "Shas'nel"],
+      "factionKeywords": ["T'au Empire"]
+    },
+    {
+      "id": "battlesuit_veteran",
+      "name": "Battlesuit Veteran",
+      "modelCount": 1,
+      "profile": {
+        "move": 8,
+        "toughness": 4,
+        "save": 3,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 4
+      },
+      "points": 60,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Infiltrators, Leader, Stealth"
+        },
+        {
+          "title": "Faction",
+          "text": "For the Greater Good"
+        },
+        {
+          "title": "Strategic Redeployment",
+          "text": "The bearer's unit is eligible to shoot in a turn in which it Fell Back."
+        }
+      ],
+      "leaderUnits": ["Stealth Battlesuits"],
+      "unitComposition": "1 Battlesuit Veteran",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Fly",
+        "Battlesuit",
+        "Battlesuit Veteran"
+      ],
+      "factionKeywords": ["T'au Empire"]
+    },
+    {
+      "id": "kinband_champion",
+      "name": "Kinband Champion",
+      "modelCount": 1,
+      "profile": {
+        "move": 7,
+        "toughness": 3,
+        "save": 6,
+        "wounds": 3,
+        "leadership": 7,
+        "objectiveControl": 1
+      },
+      "points": 55,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Infiltrators, Leader, Scouts 7\", Stealth"
+        },
+        {
+          "title": "War Leader",
+          "text": "Once per battle round, one unit from your army with this ability can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase."
+        }
+      ],
+      "leaderUnits": ["Kroot Carnivores", "Kroot Farstalkers"],
+      "unitComposition": "1 Kinband Champion",
+      "keywords": ["Infantry", "Character", "Kroot", "Kinband Champion"],
+      "factionKeywords": ["T'au Empire"]
+    }
+  ],
+
+  "specialisms": {
+    "pick": 1,
+    "id": "specialisms",
+    "title": "Specialisms",
+    "options": [
+      {
+        "id": "broadside_battlesuit",
+        "name": "Broadside Battlesuit",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "battlesuit_veteran"
+          }
+        ],
+        "points": 70,
+        "text": "Change this model's Move characteristic to 5\", its Toughness characteristic to 6, its Save characteristic to 2+, and its Wounds characteristic to 10. Remove the INFANTRY keyword, add the VEHICLE and WALKER keywords, and remove the Infiltrators and Stealth abilities. It can be equipped with up to three ranged weapons, and replace the list of units this model can be attached to: Broadside Battlesuits.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 10
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Vehicle", "Walker"]
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infiltrators"
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Stealth"
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Broadside Battlesuits"]
+          }
+        ],
+        "loadout": {
+          "caps": {
+            "ranged": 3,
+            "pistol": 0,
+            "melee": 2
+          },
+          "mins": {
+            "melee": 1
+          }
+        }
+      },
+      {
+        "id": "kalamandra",
+        "name": "Kalamandra",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "kinband_champion"
+          }
+        ],
+        "points": 25,
+        "text": "Change this model's Move characteristic to 12\", its Toughness characteristic to 5, its Save characteristic to 5+, its Wounds characteristic to 6, and it is equipped with 1 kalamandra's bite in addition to the weapons you choose in Step 4. Remove the INFANTRY keyword, add the MOUNTED keyword and it gains the Lone Operative ability.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 6
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted", "Lone Operative"]
+          },
+          {
+            "kind": "addWeapons",
+            "value": ["kalamandras_bite"]
+          }
+        ]
+      },
+      {
+        "id": "krootox",
+        "name": "Krootox",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "kinband_champion"
+          }
+        ],
+        "points": 10,
+        "text": "Change this model's Toughness characteristic to 6, its Save characteristic to 5+ and its Wounds characteristic to 7, and it is equipped with 1 Rampager fists in addition to the weapons you choose in Step 4. Remove the INFANTRY keyword, add the MOUNTED keyword, and replace the list of units this model can be attached to: Krootox Rampagers, Krootox Riders.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 5
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 7
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted"]
+          },
+          {
+            "kind": "addWeapons",
+            "value": ["rampager_fists"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Krootox Rampagers", "Krootox Riders"]
+          }
+        ]
+      },
+      {
+        "id": "veteran_scout",
+        "name": "Veteran Scout",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "shasnel"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Move characteristic to 7\", it gains the Scouts 7\" ability, and replace the list of units this model can be attached to: Pathfinder Team.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 7
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Scouts 7\""]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Pathfinder Team"]
+          }
+        ]
+      }
+    ]
+  },
+
+  "abilities": {
+    "pick": 1,
+    "title": "Abilities",
+    "id": "abilities",
+    "options": [
+      {
+        "id": "cunning_ambush",
+        "name": "Cunning Ambush",
+        "points": 0,
+        "text": "After both players have deployed their armies, you can redeploy this model's unit and one other friendly T'AU EMPIRE unit. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+      },
+      {
+        "id": "fire_and_fade",
+        "name": "Fire and Fade",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "kinband_champion"
+          }
+        ],
+        "points": 0,
+        "text": "In your Shooting phase, after this unit has shot, if it is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\". If it does, until the end of the turn, this unit is not eligible to declare a charge."
+      },
+      {
+        "id": "fire_discipline",
+        "name": "Fire Discipline",
+        "points": 0,
+        "text": "Each time this unit makes a ranged attack, re-roll a Hit roll of 1."
+      },
+      {
+        "id": "ritual_butchery",
+        "name": "Ritual Butchery",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "kinband_champion"
+          }
+        ],
+        "points": 0,
+        "text": "While this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability."
+      },
+      {
+        "id": "warrior_bond",
+        "name": "Warrior Bond",
+        "points": 0,
+        "text": "Once per battle, at the start of any phase, you can select one friendly T'AU EMPIRE unit that is Battle-shocked and within 12\" of this model. That unit is no longer Battle-shocked."
+      }
+    ]
+  },
+
+  "weapons": [
+    {
+      "id": "blast_javelin",
+      "name": "Blast javelin",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "4+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Assault", "Blast"],
+      "points": 0
+    },
+    {
+      "id": "burst_cannon",
+      "name": "Burst cannon",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "dart_bow_and_tri_blade",
+      "name": "Dart-bow and tri-blade",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D3+1",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Anti-Infantry 3+", "Assault", "Heavy"],
+      "points": 0
+    },
+    {
+      "id": "dvorgit_skinner",
+      "name": "Dvorgit skinner",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"],
+      "points": 0
+    },
+    {
+      "id": "fireblade_pulse_rifle",
+      "name": "Fireblade pulse rifle",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Rapid Fire 1"],
+      "points": 0
+    },
+    {
+      "id": "fusion_blaster",
+      "name": "Fusion blaster",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 2"],
+      "points": 0
+    },
+    {
+      "id": "heavy_rail_rifle",
+      "name": "Heavy rail rifle",
+      "type": "ranged",
+      "range": "60\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "12",
+      "ap": "-4",
+      "damage": "D6+1",
+      "keywords": ["Devastating Wounds", "Heavy"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "broadside_battlesuit"
+        }
+      ]
+    },
+    {
+      "id": "high_yield_missile_pods",
+      "name": "High-yield missile pods",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Twin-linked"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "broadside_battlesuit"
+        }
+      ]
+    },
+    {
+      "id": "ion_rifle_standard",
+      "name": "Ion rifle — standard",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Heavy"],
+      "points": 0
+    },
+    {
+      "id": "ion_rifle_overcharge",
+      "name": "Ion rifle — overcharge",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Hazardous", "Heavy"],
+      "points": 0
+    },
+    {
+      "id": "kroot_carbine",
+      "name": "Kroot carbine",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "kroot_long_gun",
+      "name": "Kroot long gun",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Heavy", "Precision"],
+      "points": 0
+    },
+    {
+      "id": "kroot_rifle",
+      "name": "Kroot rifle",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"],
+      "points": 0
+    },
+    {
+      "id": "kroot_scattergun",
+      "name": "Kroot scattergun",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault"],
+      "points": 0
+    },
+    {
+      "id": "londaxi_tribeblast",
+      "name": "Londaxi tribeblast",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "5+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Anti-Vehicle 4+", "Devastating Wounds", "Heavy"],
+      "points": 0
+    },
+    {
+      "id": "pulse_blaster",
+      "name": "Pulse blaster",
+      "type": "ranged",
+      "range": "10\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Assault"],
+      "points": 0
+    },
+    {
+      "id": "pulse_carbine",
+      "name": "Pulse carbine",
+      "type": "ranged",
+      "range": "20\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "rail_rifle",
+      "name": "Rail rifle",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "10",
+      "ap": "-4",
+      "damage": "3",
+      "keywords": ["Devastating Wounds", "Heavy"],
+      "points": 0
+    },
+    {
+      "id": "seeker_missile",
+      "name": "Seeker missile",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "14",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": ["One Shot"],
+      "points": 0
+    },
+    {
+      "id": "semi_automatic_grenade_launcher_emp",
+      "name": "Semi-automatic grenade launcher — EMP",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Vehicle 4+", "Devastating Wounds"],
+      "points": 0
+    },
+    {
+      "id": "semi_automatic_grenade_launcher_fusion",
+      "name": "Semi-automatic grenade launcher — fusion",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "3",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "tanglebomb_launcher",
+      "name": "Tanglebomb launcher",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D3",
+      "skill": "4+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast"],
+      "points": 0
+    },
+    {
+      "id": "twin_plasma_rifle",
+      "name": "Twin plasma rifle",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": ["Twin-linked"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "oneOf",
+          "requirements": [
+            {
+              "kind": "archetypeIs",
+              "value": "battlesuit_veteran"
+            },
+            {
+              "kind": "hasChoice",
+              "groupId": "specialisms",
+              "optionId": "broadside_battlesuit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twin_smart_missile_system",
+      "name": "Twin smart missile system",
+      "type": "ranged",
+      "range": "30\"",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Indirect Fire", "Twin-linked"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "oneOf",
+          "requirements": [
+            {
+              "kind": "archetypeIs",
+              "value": "battlesuit_veteran"
+            },
+            {
+              "kind": "hasChoice",
+              "groupId": "specialisms",
+              "optionId": "broadside_battlesuit"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "kroot_pistol",
+      "name": "Kroot pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"],
+      "points": 0
+    },
+    {
+      "id": "kroot_pistol_and_hunting_javelins",
+      "name": "Kroot pistol and hunting javelins",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault", "Pistol"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Kroot"
+        }
+      ]
+    },
+    {
+      "id": "pulse_pistol",
+      "name": "Pulse pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"],
+      "points": 0
+    },
+
+    {
+      "id": "bladestave_and_prey_hook",
+      "name": "Bladestave and prey-hook",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Lethal Hits"],
+      "points": 0
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "crushing_blow",
+      "name": "Crushing blow",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "hunting_blades",
+      "name": "Hunting blades",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "4+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Lance"],
+      "points": 0
+    },
+    {
+      "id": "kalamandras_bite",
+      "name": "Kalamandra's bite",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Extra Attacks"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "kalamandra"
+        }
+      ]
+    },
+    {
+      "id": "rampager_fists",
+      "name": "Rampager fists",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Extra Attacks", "Sustained Hits 1"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "krootox"
+        }
+      ]
+    },
+    {
+      "id": "shapers_blade",
+      "name": "Shaper's blade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "twin_hunting_blades",
+      "name": "Twin hunting blades",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Twin-linked"],
+      "points": 0
+    }
+  ],
+
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols (excluding Battlesuit), one or two melee weapons.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with.",
+    "One Shot: The bearer can only shoot with this weapon once per battle."
+  ],
+
+  "notesExtra": [
+    "* Kroot only.",
+    "** Battlesuit only.",
+    "*** Model with Broadside Battlesuit only.",
+    "**** Model with Kalamandra only. A model cannot have more than one of this weapon.",
+    "***** Model with Krootox only. A model cannot have more than one of this weapon.",
+    "‡ This model must also be equipped with 1 pulse carbine."
+  ]
+}
