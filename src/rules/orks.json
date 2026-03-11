@@ -1,0 +1,961 @@
+{
+  "id": "orks",
+  "name": "Orks",
+
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+
+  "archetypes": [
+    {
+      "id": "hordeboss",
+      "name": "Hordeboss",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 5,
+        "save": 4,
+        "wounds": 5,
+        "leadership": 7,
+        "objectiveControl": 1
+      },
+      "points": 75,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Waaagh!"
+        },
+        {
+          "title": "More Ladz, More Swagger",
+          "text": "Improve this model's Leadership characteristic by 1 for every 5 models in this unit."
+        }
+      ],
+      "leaderUnits": ["Boyz", "Nobz"],
+      "unitComposition": "1 Hordeboss",
+      "keywords": ["Infantry", "Character", "Grenades", "Hordeboss"],
+      "factionKeywords": ["Orks"]
+    },
+    {
+      "id": "warphead",
+      "name": "Warphead",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 5,
+        "save": 5,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 1
+      },
+      "points": 65,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise D3, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Waaagh!"
+        },
+        {
+          "title": "Channellin' da Waaagh!",
+          "text": "Each time this model attacks with a Psychic weapon, until the end of the phase, improve the Attacks, Strength and Damage characteristics of that weapon by 1 for every 5 models in this unit. While this unit contains 10 or more models, those weapons have the Hazardous ability."
+        }
+      ],
+      "leaderUnits": ["Boyz", "Nobz", "Gretchin"],
+      "unitComposition": "1 Warphead",
+      "keywords": ["Infantry", "Character", "Psyker", "Warphead"],
+      "factionKeywords": ["Orks"]
+    },
+    {
+      "id": "upstart_gretchin",
+      "name": "Upstart Gretchin",
+      "modelCount": 1,
+      "profile": {
+        "move": 6,
+        "toughness": 2,
+        "save": 7,
+        "wounds": 3,
+        "leadership": 8,
+        "objectiveControl": 2
+      },
+      "points": 40,
+      "loadout": {
+        "caps": {
+          "ranged": 0,
+          "pistol": 2,
+          "melee": 1
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Waaagh!"
+        },
+        {
+          "title": "Skulkin' Grot",
+          "text": "While this model is leading a unit, models in that unit have the Infiltrators and Stealth abilities."
+        }
+      ],
+      "leaderUnits": ["Gretchin"],
+      "unitComposition": "1 Upstart Gretchin. This model can only be equipped with up to two Grot blastas, up to one attack squig, and one close-combat weapon.",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Grots",
+        "Upstart Gretchin"
+      ],
+      "factionKeywords": ["Orks"]
+    }
+  ],
+
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "rokkit_pack",
+        "name": "Rokkit Pack",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "hordeboss"
+          }
+        ],
+        "points": 0,
+        "text": "Change this model's Move characteristic to 12\", add the JUMP PACK and FLY keywords, and it gains the Deep Strike ability. Replace the list of units this model can be attached to: Stormboyz.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Jump Pack", "Fly", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Stormboyz"]
+          }
+        ]
+      },
+      {
+        "id": "snagga_squig",
+        "name": "Snagga Squig",
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "archetypeIs",
+                "value": "hordeboss"
+              },
+              {
+                "kind": "archetypeIs",
+                "value": "warphead"
+              }
+            ]
+          }
+        ],
+        "points": 15,
+        "text": "Change this model's Move characteristic to 10\", its Toughness characteristic to 7, its Save characteristic to 4+, its Wounds characteristic to 6, and it is equipped with 1 squig jaws in addition to the weapons you choose in Step 4. Remove the INFANTRY keyword, add the MOUNTED and BEAST SNAGGA keywords, and replace the list of units this model can be attached to: Squighog Boyz.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 10
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 7
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 4
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 6
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted", "Beast Snagga"]
+          },
+          {
+            "kind": "addWeapons",
+            "value": ["squig_jaws"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Squighog Boyz"]
+          }
+        ]
+      },
+      {
+        "id": "top_tier_gubbinz",
+        "name": "Top-tier Gubbinz",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "hordeboss"
+          }
+        ],
+        "points": 0,
+        "text": "Add the MEK keyword. Replace the list of units this model can be attached to: Burna Boyz, Flash Gitz, Kommandos, Lootas, Mek Gunz, Tankbustas.",
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Mek"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Burna Boyz",
+              "Flash Gitz",
+              "Kommandos",
+              "Lootas",
+              "Mek Gunz",
+              "Tankbustas"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "warbike",
+        "name": "Warbike",
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "archetypeIs",
+                "value": "hordeboss"
+              },
+              {
+                "kind": "archetypeIs",
+                "value": "warphead"
+              }
+            ]
+          }
+        ],
+        "points": 10,
+        "text": "Change this model's Move characteristic to 12\", its Toughness and Wounds characteristics to 6, its Save characteristic to 4+, and it is equipped with 1 twin dakkagun in addition to the weapons you choose in Step 4. Remove the INFANTRY keyword, add the MOUNTED keyword, and replace the list of units this model can be attached to: Warbikers.",
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 6
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 4
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted"]
+          },
+          {
+            "kind": "addWeapons",
+            "value": ["twin_dakkagun"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Warbikers"]
+          }
+        ]
+      }
+    ]
+  },
+
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "doks_toolz",
+        "name": "Dok's Toolz",
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "archetypeIs",
+                "value": "hordeboss"
+              },
+              {
+                "kind": "archetypeIs",
+                "value": "upstart_gretchin"
+              }
+            ]
+          }
+        ],
+        "points": 0,
+        "text": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability."
+      },
+      {
+        "id": "kustom_force_field",
+        "name": "Kustom Force Field",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "hordeboss"
+          }
+        ],
+        "points": 0,
+        "text": "While the bearer is leading a unit, models in that unit have a 4+ invulnerable save against ranged attacks."
+      },
+      {
+        "id": "malicious_opportunist",
+        "name": "Malicious Opportunist",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "upstart_gretchin"
+          }
+        ],
+        "points": 0,
+        "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll and add 1 to the Wound roll."
+      },
+      {
+        "id": "might_is_right",
+        "name": "Might Is Right",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "hordeboss"
+          }
+        ],
+        "points": 0,
+        "text": "While this model is leading a unit, each time a model in that unit makes a melee attack, add 1 to the Hit roll."
+      },
+      {
+        "id": "roar_of_mork",
+        "name": "Roar of Mork",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "value": "warphead"
+          }
+        ],
+        "points": 0,
+        "text": "(Psychic) In your opponent's Command phase, you can select one enemy unit within 18\" of and visible to this Psyker and roll one D6: on a 1, this unit suffers D3 mortal wounds; on a 2+, until the start of your opponent's next Command phase, that enemy unit is confrazzled. While a unit is confrazzled, each time a Battle-shock or Leadership test is taken for it, subtract 2 from that test."
+      },
+      {
+        "id": "thunderous_dakkastorm",
+        "name": "Thunderous Dakkastorm",
+        "points": 0,
+        "text": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks; that unit must take a Battle-shock test."
+      }
+    ]
+  },
+
+  "weapons": [
+    {
+      "id": "big_shoota",
+      "name": "Big shoota",
+      "group": "Big shoota",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "3",
+      "skill": "5+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 2"],
+      "points": 0
+    },
+    {
+      "id": "burna",
+      "name": "Burna",
+      "group": "Burna",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"],
+      "points": 0
+    },
+    {
+      "id": "eadbanger",
+      "name": "'Eadbanger",
+      "group": "'Eadbanger",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Precision", "Psychic"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "eyez_of_mork",
+      "name": "Eyez of Mork",
+      "group": "Eyez of Mork",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "5+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Psychic"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "kombi_weapon",
+      "name": "Kombi-weapon",
+      "group": "Kombi-weapon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "5+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Devastating Wounds", "Rapid Fire 1"],
+      "points": 0
+    },
+    {
+      "id": "kustom_mega_blasta",
+      "name": "Kustom mega-blasta",
+      "group": "Kustom mega-blasta",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "5+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "D6",
+      "keywords": ["Hazardous"],
+      "points": 0
+    },
+    {
+      "id": "kustom_mega_slugga",
+      "name": "Kustom mega-slugga",
+      "group": "Kustom mega-slugga",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D3",
+      "skill": "5+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "D6",
+      "keywords": ["Blast", "Hazardous"],
+      "points": 0
+    },
+    {
+      "id": "kustom_shoota",
+      "name": "Kustom shoota",
+      "group": "Kustom shoota",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "4",
+      "skill": "5+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 2"],
+      "points": 0
+    },
+    {
+      "id": "rokkit_launcha",
+      "name": "Rokkit launcha",
+      "group": "Rokkit launcha",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D3",
+      "skill": "5+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Blast"],
+      "points": 0
+    },
+    {
+      "id": "saddlegit_weapons",
+      "name": "Saddlegit weapons",
+      "group": "Saddlegit weapons",
+      "type": "ranged",
+      "range": "9\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "snagga_squig"
+        }
+      ]
+    },
+    {
+      "id": "shokk_attack_gun",
+      "name": "Shokk attack gun",
+      "group": "Shokk attack gun",
+      "type": "ranged",
+      "range": "60\"",
+      "attacks": "D6+1",
+      "skill": "5+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Blast", "Heavy"],
+      "points": 0
+    },
+    {
+      "id": "shoota",
+      "name": "Shoota",
+      "group": "Shoota",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "5+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"],
+      "points": 0
+    },
+    {
+      "id": "snazzgun",
+      "name": "Snazzgun",
+      "group": "Snazzgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "5+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Heavy", "Sustained Hits 1"],
+      "points": 0
+    },
+    {
+      "id": "traktor_blasta",
+      "name": "Traktor blasta",
+      "group": "Traktor blasta",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "1",
+      "skill": "5+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "D6+1",
+      "keywords": ["Anti-Fly 3+", "Devastating Wounds"],
+      "points": 0
+    },
+    {
+      "id": "twin_dakkagun",
+      "name": "Twin dakkagun",
+      "group": "Twin dakkagun",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "5+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault", "Rapid Fire 2", "Twin-linked"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "warbike"
+        }
+      ]
+    },
+
+    {
+      "id": "grot_blasta",
+      "name": "Grot blasta",
+      "group": "Grot blasta",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"],
+      "points": 0
+    },
+    {
+      "id": "rokkit_pistol",
+      "name": "Rokkit pistol",
+      "group": "Rokkit pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "5+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Pistol"],
+      "points": 0
+    },
+    {
+      "id": "slugga",
+      "name": "Slugga",
+      "group": "Slugga",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "5+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"],
+      "points": 0
+    },
+
+    {
+      "id": "attack_squig",
+      "name": "Attack squig",
+      "group": "Attack squig",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Extra Attacks"],
+      "points": 0
+    },
+    {
+      "id": "beast_snagga_klaw",
+      "name": "Beast Snagga klaw",
+      "group": "Beast Snagga klaw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Anti-Monster 4+", "Anti-Vehicle 4+"],
+      "points": 0
+    },
+    {
+      "id": "beastchoppa",
+      "name": "Beastchoppa",
+      "group": "Beastchoppa",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Anti-Monster 4+", "Anti-Vehicle 4+"],
+      "points": 0
+    },
+    {
+      "id": "big_choppa",
+      "name": "Big choppa",
+      "group": "Big choppa",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "choppa",
+      "name": "Choppa",
+      "group": "Choppa",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "cuttin_flames",
+      "name": "Cuttin' flames",
+      "group": "Cuttin' flames",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "drilla",
+      "name": "Drilla",
+      "group": "Drilla",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "killsaw",
+      "name": "Killsaw",
+      "group": "Killsaw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "knucklebustas",
+      "name": "Knucklebustas",
+      "group": "Knucklebustas",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Anti-Monster 4+", "Anti-Vehicle 4+", "Twin-linked"],
+      "points": 0
+    },
+    {
+      "id": "power_klaw",
+      "name": "Power klaw",
+      "group": "Power klaw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "power_snappa",
+      "name": "Power snappa",
+      "group": "Power snappa",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "smash_hammer",
+      "name": "Smash hammer",
+      "group": "Smash hammer",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Anti-Monster 4+", "Anti-Vehicle 4+"],
+      "points": 0
+    },
+    {
+      "id": "squig_jaws",
+      "name": "Squig jaws",
+      "group": "Squig jaws",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Extra Attacks"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "snagga_squig"
+        }
+      ]
+    },
+    {
+      "id": "tankhammer",
+      "name": "Tankhammer",
+      "group": "Tankhammer",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [
+        "Anti-Monster 4+",
+        "Anti-Vehicle 4+",
+        "Devastating Wounds",
+        "Hazardous"
+      ],
+      "points": 0
+    },
+    {
+      "id": "uge_choppa",
+      "name": "'Uge choppa",
+      "group": "'Uge choppa",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "points": 0
+    },
+    {
+      "id": "urty_syringe",
+      "name": "'Urty syringe",
+      "group": "'Urty syringe",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Extra Attacks", "Precision"],
+      "points": 0
+    },
+    {
+      "id": "weirdboy_staff",
+      "name": "Weirdboy staff",
+      "group": "Weirdboy staff",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Psychic"],
+      "points": 0,
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    }
+  ],
+
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Before selecting targets for this weapon, select one of its profiles to make attacks with."
+  ],
+
+  "notesExtra": [
+    "* Psyker only.",
+    "** Model with Snagga Squig only. A model cannot have more than one of this weapon.",
+    "*** Model with Warbike only. A model cannot have more than one of this weapon."
+  ]
+}

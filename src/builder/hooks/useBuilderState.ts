@@ -16,6 +16,7 @@ import adeptus_custodes_raw from "../../rules/adeptus_custodes.json";
 import black_templars_raw from "../../rules/black_templars.json";
 import necrons_raw from "../../rules/necrons.json";
 import tau_raw from "../../rules/tau_empire.json";
+import orks_raw from "../../rules/orks.json";
 import {
   countWeapons,
   getEffectiveLoadoutRules,
@@ -43,6 +44,7 @@ const factionData: Record<string, unknown> = {
   tyranids: tyranids_raw,
   necrons: necrons_raw,
   tau: tau_raw,
+  orks: orks_raw,
 };
 
 export const availableFactions = [
@@ -60,6 +62,7 @@ export const availableFactions = [
   { id: "tyranids", name: "Tyranids" },
   { id: "necrons", name: "Necrons" },
   { id: "tau", name: "Tau Empire" },
+  { id: "orks", name: "Orks" },
 ];
 
 function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {
