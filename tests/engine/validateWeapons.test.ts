@@ -34,4 +34,29 @@ describe("validateWeapons", () => {
     expect(rangedErrors).toContain("Too many ranged weapons");
     expect(rangedErrors).toContain("You must take at least one melee weapon");
   });
+
+  it("uses explicit weapon group from data when counting", () => {
+    const weapons = faction.weapons.filter((weapon) =>
+      ["plasma_pistol_standard", "plasma_pistol_supercharge"].includes(
+        weapon.id,
+      ),
+    );
+
+    const counts = countWeapons([
+      {
+        ...weapons[0],
+        name: "Alpha profile",
+        group: "Plasma pistol",
+      },
+      {
+        ...weapons[1],
+        name: "Beta profile",
+        group: "Plasma pistol",
+      },
+    ]);
+
+    expect(counts.ranged).toBe(0);
+    expect(counts.pistol).toBe(1);
+    expect(counts.melee).toBe(0);
+  });
 });

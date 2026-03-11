@@ -345,6 +345,7 @@
     {
       "id": "acid_spray",
       "name": "Acid spray",
+      "group": "Acid spray",
       "type": "ranged",
       "range": "16\"",
       "attacks": "D6+6",
@@ -363,6 +364,7 @@
     {
       "id": "barbed_strangler",
       "name": "Barbed strangler",
+      "group": "Barbed strangler",
       "type": "ranged",
       "range": "36\"",
       "attacks": "D6+1",
@@ -375,6 +377,7 @@
     {
       "id": "bio_electric_pulse",
       "name": "Bio-electric pulse",
+      "group": "Bio-electric pulse",
       "type": "ranged",
       "range": "12\"",
       "attacks": "6",
@@ -387,6 +390,7 @@
     {
       "id": "bio_plasma",
       "name": "Bio-plasma",
+      "group": "Bio-plasma",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D3",
@@ -405,6 +409,7 @@
     {
       "id": "bio_plasmic_cannon",
       "name": "Bio-plasmic cannon",
+      "group": "Bio-plasmic cannon",
       "type": "ranged",
       "range": "36\"",
       "attacks": "D6+3",
@@ -423,6 +428,7 @@
     {
       "id": "deathspitter",
       "name": "Deathspitter",
+      "group": "Deathspitter",
       "type": "ranged",
       "range": "24\"",
       "attacks": "3",
@@ -435,6 +441,7 @@
     {
       "id": "deathspitters_with_slimer_maggots",
       "name": "Deathspitters with slimer maggots",
+      "group": "Deathspitters with slimer maggots",
       "type": "ranged",
       "range": "24\"",
       "attacks": "6",
@@ -453,6 +460,7 @@
     {
       "id": "devourer",
       "name": "Devourer",
+      "group": "Devourer",
       "type": "ranged",
       "range": "18\"",
       "attacks": "5",
@@ -465,6 +473,7 @@
     {
       "id": "devourers_with_brainleech_worms",
       "name": "Devourers with brainleech worms",
+      "group": "Devourers with brainleech worms",
       "type": "ranged",
       "range": "18\"",
       "attacks": "12",
@@ -483,6 +492,7 @@
     {
       "id": "fleshborer_hive",
       "name": "Fleshborer hive",
+      "group": "Fleshborer hive",
       "type": "ranged",
       "range": "24\"",
       "attacks": "20",
@@ -501,6 +511,7 @@
     {
       "id": "heavy_venom_cannon",
       "name": "Heavy venom cannon",
+      "group": "Heavy venom cannon",
       "type": "ranged",
       "range": "36\"",
       "attacks": "D3",
@@ -513,6 +524,7 @@
     {
       "id": "psychic_overload",
       "name": "Psychic Overload",
+      "group": "Psychic Overload",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6+3",
@@ -531,6 +543,7 @@
     {
       "id": "psychic_scream",
       "name": "Psychic Scream",
+      "group": "Psychic Scream",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2D6",
@@ -549,6 +562,7 @@
     {
       "id": "psychoclastic_torrent",
       "name": "Psychoclastic torrent",
+      "group": "Psychoclastic torrent",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -561,6 +575,7 @@
     {
       "id": "rupture_cannon",
       "name": "Rupture cannon",
+      "group": "Rupture cannon",
       "type": "ranged",
       "range": "48\"",
       "attacks": "2",
@@ -579,6 +594,7 @@
     {
       "id": "spine_banks",
       "name": "Spine banks",
+      "group": "Spine banks",
       "type": "ranged",
       "range": "6\"",
       "attacks": "5",
@@ -597,6 +613,7 @@
     {
       "id": "spinefists",
       "name": "Spinefists",
+      "group": "Spinefists",
       "type": "ranged",
       "range": "12\"",
       "attacks": "2",
@@ -609,6 +626,7 @@
     {
       "id": "stinger_salvoes",
       "name": "Stinger salvoes",
+      "group": "Stinger salvoes",
       "type": "ranged",
       "range": "24\"",
       "attacks": "8",
@@ -627,6 +645,7 @@
     {
       "id": "stranglethorn_cannon",
       "name": "Stranglethorn cannon",
+      "group": "Stranglethorn cannon",
       "type": "ranged",
       "range": "36\"",
       "attacks": "D6+1",
@@ -639,6 +658,7 @@
     {
       "id": "thoracic_bio_weapon",
       "name": "Thoracic bio-weapon",
+      "group": "Thoracic bio-weapon",
       "type": "ranged",
       "range": "12\"",
       "attacks": "3",
@@ -651,6 +671,7 @@
     {
       "id": "venom_cannon",
       "name": "Venom cannon",
+      "group": "Venom cannon",
       "type": "ranged",
       "range": "36\"",
       "attacks": "D3",
@@ -663,6 +684,7 @@
     {
       "id": "crushing_claws",
       "name": "Crushing claws",
+      "group": "Crushing claws",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -681,6 +703,7 @@
     {
       "id": "massive_scything_talons_strike",
       "name": "Massive scything talons — strike",
+      "group": "Massive scything talons",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -699,6 +722,7 @@
     {
       "id": "massive_scything_talons_sweep",
       "name": "Massive scything talons — sweep",
+      "group": "Massive scything talons",
       "type": "melee",
       "range": "Melee",
       "attacks": "10",
@@ -717,6 +741,7 @@
     {
       "id": "monster_beast_weapons",
       "name": "Monster-beast weapons",
+      "group": "Monster-beast weapons",
       "type": "melee",
       "range": "Melee",
       "attacks": "12",
@@ -735,6 +760,7 @@
     {
       "id": "monstrous_bonesword_and_lash_whip",
       "name": "Monstrous bonesword and lash whip",
+      "group": "Monstrous bonesword and lash whip",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -753,6 +779,7 @@
     {
       "id": "monstrous_scything_talons",
       "name": "Monstrous scything talons",
+      "group": "Monstrous scything talons",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -771,6 +798,7 @@
     {
       "id": "piercing_claws_and_talons",
       "name": "Piercing claws and talons",
+      "group": "Piercing claws and talons",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -783,6 +811,7 @@
     {
       "id": "ravener_claws_and_talons",
       "name": "Ravener claws and talons",
+      "group": "Ravener claws and talons",
       "type": "melee",
       "range": "Melee",
       "attacks": "7",
@@ -795,6 +824,7 @@
     {
       "id": "ravenous_maw",
       "name": "Ravenous maw",
+      "group": "Ravenous maw",
       "type": "melee",
       "range": "Melee",
       "attacks": "14",
@@ -813,6 +843,7 @@
     {
       "id": "scything_talons",
       "name": "Scything talons",
+      "group": "Scything talons",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -831,6 +862,7 @@
     {
       "id": "tyrant_beast_weapons",
       "name": "Tyrant-beast weapons",
+      "group": "Tyrant-beast weapons",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -849,6 +881,7 @@
     {
       "id": "warrior_beast_weapons",
       "name": "Warrior-beast weapons",
+      "group": "Warrior-beast weapons",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",

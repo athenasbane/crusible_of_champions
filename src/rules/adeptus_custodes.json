@@ -232,6 +232,7 @@
     {
       "id": "ballistus_grenade_launcher",
       "name": "Ballistus grenade launcher",
+      "group": "Ballistus grenade launcher",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -261,6 +262,7 @@
     {
       "id": "castellan_axe_ranged",
       "name": "Castellan axe",
+      "group": "Castellan axe",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -274,6 +276,7 @@
     {
       "id": "guardian_spear_ranged",
       "name": "Guardian spear",
+      "group": "Guardian spear",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -287,6 +290,7 @@
     {
       "id": "master_crafted_boltgun",
       "name": "Master-crafted boltgun",
+      "group": "Master-crafted boltgun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -306,6 +310,7 @@
     {
       "id": "pyrithite_spear_ranged",
       "name": "Pyrithite spear",
+      "group": "Pyrithite spear",
       "type": "ranged",
       "range": "12\"",
       "attacks": "1",
@@ -319,6 +324,7 @@
     {
       "id": "salvo_launcher",
       "name": "Salvo launcher",
+      "group": "Salvo launcher",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -332,6 +338,7 @@
     {
       "id": "vertus_hurricane_bolter",
       "name": "Vertus hurricane bolter",
+      "group": "Vertus hurricane bolter",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -351,6 +358,7 @@
     {
       "id": "witchseeker_flamer",
       "name": "Witchseeker flamer",
+      "group": "Witchseeker flamer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -371,6 +379,7 @@
     {
       "id": "sentinel_blade_pistol",
       "name": "Sentinel blade",
+      "group": "Sentinel blade",
       "type": "pistol",
       "range": "12\"",
       "attacks": "2",
@@ -385,6 +394,7 @@
     {
       "id": "castellan_axe",
       "name": "Castellan axe",
+      "group": "Castellan axe",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -398,6 +408,7 @@
     {
       "id": "close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -417,6 +428,7 @@
     {
       "id": "executioner_greatblade",
       "name": "Executioner greatblade",
+      "group": "Executioner greatblade",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -436,6 +448,7 @@
     {
       "id": "guardian_spear",
       "name": "Guardian spear",
+      "group": "Guardian spear",
       "type": "melee",
       "range": "Melee",
       "attacks": "7",
@@ -449,6 +462,7 @@
     {
       "id": "interceptor_lance",
       "name": "Interceptor lance",
+      "group": "Interceptor lance",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -468,6 +482,7 @@
     {
       "id": "misericordia",
       "name": "Misericordia",
+      "group": "Misericordia",
       "type": "melee",
       "range": "Melee",
       "attacks": "2",
@@ -481,6 +496,7 @@
     {
       "id": "pyrithite_spear",
       "name": "Pyrithite spear",
+      "group": "Pyrithite spear",
       "type": "melee",
       "range": "Melee",
       "attacks": "7",
@@ -494,6 +510,7 @@
     {
       "id": "sentinel_blade",
       "name": "Sentinel blade",
+      "group": "Sentinel blade",
       "type": "melee",
       "range": "Melee",
       "attacks": "7",
@@ -507,6 +524,7 @@
     {
       "id": "vaultswords_behemor",
       "name": "Vaultswords — Behemor",
+      "group": "Vaultswords",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -520,6 +538,7 @@
     {
       "id": "vaultswords_hurricanis",
       "name": "Vaultswords — Hurricanis",
+      "group": "Vaultswords",
       "type": "melee",
       "range": "Melee",
       "attacks": "9",
@@ -533,6 +552,7 @@
     {
       "id": "vaultswords_victus",
       "name": "Vaultswords — Victus",
+      "group": "Vaultswords",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",

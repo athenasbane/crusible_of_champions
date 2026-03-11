@@ -84,6 +84,7 @@
     {
       "id": "angelus_boltgun",
       "name": "Angelus boltgun",
+      "group": "Angelus boltgun",
       "type": "pistol",
       "range": "12\"",
       "attacks": 2,
@@ -97,6 +98,7 @@
     {
       "id": "encarmine_blade",
       "name": "Encarmine blade",
+      "group": "Encarmine blade",
       "type": "melee",
       "range": "Melee",
       "attacks": 5,
@@ -109,6 +111,7 @@
     {
       "id": "encarmine_spear",
       "name": "Encarmine spear",
+      "group": "Encarmine spear",
       "type": "melee",
       "range": "Melee",
       "attacks": 4,
@@ -122,6 +125,7 @@
     {
       "id": "eviscerator",
       "name": "Eviscerator",
+      "group": "Eviscerator",
       "type": "melee",
       "range": "Melee",
       "attacks": 5,

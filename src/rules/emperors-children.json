@@ -234,6 +234,7 @@
     {
       "id": "agonising_energies_witchfire",
       "name": "Agonising Energies — witchfire",
+      "group": "Agonising Energies",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -246,6 +247,7 @@
     {
       "id": "agonising_energies_focused_witchfire",
       "name": "Agonising Energies — focused witchfire",
+      "group": "Agonising Energies",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -258,6 +260,7 @@
     {
       "id": "blastermaster_single_frequency",
       "name": "Blastermaster — single frequency",
+      "group": "Blastermaster",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -270,6 +273,7 @@
     {
       "id": "blastermaster_varied_frequency",
       "name": "Blastermaster — varied frequency",
+      "group": "Blastermaster",
       "type": "ranged",
       "range": "18\"",
       "attacks": "6",
@@ -282,6 +286,7 @@
     {
       "id": "boltgun",
       "name": "Boltgun",
+      "group": "Boltgun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -294,6 +299,7 @@
     {
       "id": "combi_bolter",
       "name": "Combi-bolter",
+      "group": "Combi-bolter",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -306,6 +312,7 @@
     {
       "id": "combi_weapon",
       "name": "Combi-weapon",
+      "group": "Combi-weapon",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -318,6 +325,7 @@
     {
       "id": "heavy_flamer",
       "name": "Heavy flamer",
+      "group": "Heavy flamer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -330,6 +338,7 @@
     {
       "id": "meltagun",
       "name": "Meltagun",
+      "group": "Meltagun",
       "type": "ranged",
       "range": "12\"",
       "attacks": "1",
@@ -342,6 +351,7 @@
     {
       "id": "plasma_gun_standard",
       "name": "Plasma gun — standard",
+      "group": "Plasma gun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -354,6 +364,7 @@
     {
       "id": "plasma_gun_supercharge",
       "name": "Plasma gun — supercharge",
+      "group": "Plasma gun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -366,6 +377,7 @@
     {
       "id": "reaper_autocannon",
       "name": "Reaper autocannon",
+      "group": "Reaper autocannon",
       "type": "ranged",
       "range": "36\"",
       "attacks": "4",
@@ -378,6 +390,7 @@
     {
       "id": "sonic_blaster",
       "name": "Sonic blaster",
+      "group": "Sonic blaster",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -390,6 +403,7 @@
     {
       "id": "bolt_pistol",
       "name": "Bolt pistol",
+      "group": "Bolt pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -402,6 +416,7 @@
     {
       "id": "plasma_pistol_standard",
       "name": "Plasma pistol — standard",
+      "group": "Plasma pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -414,6 +429,7 @@
     {
       "id": "plasma_pistol_supercharge",
       "name": "Plasma pistol — supercharge",
+      "group": "Plasma pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -426,6 +442,7 @@
     {
       "id": "screamer_pistol",
       "name": "Screamer pistol",
+      "group": "Screamer pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "3",
@@ -438,6 +455,7 @@
     {
       "id": "blissblade",
       "name": "Blissblade",
+      "group": "Blissblade",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -450,6 +468,7 @@
     {
       "id": "chainfist",
       "name": "Chainfist",
+      "group": "Chainfist",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -469,6 +488,7 @@
     {
       "id": "close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -481,6 +501,7 @@
     {
       "id": "duelling_sabre",
       "name": "Duelling sabre",
+      "group": "Duelling sabre",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -493,6 +514,7 @@
     {
       "id": "force_weapon",
       "name": "Force weapon",
+      "group": "Force weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -511,6 +533,7 @@
     {
       "id": "master_crafted_power_sword",
       "name": "Master-crafted power sword",
+      "group": "Master-crafted power sword",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -523,6 +546,7 @@
     {
       "id": "paired_accursed_weapons",
       "name": "Paired accursed weapons",
+      "group": "Paired accursed weapons",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -535,6 +559,7 @@
     {
       "id": "phoenix_power_spear",
       "name": "Phoenix power spear",
+      "group": "Phoenix power spear",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -547,6 +572,7 @@
     {
       "id": "power_fist",
       "name": "Power fist",
+      "group": "Power fist",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -559,6 +585,7 @@
     {
       "id": "power_weapon",
       "name": "Power weapon",
+      "group": "Power weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -571,6 +598,7 @@
     {
       "id": "rapture_lash",
       "name": "Rapture lash",
+      "group": "Rapture lash",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",

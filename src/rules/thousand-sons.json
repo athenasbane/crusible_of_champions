@@ -289,6 +289,7 @@
     {
       "id": "arcane_fire",
       "name": "Arcane Fire",
+      "group": "Arcane Fire",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -307,6 +308,7 @@
     {
       "id": "astral_blast",
       "name": "Astral Blast",
+      "group": "Astral Blast",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -325,6 +327,7 @@
     {
       "id": "baleful_devolution",
       "name": "Baleful Devolution",
+      "group": "Baleful Devolution",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -337,6 +340,7 @@
     {
       "id": "fatecaster_greatbow",
       "name": "Fatecaster greatbow",
+      "group": "Fatecaster greatbow",
       "type": "ranged",
       "range": "30\"",
       "attacks": "2",
@@ -349,6 +353,7 @@
     {
       "id": "fires_of_the_abyss_witchfire",
       "name": "Fires of the Abyss — witchfire",
+      "group": "Fires of the Abyss",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -367,6 +372,7 @@
     {
       "id": "fires_of_the_abyss_focused_witchfire",
       "name": "Fires of the Abyss — focused witchfire",
+      "group": "Fires of the Abyss",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2D6",
@@ -385,6 +391,7 @@
     {
       "id": "gaze_of_hate",
       "name": "Gaze of Hate",
+      "group": "Gaze of Hate",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -402,6 +409,7 @@
     {
       "id": "heavy_warpflamer",
       "name": "Heavy warpflamer",
+      "group": "Heavy warpflamer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -421,6 +429,7 @@
     {
       "id": "hellfyre_missile_rack",
       "name": "Hellfyre missile rack",
+      "group": "Hellfyre missile rack",
       "type": "ranged",
       "range": "36\"",
       "attacks": "2",
@@ -440,6 +449,7 @@
     {
       "id": "inferno_boltgun",
       "name": "Inferno boltgun",
+      "group": "Inferno boltgun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -452,6 +462,7 @@
     {
       "id": "inferno_combi_bolter",
       "name": "Inferno combi-bolter",
+      "group": "Inferno combi-bolter",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -464,6 +475,7 @@
     {
       "id": "inferno_combi_weapon",
       "name": "Inferno combi-weapon",
+      "group": "Inferno combi-weapon",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -476,6 +488,7 @@
     {
       "id": "pandaemonic_delusion",
       "name": "Pandæmonic Delusion",
+      "group": "Pandæmonic Delusion",
       "type": "ranged",
       "range": "24\"",
       "attacks": "6",
@@ -488,6 +501,7 @@
     {
       "id": "soulreaper_cannon",
       "name": "Soulreaper cannon",
+      "group": "Soulreaper cannon",
       "type": "ranged",
       "range": "24\"",
       "attacks": "6",
@@ -500,6 +514,7 @@
     {
       "id": "warpflamer",
       "name": "Warpflamer",
+      "group": "Warpflamer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -512,6 +527,7 @@
     {
       "id": "autopistol",
       "name": "Autopistol",
+      "group": "Autopistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -524,6 +540,7 @@
     {
       "id": "inferno_bolt_pistol",
       "name": "Inferno bolt pistol",
+      "group": "Inferno bolt pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -536,6 +553,7 @@
     {
       "id": "warpflame_pistol",
       "name": "Warpflame pistol",
+      "group": "Warpflame pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "D6",
@@ -548,6 +566,7 @@
     {
       "id": "chainsword",
       "name": "Chainsword",
+      "group": "Chainsword",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -560,6 +579,7 @@
     {
       "id": "close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -572,6 +592,7 @@
     {
       "id": "divining_spear",
       "name": "Divining spear",
+      "group": "Divining spear",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -584,6 +605,7 @@
     {
       "id": "force_weapon",
       "name": "Force weapon",
+      "group": "Force weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -602,6 +624,7 @@
     {
       "id": "prosperine_khopesh",
       "name": "Prosperine khopesh",
+      "group": "Prosperine khopesh",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -630,6 +653,7 @@
     {
       "id": "tzaangor_blades",
       "name": "Tzaangor blades",
+      "group": "Tzaangor blades",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",

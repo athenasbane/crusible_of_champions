@@ -115,6 +115,7 @@
     {
       "id": "astartes_grenade_launcher_frag",
       "name": "Astartes grenade launcher — frag",
+      "group": "Astartes grenade launcher",
       "type": "ranged",
       "range": "24\"",
       "attacks": "D3",
@@ -128,6 +129,7 @@
     {
       "id": "astartes_grenade_launcher_krak",
       "name": "Astartes grenade launcher — krak",
+      "group": "Astartes grenade launcher",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -140,6 +142,7 @@
     {
       "id": "plasma_talon_standard",
       "name": "Plasma talon — standard",
+      "group": "Plasma talon",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2",
@@ -153,6 +156,7 @@
     {
       "id": "plasma_talon_supercharge",
       "name": "Plasma talon — supercharge",
+      "group": "Plasma talon",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2",
@@ -166,6 +170,7 @@
     {
       "id": "calibanite_greatsword_strike",
       "name": "Calibanite greatsword — strike",
+      "group": "Calibanite greatsword",
       "type": "melee",
       "range": "Melee",
       "attacks": 5,
@@ -179,6 +184,7 @@
     {
       "id": "calibanite_greatsword_sweep",
       "name": "Calibanite greatsword — sweep",
+      "group": "Calibanite greatsword",
       "type": "melee",
       "range": "Melee",
       "attacks": 5,
@@ -192,6 +198,7 @@
     {
       "id": "great_weapon_of_the_unforgiven",
       "name": "Great weapon of the Unforgiven",
+      "group": "Great weapon of the Unforgiven",
       "type": "melee",
       "range": "Melee",
       "attacks": 6,
@@ -211,6 +218,7 @@
     {
       "id": "relic_weapon",
       "name": "Relic weapon",
+      "group": "Relic weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": 6,

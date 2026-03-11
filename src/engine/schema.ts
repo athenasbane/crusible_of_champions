@@ -120,6 +120,7 @@ export const RequirementSchema: z.ZodType<Requirement> = z.lazy(() =>
 export const WeaponSchema = z.object({
   id: z.string(),
   name: z.string(),
+  group: z.string().optional(),
   type: z.enum(["ranged", "pistol", "melee"]),
   range: z.string(),
   attacks: z.string(),

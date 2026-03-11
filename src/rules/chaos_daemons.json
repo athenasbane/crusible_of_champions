@@ -671,8 +671,9 @@
   },
   "weapons": [
     {
-      "id": "infernal_cannon",
+      "id": "khorne_infernal_cannon",
       "name": "Infernal cannon",
+      "group": "Infernal cannon (Khorne)",
       "type": "ranged",
       "range": "24\"",
       "attacks": "3",
@@ -684,6 +685,10 @@
       "requirements": [
         {
           "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "keywordHas",
           "keyword": "Monster"
         }
       ]
@@ -691,6 +696,7 @@
     {
       "id": "deaths_heads",
       "name": "Death's heads",
+      "group": "Death's heads",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D3",
@@ -709,6 +715,7 @@
     {
       "id": "disgusting_sneezes",
       "name": "Disgusting sneezes",
+      "group": "Disgusting sneezes",
       "type": "ranged",
       "range": "6\"",
       "attacks": "D6",
@@ -724,10 +731,56 @@
         }
       ]
     },
-
+    {
+      "id": "nurgle_infernal_cannon",
+      "name": "Infernal cannon",
+      "group": "Infernal cannon (Nurgle)",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "slaanesh_infernal_cannon",
+      "name": "Infernal cannon",
+      "group": "Infernal cannon (Slaanesh)",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Precision"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
     {
       "id": "lashes_of_torment",
       "name": "Lashes of torment",
+      "group": "Lashes of torment",
       "type": "ranged",
       "range": "6\"",
       "attacks": "6",
@@ -746,6 +799,7 @@
     {
       "id": "arcane_fireball_witchfire",
       "name": "Arcane Fireball — witchfire",
+      "group": "Arcane Fireball",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -764,6 +818,7 @@
     {
       "id": "arcane_fireball_focused_witchfire",
       "name": "Arcane Fireball — focused witchfire",
+      "group": "Arcane Fireball",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -780,8 +835,32 @@
       ]
     },
     {
+      "id": "tzeentch_infernal_cannon",
+      "name": "Infernal cannon",
+      "group": "Infernal cannon (Tzeentch)",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
       "id": "attendants_hellblades",
       "name": "Attendants' hellblades",
+      "group": "Attendants' hellblades",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -804,6 +883,7 @@
     {
       "id": "blade_of_blood",
       "name": "Blade of blood",
+      "group": "Blade of blood",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -820,8 +900,9 @@
       ]
     },
     {
-      "id": "hellforged_weapons_strike",
+      "id": "khorne_hellforged_weapons_strike",
       "name": "Hellforged weapons — strike",
+      "group": "Hellforged weapons (Khorne)",
       "type": "melee",
       "range": "Melee",
       "attacks": "8",
@@ -833,13 +914,18 @@
       "requirements": [
         {
           "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "keywordHas",
           "keyword": "Monster"
         }
       ]
     },
     {
-      "id": "hellforged_weapons_sweep",
+      "id": "khorne_hellforged_weapons_sweep",
       "name": "Hellforged weapons — sweep",
+      "group": "Hellforged weapons (Khorne)",
       "type": "melee",
       "range": "Melee",
       "attacks": "16",
@@ -851,6 +937,10 @@
       "requirements": [
         {
           "kind": "keywordHas",
+          "keyword": "Khorne"
+        },
+        {
+          "kind": "keywordHas",
           "keyword": "Monster"
         }
       ]
@@ -858,6 +948,7 @@
     {
       "id": "juggernauts_bladed_horn",
       "name": "Juggernaut's bladed horn",
+      "group": "Juggernaut's bladed horn",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -881,6 +972,7 @@
     {
       "id": "acidic_maw",
       "name": "Acidic maw",
+      "group": "Acidic maw",
       "type": "melee",
       "range": "Melee",
       "attacks": "2",
@@ -903,6 +995,7 @@
     {
       "id": "diseased_claws_and_teeth",
       "name": "Diseased claws and teeth",
+      "group": "Diseased claws and teeth",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -921,6 +1014,7 @@
     {
       "id": "foul_balesword",
       "name": "Foul balesword",
+      "group": "Foul balesword",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -939,6 +1033,7 @@
     {
       "id": "foul_mouthparts",
       "name": "Foul mouthparts",
+      "group": "Foul mouthparts",
       "type": "melee",
       "range": "Melee",
       "attacks": "2",
@@ -959,8 +1054,55 @@
       ]
     },
     {
+      "id": "nurgle_hellforged_weapons_strike",
+      "name": "Hellforged weapons — strike",
+      "group": "Hellforged weapons (Nurgle)",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "nurgle_hellforged_weapons_sweep",
+      "name": "Hellforged weapons — sweep",
+      "group": "Hellforged weapons (Nurgle)",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "14",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Nurgle"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
       "id": "tiny_balesword",
       "name": "Tiny balesword",
+      "group": "Tiny balesword",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -979,6 +1121,7 @@
     {
       "id": "tiny_corrupted_staff",
       "name": "Tiny corrupted staff",
+      "group": "Tiny corrupted staff",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -997,6 +1140,7 @@
     {
       "id": "bladed_axle",
       "name": "Bladed axle",
+      "group": "Bladed axle",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -1016,10 +1160,56 @@
         }
       ]
     },
-
+    {
+      "id": "slaanesh_hellforged_weapons_strike",
+      "name": "Hellforged weapons — strike",
+      "group": "Hellforged weapons (Slaanesh)",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Precision"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "slaanesh_hellforged_weapons_sweep",
+      "name": "Hellforged weapons — sweep",
+      "group": "Hellforged weapons (Slaanesh)",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "14",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Slaanesh"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
     {
       "id": "lashing_tongue",
       "name": "Lashing tongue",
+      "group": "Lashing tongue",
       "type": "melee",
       "range": "Melee",
       "attacks": "2",
@@ -1042,6 +1232,7 @@
     {
       "id": "ravaging_claws",
       "name": "Ravaging claws",
+      "group": "Ravaging claws",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -1060,6 +1251,7 @@
     {
       "id": "seeker_tongues",
       "name": "Seeker tongues",
+      "group": "Seeker tongues",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -1082,6 +1274,7 @@
     {
       "id": "tzeentch_close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -1097,10 +1290,56 @@
         }
       ]
     },
-
+    {
+      "id": "tzeentch_hellforged_weapons_strike",
+      "name": "Hellforged weapons — strike",
+      "group": "Hellforged weapons (Tzeentch)",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Devastating Wounds", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
+    {
+      "id": "tzeentch_hellforged_weapons_sweep",
+      "name": "Hellforged weapons — sweep",
+      "group": "Hellforged weapons (Tzeentch)",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "12",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Devastating Wounds", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Tzeentch"
+        },
+        {
+          "kind": "keywordHas",
+          "keyword": "Monster"
+        }
+      ]
+    },
     {
       "id": "screamer_bites",
       "name": "Screamer bites",
+      "group": "Screamer bites",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",

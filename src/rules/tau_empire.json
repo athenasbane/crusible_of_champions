@@ -364,6 +364,7 @@
     {
       "id": "blast_javelin",
       "name": "Blast javelin",
+      "group": "Blast javelin",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -377,6 +378,7 @@
     {
       "id": "burst_cannon",
       "name": "Burst cannon",
+      "group": "Burst cannon",
       "type": "ranged",
       "range": "18\"",
       "attacks": "4",
@@ -390,6 +392,7 @@
     {
       "id": "dart_bow_and_tri_blade",
       "name": "Dart-bow and tri-blade",
+      "group": "Dart-bow and tri-blade",
       "type": "ranged",
       "range": "24\"",
       "attacks": "D3+1",
@@ -403,6 +406,7 @@
     {
       "id": "dvorgit_skinner",
       "name": "Dvorgit skinner",
+      "group": "Dvorgit skinner",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -416,6 +420,7 @@
     {
       "id": "fireblade_pulse_rifle",
       "name": "Fireblade pulse rifle",
+      "group": "Fireblade pulse rifle",
       "type": "ranged",
       "range": "30\"",
       "attacks": "1",
@@ -429,6 +434,7 @@
     {
       "id": "fusion_blaster",
       "name": "Fusion blaster",
+      "group": "Fusion blaster",
       "type": "ranged",
       "range": "12\"",
       "attacks": "1",
@@ -442,6 +448,7 @@
     {
       "id": "heavy_rail_rifle",
       "name": "Heavy rail rifle",
+      "group": "Heavy rail rifle",
       "type": "ranged",
       "range": "60\"",
       "attacks": "2",
@@ -462,6 +469,7 @@
     {
       "id": "high_yield_missile_pods",
       "name": "High-yield missile pods",
+      "group": "High-yield missile pods",
       "type": "ranged",
       "range": "30\"",
       "attacks": "6",
@@ -482,6 +490,7 @@
     {
       "id": "ion_rifle_standard",
       "name": "Ion rifle — standard",
+      "group": "Ion rifle",
       "type": "ranged",
       "range": "30\"",
       "attacks": "3",
@@ -495,6 +504,7 @@
     {
       "id": "ion_rifle_overcharge",
       "name": "Ion rifle — overcharge",
+      "group": "Ion rifle",
       "type": "ranged",
       "range": "30\"",
       "attacks": "3",
@@ -508,6 +518,7 @@
     {
       "id": "kroot_carbine",
       "name": "Kroot carbine",
+      "group": "Kroot carbine",
       "type": "ranged",
       "range": "18\"",
       "attacks": "1",
@@ -521,6 +532,7 @@
     {
       "id": "kroot_long_gun",
       "name": "Kroot long gun",
+      "group": "Kroot long gun",
       "type": "ranged",
       "range": "36\"",
       "attacks": "1",
@@ -534,6 +546,7 @@
     {
       "id": "kroot_rifle",
       "name": "Kroot rifle",
+      "group": "Kroot rifle",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -547,6 +560,7 @@
     {
       "id": "kroot_scattergun",
       "name": "Kroot scattergun",
+      "group": "Kroot scattergun",
       "type": "ranged",
       "range": "12\"",
       "attacks": "2",
@@ -560,6 +574,7 @@
     {
       "id": "londaxi_tribeblast",
       "name": "Londaxi tribeblast",
+      "group": "Londaxi tribeblast",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -573,6 +588,7 @@
     {
       "id": "pulse_blaster",
       "name": "Pulse blaster",
+      "group": "Pulse blaster",
       "type": "ranged",
       "range": "10\"",
       "attacks": "2",
@@ -586,6 +602,7 @@
     {
       "id": "pulse_carbine",
       "name": "Pulse carbine",
+      "group": "Pulse carbine",
       "type": "ranged",
       "range": "20\"",
       "attacks": "2",
@@ -599,6 +616,7 @@
     {
       "id": "rail_rifle",
       "name": "Rail rifle",
+      "group": "Rail rifle",
       "type": "ranged",
       "range": "30\"",
       "attacks": "1",
@@ -612,6 +630,7 @@
     {
       "id": "seeker_missile",
       "name": "Seeker missile",
+      "group": "Seeker missile",
       "type": "ranged",
       "range": "48\"",
       "attacks": "1",
@@ -625,6 +644,7 @@
     {
       "id": "semi_automatic_grenade_launcher_emp",
       "name": "Semi-automatic grenade launcher — EMP",
+      "group": "Semi-automatic grenade launcher",
       "type": "ranged",
       "range": "18\"",
       "attacks": "1",
@@ -638,6 +658,7 @@
     {
       "id": "semi_automatic_grenade_launcher_fusion",
       "name": "Semi-automatic grenade launcher — fusion",
+      "group": "Semi-automatic grenade launcher",
       "type": "ranged",
       "range": "18\"",
       "attacks": "1",
@@ -651,6 +672,7 @@
     {
       "id": "tanglebomb_launcher",
       "name": "Tanglebomb launcher",
+      "group": "Tanglebomb launcher",
       "type": "ranged",
       "range": "24\"",
       "attacks": "D3",
@@ -664,6 +686,7 @@
     {
       "id": "twin_plasma_rifle",
       "name": "Twin plasma rifle",
+      "group": "Twin plasma rifle",
       "type": "ranged",
       "range": "18\"",
       "attacks": "1",
@@ -693,6 +716,7 @@
     {
       "id": "twin_smart_missile_system",
       "name": "Twin smart missile system",
+      "group": "Twin smart missile system",
       "type": "ranged",
       "range": "30\"",
       "attacks": "4",
@@ -723,6 +747,7 @@
     {
       "id": "kroot_pistol",
       "name": "Kroot pistol",
+      "group": "Kroot pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -736,6 +761,7 @@
     {
       "id": "kroot_pistol_and_hunting_javelins",
       "name": "Kroot pistol and hunting javelins",
+      "group": "Kroot pistol and hunting javelins",
       "type": "pistol",
       "range": "12\"",
       "attacks": "2",
@@ -755,6 +781,7 @@
     {
       "id": "pulse_pistol",
       "name": "Pulse pistol",
+      "group": "Pulse pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -769,6 +796,7 @@
     {
       "id": "bladestave_and_prey_hook",
       "name": "Bladestave and prey-hook",
+      "group": "Bladestave and prey-hook",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -782,6 +810,7 @@
     {
       "id": "close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -795,6 +824,7 @@
     {
       "id": "crushing_blow",
       "name": "Crushing blow",
+      "group": "Crushing blow",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -808,6 +838,7 @@
     {
       "id": "hunting_blades",
       "name": "Hunting blades",
+      "group": "Hunting blades",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -821,6 +852,7 @@
     {
       "id": "kalamandras_bite",
       "name": "Kalamandra's bite",
+      "group": "Kalamandra's bite",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -841,6 +873,7 @@
     {
       "id": "rampager_fists",
       "name": "Rampager fists",
+      "group": "Rampager fists",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -861,6 +894,7 @@
     {
       "id": "shapers_blade",
       "name": "Shaper's blade",
+      "group": "Shaper's blade",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -874,6 +908,7 @@
     {
       "id": "twin_hunting_blades",
       "name": "Twin hunting blades",
+      "group": "Twin hunting blades",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",

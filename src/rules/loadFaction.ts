@@ -117,6 +117,7 @@ function normalizeWeapons(weapons: unknown) {
 
     return {
       ...weapon,
+      group: weapon.group,
       range: weapon.range != null ? String(weapon.range) : weapon.range,
       attacks: weapon.attacks != null ? String(weapon.attacks) : weapon.attacks,
       strength:

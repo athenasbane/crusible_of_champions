@@ -345,6 +345,7 @@
     {
       "id": "abyssal_lance_ranged",
       "name": "Abyssal lance",
+      "group": "Abyssal lance",
       "type": "ranged",
       "range": "18\"",
       "attacks": "1",
@@ -358,6 +359,7 @@
     {
       "id": "chronomancers_stave_ranged",
       "name": "Chronomancer's stave",
+      "group": "Chronomancer's stave",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6",
@@ -377,6 +379,7 @@
     {
       "id": "enmitic_annihilator",
       "name": "Enmitic annihilator",
+      "group": "Enmitic annihilator",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2",
@@ -396,6 +399,7 @@
     {
       "id": "enmitic_exterminator",
       "name": "Enmitic exterminator",
+      "group": "Enmitic exterminator",
       "type": "ranged",
       "range": "36\"",
       "attacks": "6",
@@ -415,6 +419,7 @@
     {
       "id": "gauss_cannon",
       "name": "Gauss cannon",
+      "group": "Gauss cannon",
       "type": "ranged",
       "range": "24\"",
       "attacks": "3",
@@ -434,6 +439,7 @@
     {
       "id": "gauss_destructor",
       "name": "Gauss destructor",
+      "group": "Gauss destructor",
       "type": "ranged",
       "range": "48\"",
       "attacks": "1",
@@ -453,6 +459,7 @@
     {
       "id": "heat_ray_dispersed",
       "name": "Heat ray — dispersed",
+      "group": "Heat ray",
       "type": "ranged",
       "range": "12\"",
       "attacks": "2D6",
@@ -472,6 +479,7 @@
     {
       "id": "heat_ray_focused",
       "name": "Heat ray — focused",
+      "group": "Heat ray",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2",
@@ -491,6 +499,7 @@
     {
       "id": "heavy_gauss_cannon_array",
       "name": "Heavy gauss cannon array",
+      "group": "Heavy gauss cannon array",
       "type": "ranged",
       "range": "24\"",
       "attacks": "6",
@@ -510,6 +519,7 @@
     {
       "id": "particle_caster",
       "name": "Particle caster",
+      "group": "Particle caster",
       "type": "ranged",
       "range": "12\"",
       "attacks": "3",
@@ -523,6 +533,7 @@
     {
       "id": "particle_shredder",
       "name": "Particle shredder",
+      "group": "Particle shredder",
       "type": "ranged",
       "range": "18\"",
       "attacks": "D6+6",
@@ -542,6 +553,7 @@
     {
       "id": "plasmic_lance_ranged",
       "name": "Plasmic lance",
+      "group": "Plasmic lance",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -561,6 +573,7 @@
     {
       "id": "relic_gauss_blaster",
       "name": "Relic gauss blaster",
+      "group": "Relic gauss blaster",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -574,6 +587,7 @@
     {
       "id": "rod_of_covenant_ranged",
       "name": "Rod of covenant",
+      "group": "Rod of covenant",
       "type": "ranged",
       "range": "12\"",
       "attacks": "1",
@@ -587,6 +601,7 @@
     {
       "id": "staff_of_light_ranged",
       "name": "Staff of light",
+      "group": "Staff of light",
       "type": "ranged",
       "range": "18\"",
       "attacks": "3",
@@ -600,6 +615,7 @@
     {
       "id": "tachyon_arrow",
       "name": "Tachyon arrow",
+      "group": "Tachyon arrow",
       "type": "ranged",
       "range": "72\"",
       "attacks": "1",
@@ -614,6 +630,7 @@
     {
       "id": "abyssal_lance_melee",
       "name": "Abyssal lance",
+      "group": "Abyssal lance",
       "type": "melee",
       "range": "Melee",
       "attacks": "1",
@@ -627,6 +644,7 @@
     {
       "id": "chronomancers_stave_melee",
       "name": "Chronomancer's stave",
+      "group": "Chronomancer's stave",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -646,6 +664,7 @@
     {
       "id": "close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -659,6 +678,7 @@
     {
       "id": "flayer_claws",
       "name": "Flayer claws",
+      "group": "Flayer claws",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -672,6 +692,7 @@
     {
       "id": "flensing_claw",
       "name": "Flensing claw",
+      "group": "Flensing claw",
       "type": "melee",
       "range": "Melee",
       "attacks": "8",
@@ -691,6 +712,7 @@
     {
       "id": "hyperphase_harvester",
       "name": "Hyperphase harvester",
+      "group": "Hyperphase harvester",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -710,6 +732,7 @@
     {
       "id": "hyperphase_sword",
       "name": "Hyperphase sword",
+      "group": "Hyperphase sword",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -723,6 +746,7 @@
     {
       "id": "lords_blade",
       "name": "Lord's blade",
+      "group": "Lord's blade",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -736,6 +760,7 @@
     {
       "id": "ophydian_hyperphase_weapons",
       "name": "Ophydian hyperphase weapons",
+      "group": "Ophydian hyperphase weapons",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -755,6 +780,7 @@
     {
       "id": "plasmic_lance_melee",
       "name": "Plasmic lance",
+      "group": "Plasmic lance",
       "type": "melee",
       "range": "Melee",
       "attacks": "2",
@@ -774,6 +800,7 @@
     {
       "id": "rod_of_covenant_melee",
       "name": "Rod of covenant",
+      "group": "Rod of covenant",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -787,6 +814,7 @@
     {
       "id": "skorpekh_hyperphase_weapons",
       "name": "Skorpekh hyperphase weapons",
+      "group": "Skorpekh hyperphase weapons",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -806,6 +834,7 @@
     {
       "id": "staff_of_light_melee",
       "name": "Staff of light",
+      "group": "Staff of light",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -819,6 +848,7 @@
     {
       "id": "stalkers_forelimbs",
       "name": "Stalker's forelimbs",
+      "group": "Stalker's forelimbs",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -838,6 +868,7 @@
     {
       "id": "voidblade",
       "name": "Voidblade",
+      "group": "Voidblade",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -851,6 +882,7 @@
     {
       "id": "voidscythe",
       "name": "Voidscythe",
+      "group": "Voidscythe",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",
@@ -864,6 +896,7 @@
     {
       "id": "warscythe",
       "name": "Warscythe",
+      "group": "Warscythe",
       "type": "melee",
       "range": "Melee",
       "attacks": "2",

@@ -268,6 +268,7 @@
     {
       "id": "blight_launcher",
       "name": "Blight launcher",
+      "group": "Blight launcher",
       "type": "ranged",
       "range": "24\"",
       "attacks": "D3",
@@ -280,6 +281,7 @@
     {
       "id": "boltgun",
       "name": "Boltgun",
+      "group": "Boltgun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -292,6 +294,7 @@
     {
       "id": "combi_bolter",
       "name": "Combi-bolter",
+      "group": "Combi-bolter",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -304,6 +307,7 @@
     {
       "id": "combi_weapon",
       "name": "Combi-weapon",
+      "group": "Combi-weapon",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -316,6 +320,7 @@
     {
       "id": "hyper_blight_grenades",
       "name": "Hyper blight grenades",
+      "group": "Hyper blight grenades",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -328,6 +333,7 @@
     {
       "id": "meltagun",
       "name": "Meltagun",
+      "group": "Meltagun",
       "type": "ranged",
       "range": "12\"",
       "attacks": "1",
@@ -340,6 +346,7 @@
     {
       "id": "plague_belcher",
       "name": "Plague belcher",
+      "group": "Plague belcher",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -352,6 +359,7 @@
     {
       "id": "plague_spewer",
       "name": "Plague spewer",
+      "group": "Plague spewer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -364,6 +372,7 @@
     {
       "id": "plague_sprayer",
       "name": "Plague sprayer",
+      "group": "Plague sprayer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -383,6 +392,7 @@
     {
       "id": "plague_wind_witchfire",
       "name": "Plague Wind — witchfire",
+      "group": "Plague Wind",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -401,6 +411,7 @@
     {
       "id": "plague_wind_focused_witchfire",
       "name": "Plague Wind — focused witchfire",
+      "group": "Plague Wind",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6+3",
@@ -419,6 +430,7 @@
     {
       "id": "plasma_gun_standard",
       "name": "Plasma gun — standard",
+      "group": "Plasma gun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -431,6 +443,7 @@
     {
       "id": "plasma_gun_supercharge",
       "name": "Plasma gun — supercharge",
+      "group": "Plasma gun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -443,6 +456,7 @@
     {
       "id": "reaper_autocannon",
       "name": "Reaper autocannon",
+      "group": "Reaper autocannon",
       "type": "ranged",
       "range": "36\"",
       "attacks": "4",
@@ -462,6 +476,7 @@
     {
       "id": "twin_plague_spewer",
       "name": "Twin plague spewer",
+      "group": "Twin plague spewer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -485,6 +500,7 @@
     {
       "id": "bolt_pistol",
       "name": "Bolt pistol",
+      "group": "Bolt pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -497,6 +513,7 @@
     {
       "id": "injector_pistol",
       "name": "Injector pistol",
+      "group": "Injector pistol",
       "type": "pistol",
       "range": "3\"",
       "attacks": "1",
@@ -509,6 +526,7 @@
     {
       "id": "plaguespurt_gauntlet",
       "name": "Plaguespurt gauntlet",
+      "group": "Plaguespurt gauntlet",
       "type": "pistol",
       "range": "12\"",
       "attacks": "D6",
@@ -528,6 +546,7 @@
     {
       "id": "plasma_pistol_standard",
       "name": "Plasma pistol — standard",
+      "group": "Plasma pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -540,6 +559,7 @@
     {
       "id": "plasma_pistol_supercharge",
       "name": "Plasma pistol — supercharge",
+      "group": "Plasma pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -552,6 +572,7 @@
     {
       "id": "balesword",
       "name": "Balesword",
+      "group": "Balesword",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -564,6 +585,7 @@
     {
       "id": "bubotic_weapons",
       "name": "Bubotic weapons",
+      "group": "Bubotic weapons",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -576,6 +598,7 @@
     {
       "id": "close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -588,6 +611,7 @@
     {
       "id": "corrupted_staff",
       "name": "Corrupted staff",
+      "group": "Corrupted staff",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -606,6 +630,7 @@
     {
       "id": "cursed_plague_bell",
       "name": "Cursed plague bell",
+      "group": "Cursed plague bell",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -618,6 +643,7 @@
     {
       "id": "flail_of_corruption",
       "name": "Flail of corruption",
+      "group": "Flail of corruption",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -630,6 +656,7 @@
     {
       "id": "great_plague_blade",
       "name": "Great plague blade",
+      "group": "Great plague blade",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -648,6 +675,7 @@
     {
       "id": "heavy_plague_weapon",
       "name": "Heavy plague weapon",
+      "group": "Heavy plague weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -660,6 +688,7 @@
     {
       "id": "manreaper_strike",
       "name": "Manreaper — strike",
+      "group": "Manreaper",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -679,6 +708,7 @@
     {
       "id": "manreaper_sweep",
       "name": "Manreaper — sweep",
+      "group": "Manreaper",
       "type": "melee",
       "range": "Melee",
       "attacks": "10",
@@ -698,6 +728,7 @@
     {
       "id": "plague_knife",
       "name": "Plague knife",
+      "group": "Plague knife",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -710,6 +741,7 @@
     {
       "id": "power_fist",
       "name": "Power fist",
+      "group": "Power fist",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",

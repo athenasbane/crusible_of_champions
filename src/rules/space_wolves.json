@@ -212,6 +212,7 @@
     {
       "id": "stormfrag_auto_launcher",
       "name": "Stormfrag auto-launcher",
+      "group": "Stormfrag auto-launcher",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D3",
@@ -224,6 +225,7 @@
     {
       "id": "helfrost_pistol_dispersed",
       "name": "Helfrost pistol — dispersed",
+      "group": "Helfrost pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "D6",
@@ -236,6 +238,7 @@
     {
       "id": "helfrost_pistol_focused",
       "name": "Helfrost pistol — focused",
+      "group": "Helfrost pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -248,6 +251,7 @@
     {
       "id": "teeth_and_claws",
       "name": "Teeth and claws",
+      "group": "Teeth and claws",
       "type": "melee",
       "range": "Melee",
       "attacks": "3",

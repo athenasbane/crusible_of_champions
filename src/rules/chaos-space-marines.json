@@ -369,6 +369,7 @@
     {
       "id": "balefire_tome",
       "name": "Balefire tome",
+      "group": "Balefire tome",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2",
@@ -387,6 +388,7 @@
     {
       "id": "baleflamer",
       "name": "Baleflamer",
+      "group": "Baleflamer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6+3",
@@ -405,6 +407,7 @@
     {
       "id": "boltgun",
       "name": "Boltgun",
+      "group": "Boltgun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -417,6 +420,7 @@
     {
       "id": "combi_bolter",
       "name": "Combi-bolter",
+      "group": "Combi-bolter",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -429,6 +433,7 @@
     {
       "id": "combi_weapon",
       "name": "Combi-weapon",
+      "group": "Combi-weapon",
       "type": "ranged",
       "range": "24\"",
       "attacks": "2",
@@ -441,6 +446,7 @@
     {
       "id": "flamer",
       "name": "Flamer",
+      "group": "Flamer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -453,6 +459,7 @@
     {
       "id": "heavy_flamer",
       "name": "Heavy flamer",
+      "group": "Heavy flamer",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -465,6 +472,7 @@
     {
       "id": "helstalker_autocannon",
       "name": "Helstalker autocannon",
+      "group": "Helstalker autocannon",
       "type": "ranged",
       "range": "48\"",
       "attacks": "3",
@@ -483,6 +491,7 @@
     {
       "id": "infernal_gaze_witchfire",
       "name": "Infernal Gaze — witchfire",
+      "group": "Infernal Gaze",
       "type": "ranged",
       "range": "24\"",
       "attacks": "D6",
@@ -501,6 +510,7 @@
     {
       "id": "infernal_gaze_focused_witchfire",
       "name": "Infernal Gaze — focused witchfire",
+      "group": "Infernal Gaze",
       "type": "ranged",
       "range": "24\"",
       "attacks": "D6",
@@ -519,6 +529,7 @@
     {
       "id": "magma_cutter",
       "name": "Magma cutter",
+      "group": "Magma cutter",
       "type": "ranged",
       "range": "6\"",
       "attacks": "2",
@@ -537,6 +548,7 @@
     {
       "id": "meltagun",
       "name": "Meltagun",
+      "group": "Meltagun",
       "type": "ranged",
       "range": "12\"",
       "attacks": "1",
@@ -549,6 +561,7 @@
     {
       "id": "plasma_gun_standard",
       "name": "Plasma gun — standard",
+      "group": "Plasma gun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -561,6 +574,7 @@
     {
       "id": "plasma_gun_supercharge",
       "name": "Plasma gun — supercharge",
+      "group": "Plasma gun",
       "type": "ranged",
       "range": "24\"",
       "attacks": "1",
@@ -573,6 +587,7 @@
     {
       "id": "reaper_autocannon",
       "name": "Reaper autocannon",
+      "group": "Reaper autocannon",
       "type": "ranged",
       "range": "36\"",
       "attacks": "4",
@@ -592,6 +607,7 @@
     {
       "id": "rite_of_possession_witchfire",
       "name": "Rite of Possession — witchfire",
+      "group": "Rite of Possession",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2",
@@ -610,6 +626,7 @@
     {
       "id": "rite_of_possession_focused_witchfire",
       "name": "Rite of Possession — focused witchfire",
+      "group": "Rite of Possession",
       "type": "ranged",
       "range": "18\"",
       "attacks": "2",
@@ -634,6 +651,7 @@
     {
       "id": "bolt_pistol",
       "name": "Bolt pistol",
+      "group": "Bolt pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -646,6 +664,7 @@
     {
       "id": "flamer_tendril",
       "name": "Flamer tendril",
+      "group": "Flamer tendril",
       "type": "pistol",
       "range": "12\"",
       "attacks": "D6",
@@ -664,6 +683,7 @@
     {
       "id": "melta_tendril",
       "name": "Melta tendril",
+      "group": "Melta tendril",
       "type": "pistol",
       "range": "6\"",
       "attacks": "1",
@@ -682,6 +702,7 @@
     {
       "id": "plasma_pistol_standard",
       "name": "Plasma pistol — standard",
+      "group": "Plasma pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -694,6 +715,7 @@
     {
       "id": "plasma_pistol_supercharge",
       "name": "Plasma pistol — supercharge",
+      "group": "Plasma pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "1",
@@ -706,6 +728,7 @@
     {
       "id": "accursed_weapon",
       "name": "Accursed weapon",
+      "group": "Accursed weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -718,6 +741,7 @@
     {
       "id": "astartes_chainblade",
       "name": "Astartes chainblade",
+      "group": "Astartes chainblade",
       "type": "melee",
       "range": "Melee",
       "attacks": "7",
@@ -730,6 +754,7 @@
     {
       "id": "axe_of_dismemberment",
       "name": "Axe of dismemberment",
+      "group": "Axe of dismemberment",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -742,6 +767,7 @@
     {
       "id": "bladed_limbs",
       "name": "Bladed limbs",
+      "group": "Bladed limbs",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -760,6 +786,7 @@
     {
       "id": "chainfist",
       "name": "Chainfist",
+      "group": "Chainfist",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -779,6 +806,7 @@
     {
       "id": "close_combat_weapon",
       "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -791,6 +819,7 @@
     {
       "id": "daemon_hammer",
       "name": "Daemon hammer",
+      "group": "Daemon hammer",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -803,6 +832,7 @@
     {
       "id": "exalted_weapon",
       "name": "Exalted weapon",
+      "group": "Exalted weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -815,6 +845,7 @@
     {
       "id": "force_weapon",
       "name": "Force weapon",
+      "group": "Force weapon",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -833,6 +864,7 @@
     {
       "id": "impaler_chainglaive",
       "name": "Impaler chainglaive",
+      "group": "Impaler chainglaive",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -845,6 +877,7 @@
     {
       "id": "power_fist",
       "name": "Power fist",
+      "group": "Power fist",
       "type": "melee",
       "range": "Melee",
       "attacks": "5",
@@ -857,6 +890,7 @@
     {
       "id": "staff_of_possession",
       "name": "Staff of possession",
+      "group": "Staff of possession",
       "type": "melee",
       "range": "Melee",
       "attacks": "4",
@@ -875,6 +909,7 @@
     {
       "id": "technovirus_injector",
       "name": "Technovirus injector",
+      "group": "Technovirus injector",
       "type": "melee",
       "range": "Melee",
       "attacks": "1",
@@ -887,6 +922,7 @@
     {
       "id": "twin_lightning_claws",
       "name": "Twin lightning claws",
+      "group": "Twin lightning claws",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",

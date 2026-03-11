@@ -80,6 +80,7 @@
     {
       "id": "pyreblaster",
       "name": "Pyreblaster",
+      "group": "Pyreblaster",
       "type": "ranged",
       "range": "12\"",
       "attacks": "D6",
@@ -93,6 +94,7 @@
     {
       "id": "pyre_pistol",
       "name": "Pyre pistol",
+      "group": "Pyre pistol",
       "type": "pistol",
       "range": "12\"",
       "attacks": "D6",
@@ -106,6 +108,7 @@
     {
       "id": "black_sword_strike",
       "name": "Black Sword — strike",
+      "group": "Black Sword",
       "type": "melee",
       "range": "Melee",
       "attacks": "6",
@@ -119,6 +122,7 @@
     {
       "id": "black_sword_sweep",
       "name": "Black Sword — sweep",
+      "group": "Black Sword",
       "type": "melee",
       "range": "Melee",
       "attacks": "10",

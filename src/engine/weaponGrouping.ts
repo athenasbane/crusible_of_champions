@@ -4,13 +4,16 @@ function normalizeName(value: string) {
   return value.trim().toLowerCase();
 }
 
-export function getWeaponGroupName(name: string) {
-  const parts = name.split(/\s+[—-]\s+/);
-  return parts[0]?.trim() || name;
+export function getWeaponGroupName(weapon: Weapon) {
+  if (weapon.group && weapon.group.trim().length > 0) {
+    return weapon.group.trim();
+  }
+
+  return weapon.name.trim();
 }
 
 export function getWeaponGroupKey(weapon: Weapon) {
-  return `${weapon.type}:${normalizeName(getWeaponGroupName(weapon.name))}`;
+  return `${weapon.type}:${normalizeName(getWeaponGroupName(weapon))}`;
 }
 
 export function groupWeapons(weapons: readonly Weapon[]) {
@@ -31,7 +34,7 @@ export function groupWeapons(weapons: readonly Weapon[]) {
     grouped.set(key, {
       key,
       type: weapon.type,
-      name: getWeaponGroupName(weapon.name),
+      name: getWeaponGroupName(weapon),
       weapons: [weapon],
     });
   }
