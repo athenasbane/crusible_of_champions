@@ -1,0 +1,659 @@
+{
+  "id": "genestealer_cults",
+  "name": "Genestealer Cults",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 3,
+      "melee": 3
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "cult_insurrectionist",
+      "name": "Cult Insurrectionist",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 5,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 80,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deep Strike, Leader"
+        },
+        {
+          "title": "Cult Demagogue",
+          "text": "While this model is leading a unit, each time a model in that unit makes an attack, you can re-roll the Hit roll."
+        }
+      ],
+      "leaderUnits": [
+        "Acolyte Hybrids with Hand Flamers",
+        "Acolyte Hybrids with Autopistols",
+        "Hybrid Metamorphs",
+        "Neophyte Hybrids"
+      ],
+      "unitComposition": "1 Cult Insurrectionist",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Great Devourer",
+        "Cult Insurrectionist"
+      ],
+      "factionKeywords": ["Genestealer Cults"]
+    },
+    {
+      "id": "cult_guerrilla",
+      "name": "Cult Guerrilla",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 5,
+        "wounds": 3,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 60,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deep Strike, Infiltrators, Leader, Lone Operative, Stealth"
+        },
+        {
+          "title": "Battlefield Analysis",
+          "text": "Once per battle round, one model from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP."
+        }
+      ],
+      "leaderUnits": [
+        "Acolyte Hybrids with Hand Flamers",
+        "Acolyte Hybrids with Autopistols",
+        "Hybrid Metamorphs",
+        "Neophyte Hybrids"
+      ],
+      "unitComposition": "1 Cult Guerrilla",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Great Devourer",
+        "Cult Guerrilla"
+      ],
+      "factionKeywords": ["Genestealer Cults"]
+    },
+    {
+      "id": "voice_of_the_patriarch",
+      "name": "Voice of the Patriarch",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 5,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 70,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deep Strike, Leader"
+        },
+        {
+          "title": "Biohorror Disruption (Psychic)",
+          "text": "Ranged weapons equipped by models in this unit have the [LETHAL HITS] ability."
+        }
+      ],
+      "leaderUnits": [
+        "Acolyte Hybrids with Hand Flamers",
+        "Acolyte Hybrids with Autopistols",
+        "Hybrid Metamorphs",
+        "Neophyte Hybrids"
+      ],
+      "unitComposition": "1 Voice of the Patriarch",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Psyker",
+        "Great Devourer",
+        "Voice of the Patriarch"
+      ],
+      "factionKeywords": ["Genestealer Cults"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "dirtcycle",
+        "name": "Dirtcycle",
+        "text": "Change this model's Move characteristic to 12\", its Toughness characteristic to 4, remove the INFANTRY keyword and add the MOUNTED keyword. Remove Deep Strike and Infiltrators abilities (if applicable). It gains Scouts 9\" and Stealth. Replace the list of units this model can be attached to with ATALAN JACKALS.",
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 4
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Deep Strike"
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infiltrators"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted", "Scouts 9\"", "Stealth"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Atalan Jackals"]
+          }
+        ]
+      },
+      {
+        "id": "shepherd_of_the_blessed",
+        "name": "Shepherd of the Blessed",
+        "text": "Replace the list of units this model can be attached to: ABERRANTS.",
+        "points": 0,
+        "effects": [
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Aberrants"]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "blessed_venom",
+        "name": "Blessed Venom",
+        "text": "Melee weapons equipped by models in this unit have the [ANTI-INFANTRY 3+] ability."
+      },
+      {
+        "id": "elusive",
+        "name": "Elusive",
+        "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this model, if this model is not part of an Attached unit and is not within Engagement Range, it can make a Normal move up to 6\"."
+      },
+      {
+        "id": "insidious_evasion",
+        "name": "Insidious Evasion",
+        "text": "At the end of your opponent's Fight phase, if this unit is not within Engagement Range of enemy units, once per battle you may remove this unit from the battlefield and place it into Strategic Reserves."
+      },
+      {
+        "id": "psychic_spore",
+        "name": "Psychic Spore",
+        "text": "At the start of the first battle round select one enemy unit to be this model's prey. Each time this model makes an attack that targets that unit you can re-roll the Hit roll and the Wound roll."
+      },
+      {
+        "id": "shadow_killer",
+        "name": "Shadow Killer",
+        "text": "If this model is not part of an Attached unit and is equipped with no ranged weapons (excluding pistols), enemy units cannot use Fire Overwatch to shoot at this model."
+      },
+      {
+        "id": "spiritual_leader",
+        "name": "Spiritual Leader",
+        "text": "Once per battle, at the start of any phase, select one friendly Genestealer Cults unit that is Battle-shocked and within 12\". That unit is no longer Battle-shocked."
+      },
+      {
+        "id": "twisted_science",
+        "name": "Twisted Science",
+        "text": "While this model is leading a unit, melee weapons equipped by models in that unit have the [LETHAL HITS] ability."
+      },
+      {
+        "id": "voice_of_new_truths",
+        "name": "Voice of New Truths",
+        "text": "In your Command phase, one model from your army with this ability can use it. If it does, select one enemy unit within 18\". That enemy unit must take a Battle-shock test."
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "chemical_vials",
+      "name": "Chemical vials",
+      "group": "Chemical vials",
+      "type": "ranged",
+      "range": "6\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "1",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Anti-Infantry 2+"]
+    },
+    {
+      "id": "cult_sniper_rifle",
+      "name": "Cult sniper rifle",
+      "group": "Cult sniper rifle",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Anti-Psyker 2+", "Heavy", "Precision"]
+    },
+    {
+      "id": "demolition_charges",
+      "name": "Demolition charges",
+      "group": "Demolition charges",
+      "type": "ranged",
+      "range": "6\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Assault", "Blast", "One Shot"]
+    },
+    {
+      "id": "flamer",
+      "name": "Flamer",
+      "group": "Flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "grenade_launcher_frag",
+      "name": "Grenade launcher — frag",
+      "group": "Grenade launcher",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast"]
+    },
+    {
+      "id": "grenade_launcher_krak",
+      "name": "Grenade launcher — krak",
+      "group": "Grenade launcher",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": []
+    },
+    {
+      "id": "autopistol",
+      "name": "Autopistol",
+      "group": "Autopistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "anointed_pistol",
+      "name": "Anointed pistol",
+      "group": "Anointed pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "bio_dagger",
+      "name": "Bio-dagger",
+      "group": "Bio-dagger",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Anti-Infantry 3+", "Precision"]
+    },
+    {
+      "id": "cult_bonesword",
+      "name": "Cult bonesword",
+      "group": "Cult bonesword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "power_weapon",
+      "name": "Power weapon",
+      "group": "Power weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": []
+    },
+
+    {
+      "id": "heavy_stubber",
+      "name": "Heavy stubber",
+      "group": "Heavy stubber",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 3"]
+    },
+    {
+      "id": "hybrid_firearm",
+      "name": "Hybrid firearm",
+      "group": "Hybrid firearm",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "mining_laser",
+      "name": "Mining laser",
+      "group": "Mining laser",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "4+",
+      "strength": "10",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": ["Heavy"]
+    },
+    {
+      "id": "psionic_cascade_witchfire",
+      "name": "Psionic Cascade — witchfire",
+      "group": "Psionic Cascade",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": ["Ignores Cover", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "psionic_cascade_focused_witchfire",
+      "name": "Psionic Cascade — focused witchfire",
+      "group": "Psionic Cascade",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": ["Hazardous", "Ignores Cover", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "remote_explosives",
+      "name": "Remote explosives",
+      "group": "Remote explosives",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D6+3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast", "Indirect Fire"]
+    },
+    {
+      "id": "seismic_cannon",
+      "name": "Seismic cannon",
+      "group": "Seismic cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Heavy", "Rapid Fire 2"]
+    },
+    {
+      "id": "webber",
+      "name": "Webber",
+      "group": "Webber",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Devastating Wounds", "Torrent"]
+    },
+    {
+      "id": "hand_flamer",
+      "name": "Hand flamer",
+      "group": "Hand flamer",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Pistol", "Torrent"]
+    },
+    {
+      "id": "liberator_autostub",
+      "name": "Liberator autostub",
+      "group": "Liberator autostub",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Devastating Wounds", "Pistol"]
+    },
+    {
+      "id": "scoped_needle_pistol",
+      "name": "Scoped needle pistol",
+      "group": "Scoped needle pistol",
+      "type": "pistol",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "1",
+      "ap": "0",
+      "damage": "D3",
+      "keywords": ["Anti-Infantry 2+", "Ignores Cover", "Pistol"]
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "cult_claws_and_talons",
+      "name": "Cult claws and talons",
+      "group": "Cult claws and talons",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "force_stave",
+      "name": "Force stave*",
+      "group": "Force stave",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "heavy_mining_tool",
+      "name": "Heavy mining tool",
+      "group": "Heavy mining tool",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Anti-Vehicle 4+"]
+    },
+    {
+      "id": "injector_goad",
+      "name": "Injector goad",
+      "group": "Injector goad",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "D3",
+      "keywords": ["Anti-Infantry 2+"]
+    },
+    {
+      "id": "metamorph_mutations_strike",
+      "name": "Metamorph mutations — strike",
+      "group": "Metamorph mutations",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "metamorph_mutations_sweep",
+      "name": "Metamorph mutations — sweep",
+      "group": "Metamorph mutations",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "toxin_injector_claw",
+      "name": "Toxin injector claw",
+      "group": "Toxin injector claw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "D3",
+      "keywords": ["Anti-Infantry 2+", "Extra Attacks", "Max 1 per model"]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to three pistols, one to three melee weapons.",
+    "Before selecting targets for a weapon with multiple profiles, select one of its profiles to make attacks with.",
+    "* Psyker only.",
+    "** A model cannot have more than one of this weapon."
+  ]
+}

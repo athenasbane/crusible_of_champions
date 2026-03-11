@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { loadFaction } from "../../src/rules/loadFaction";
 import darkAngelsRaw from "../../src/rules/dark_angels.json";
 import bloodAngelsRaw from "../../src/rules/blood_angels.json";
+import genestealerCultsRaw from "../../src/rules/genestealer_cults.json";
 
 describe("loadFaction inheritance", () => {
   it("inherits archetypes and extends options/weapons from Adeptus Astartes", () => {
@@ -87,5 +88,15 @@ describe("loadFaction inheritance", () => {
     if (requirement?.kind === "archetypeIs") {
       expect(requirement.archetypeId).toBe("champion_of_the_chapter");
     }
+  });
+
+  it("loads genestealer cults rules", () => {
+    const faction = loadFaction(genestealerCultsRaw);
+
+    expect(faction.id).toBe("genestealer_cults");
+    expect(faction.archetypes.length).toBeGreaterThan(0);
+    expect(faction.specialisms.options.length).toBeGreaterThan(0);
+    expect(faction.abilities.options.length).toBeGreaterThan(0);
+    expect(faction.weapons.length).toBeGreaterThan(0);
   });
 });

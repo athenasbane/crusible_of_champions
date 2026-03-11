@@ -15,6 +15,7 @@ import space_wolves_raw from "../../rules/space_wolves.json";
 import adeptus_custodes_raw from "../../rules/adeptus_custodes.json";
 import black_templars_raw from "../../rules/black_templars.json";
 import necrons_raw from "../../rules/necrons.json";
+import genestealer_cult_raw from "../../rules/genestealer_cults.json";
 import tau_raw from "../../rules/tau_empire.json";
 import orks_raw from "../../rules/orks.json";
 import {
@@ -41,6 +42,7 @@ const factionData: Record<string, unknown> = {
   "thousand-sons": thousand_sons_raw,
   "chaos-daemons": chaos_daemons_raw,
   "emperors-children": emperors_children_raw,
+  "genestealer-cult": genestealer_cult_raw,
   tyranids: tyranids_raw,
   necrons: necrons_raw,
   tau: tau_raw,
@@ -63,6 +65,7 @@ export const availableFactions = [
   { id: "necrons", name: "Necrons" },
   { id: "tau", name: "Tau Empire" },
   { id: "orks", name: "Orks" },
+  { id: "genestealer-cult", name: "Genestealer Cult" },
 ];
 
 function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {
