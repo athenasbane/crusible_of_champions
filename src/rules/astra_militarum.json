@@ -1,0 +1,875 @@
+{
+  "id": "astra_militarum",
+  "name": "Astra Militarum",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 1,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "front_line_commander",
+      "name": "Front-line Commander",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 5,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 55,
+      "modelCount": 1,
+      "loadout": {
+        "caps": {
+          "ranged": 1,
+          "pistol": 2,
+          "melee": 2
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Voice of Command"
+        },
+        {
+          "title": "Get Back in the Fight!",
+          "text": "While this model is leading a unit, that unit is eligible to shoot in a turn in which it Fell Back."
+        },
+        {
+          "title": "Orders",
+          "text": "This OFFICER can issue up to 2 Orders to REGIMENT units."
+        }
+      ],
+      "leaderUnits": [
+        "Astra Militarum Battleline",
+        "Kasrkin",
+        "Krieg Combat Engineers",
+        "Tempestus Scions"
+      ],
+      "unitComposition": "1 Front-line Commander",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Imperium",
+        "Officer",
+        "Front-line Commander"
+      ],
+      "factionKeywords": ["Astra Militarum"]
+    },
+    {
+      "id": "augmented_bone_ead",
+      "name": "Augmented Bone 'Ead",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 4,
+        "wounds": 3,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 60,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Feel No Pain 6+, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Voice of Command"
+        },
+        {
+          "title": "You 'Eard 'Em",
+          "text": "Each time an Order is issued to this model's unit, this model can issue that Order to one other friendly PLATOON or OGRYN unit in the same way as an OFFICER."
+        }
+      ],
+      "leaderUnits": ["Bullgryn Squad", "Ogryn Squad"],
+      "unitComposition": "1 Augmented Bone 'Ead",
+      "keywords": [
+        "Infantry",
+        "Grenades",
+        "Character",
+        "Imperium",
+        "Regiment",
+        "Ogryn",
+        "Augmented Bone 'Ead"
+      ],
+      "factionKeywords": ["Astra Militarum"]
+    },
+    {
+      "id": "sentinel_commander",
+      "name": "Sentinel Commander",
+      "profile": {
+        "move": 10,
+        "toughness": 7,
+        "save": 3,
+        "wounds": 7,
+        "leadership": 7,
+        "objectiveControl": 2
+      },
+      "points": 75,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise 1, Leader, Scouts 9\""
+        },
+        {
+          "title": "Faction",
+          "text": "Voice of Command"
+        },
+        {
+          "title": "Mobile Firebase",
+          "text": "Ranged weapons equipped by models in this unit have the [ASSAULT] ability."
+        },
+        {
+          "title": "Orders",
+          "text": "This OFFICER can issue up to 1 Order to SQUADRON units."
+        }
+      ],
+      "leaderUnits": ["Armoured Sentinels", "Scout Sentinels"],
+      "unitComposition": "1 Sentinel Commander",
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Character",
+        "Smoke",
+        "Imperium",
+        "Officer",
+        "Sentinel Commander"
+      ],
+      "factionKeywords": ["Astra Militarum"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "brute_shield",
+        "name": "Brute Shield",
+        "text": "(AUGMENTED BONE 'EAD only): This model has a 4+ invulnerable save.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "augmented_bone_ead"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "invuln",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "id": "extra_armour",
+        "name": "Extra Armour",
+        "text": "(SENTINEL COMMANDER only): Change this model's Move characteristic to 8\", change its Toughness characteristic to 8, change its Save characteristic to 2+, and it loses the Scouts 9\" ability.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "sentinel_commander"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 8
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 8
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 2
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Scouts 9\""
+          }
+        ]
+      },
+      {
+        "id": "noble_steed",
+        "name": "Noble Steed",
+        "text": "(FRONT-LINE COMMANDER only): Change this model's Move characteristic to 12\", change its Toughness characteristic to 4, and change its Save characteristic to 4+. Remove the INFANTRY keyword, add the MOUNTED keyword, and add to the list of units this model can be attached to: ATTILAN ROUGH RIDERS, DEATH RIDERS.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "front_line_commander"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 4
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 4
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Infantry"
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Mounted"]
+          },
+          {
+            "kind": "addLeaderUnits",
+            "value": ["Attilan Rough Riders", "Death Riders"]
+          }
+        ]
+      },
+      {
+        "id": "slabshield",
+        "name": "Slabshield",
+        "text": "(AUGMENTED BONE 'EAD only): Change this model's Wound characteristic to 7.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "augmented_bone_ead"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 7
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "dauntless_veteran",
+        "name": "Dauntless Veteran",
+        "text": "You can re-roll Battle-shock tests taken for this unit."
+      },
+      {
+        "id": "fire_coordinator",
+        "name": "Fire Coordinator",
+        "text": "Ranged weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability."
+      },
+      {
+        "id": "martial_zealot",
+        "name": "Martial Zealot",
+        "text": "Melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability."
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "autocannon",
+      "name": "Autocannon",
+      "group": "Autocannon",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-1",
+      "damage": "3",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "autogun",
+      "name": "Autogun",
+      "group": "Autogun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "boltgun",
+      "name": "Boltgun",
+      "group": "Boltgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "combat_shotgun",
+      "name": "Combat shotgun",
+      "group": "Combat shotgun",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault"]
+    },
+    {
+      "id": "grenadier_gauntlet",
+      "name": "Grenadier gauntlet",
+      "group": "Grenadier gauntlet",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "augmented_bone_ead"
+        }
+      ]
+    },
+    {
+      "id": "heavy_flamer",
+      "name": "Heavy flamer",
+      "group": "Heavy flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "lascannon",
+      "name": "Lascannon",
+      "group": "Lascannon",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "lascarbine",
+      "name": "Lascarbine",
+      "group": "Lascarbine",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault"]
+    },
+    {
+      "id": "lasgun",
+      "name": "Lasgun",
+      "group": "Lasgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "missile_launcher_frag",
+      "name": "Missile launcher — frag",
+      "group": "Missile launcher",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast", "Heavy"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "missile_launcher_krak",
+      "name": "Missile launcher — krak",
+      "group": "Missile launcher",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "D6",
+      "keywords": ["Heavy"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "multi_laser",
+      "name": "Multi-laser",
+      "group": "Multi-laser",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "plasma_cannon_standard",
+      "name": "Plasma cannon — standard",
+      "group": "Plasma cannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Blast"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "plasma_cannon_supercharge",
+      "name": "Plasma cannon — supercharge",
+      "group": "Plasma cannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Blast", "Hazardous"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "ripper_gun_ranged",
+      "name": "Ripper gun",
+      "group": "Ripper gun",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Rapid Fire 3"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "augmented_bone_ead"
+        }
+      ]
+    },
+    {
+      "id": "zealots_vindictor_ranged",
+      "name": "Zealot's vindictor",
+      "group": "Zealot's vindictor",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "autopistol",
+      "name": "Autopistol",
+      "group": "Autopistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "bolt_pistol",
+      "name": "Bolt pistol",
+      "group": "Bolt pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "hand_flamer",
+      "name": "Hand flamer",
+      "group": "Hand flamer",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Pistol", "Torrent"]
+    },
+    {
+      "id": "laspistol",
+      "name": "Laspistol",
+      "group": "Laspistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "plasma_pistol_standard",
+      "name": "Plasma pistol — standard",
+      "group": "Plasma pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "plasma_pistol_supercharge",
+      "name": "Plasma pistol — supercharge",
+      "group": "Plasma pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Hazardous", "Pistol"]
+    },
+    {
+      "id": "bullgryn_maul",
+      "name": "Bullgryn maul",
+      "group": "Bullgryn maul",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "augmented_bone_ead"
+        }
+      ]
+    },
+    {
+      "id": "chainsword",
+      "name": "Chainsword",
+      "group": "Chainsword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "frag_lance",
+      "name": "Frag lance",
+      "group": "Frag lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Lance"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "goad_lance",
+      "name": "Goad lance",
+      "group": "Goad lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lance"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "huge_knife",
+      "name": "Huge knife",
+      "group": "Huge knife",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "augmented_bone_ead"
+        }
+      ]
+    },
+    {
+      "id": "hunting_lance_frag_tip",
+      "name": "Hunting lance — frag tip",
+      "group": "Hunting lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Lance"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "hunting_lance_melta_tip",
+      "name": "Hunting lance — melta tip",
+      "group": "Hunting lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Lance"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "power_fist",
+      "name": "Power fist",
+      "group": "Power fist",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "power_weapon",
+      "name": "Power weapon",
+      "group": "Power weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "ripper_gun_melee",
+      "name": "Ripper gun",
+      "group": "Ripper gun",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "augmented_bone_ead"
+        }
+      ]
+    },
+    {
+      "id": "sentinel_chainsaw",
+      "name": "Sentinel chainsaw",
+      "group": "Sentinel chainsaw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "sentinel_commander"
+        }
+      ]
+    },
+    {
+      "id": "zealots_vindictor_melee",
+      "name": "Zealot's vindictor",
+      "group": "Zealot's vindictor",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": []
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols (Front-line Commander only), one or two melee weapons.",
+    "Before selecting targets for a weapon with multiple profiles, select one of its profiles to make attacks with.",
+    "* Sentinel Commander only.",
+    "** Augmented Bone 'Ead only.",
+    "*** Mounted only."
+  ]
+}

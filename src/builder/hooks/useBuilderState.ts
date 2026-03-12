@@ -6,6 +6,7 @@ import adeptus_astartes_raw from "../../rules/adeptus_astartes.json";
 import emperors_children_raw from "../../rules/emperors-children.json";
 import chaos_space_marines_raw from "../../rules/chaos-space-marines.json";
 import death_guard_raw from "../../rules/death-guard.json";
+import astra_militarum_raw from "../../rules/astra_militarum.json";
 import tyranids_raw from "../../rules/tyranids.json";
 import thousand_sons_raw from "../../rules/thousand-sons.json";
 import chaos_daemons_raw from "../../rules/chaos_daemons.json";
@@ -37,6 +38,7 @@ const factionData: Record<string, unknown> = {
   "space-wolves": space_wolves_raw,
   "black-templars": black_templars_raw,
   "adeptus-custodes": adeptus_custodes_raw,
+  "astra-militarum": astra_militarum_raw,
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
@@ -56,6 +58,7 @@ export const availableFactions = [
   { id: "space-wolves", name: "Space Wolves" },
   { id: "black-templars", name: "Black Templars" },
   { id: "adeptus-custodes", name: "Adeptus Custodes" },
+  { id: "astra-militarum", name: "Astra Militarum" },
   { id: "emperors-children", name: "Emperor's Children" },
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },
