@@ -180,6 +180,12 @@
   opacity: 0.8;
 }
 
+.cs-points-breakdown {
+  font-size: 12px;
+  line-height: 1.25;
+  opacity: 0.85;
+}
+
 @media screen and (max-width: 980px) {
   .cs-page {
     width: min(100%, 760px);

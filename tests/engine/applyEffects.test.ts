@@ -6,6 +6,12 @@ import type { BuiltSheet } from "../../src/sheet/types";
 function makeSheet(): BuiltSheet {
   return {
     points: 100,
+    pointsBreakdown: {
+      archetype: 70,
+      specialisms: 0,
+      abilities: 20,
+      weapons: 10,
+    },
     factionName: "Test Faction",
     archetypeName: "Test Archetype",
     archetypeAbilities: [],
@@ -20,6 +26,7 @@ function makeSheet(): BuiltSheet {
     },
     specialisms: [],
     abilities: [],
+    weaponQuantities: {},
     leaderUnits: ["Unit A"],
     factionKeywords: ["Test"],
     keywords: ["Infantry", "Tacticus"],

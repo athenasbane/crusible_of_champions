@@ -1,14 +1,8 @@
 import type { FactionRules, LoadoutRules, Weapon } from "./schema";
-import { getWeaponGroupKey } from "./weaponGrouping";
 
 export function countWeapons(weapons: readonly Weapon[]) {
-  const seen = new Set<string>();
   return weapons.reduce(
     (counts, w) => {
-      const key = getWeaponGroupKey(w);
-      if (seen.has(key)) return counts;
-
-      seen.add(key);
       return {
         ...counts,
         [w.type]: counts[w.type] + 1,

@@ -23,7 +23,7 @@ export function BuilderPage() {
     toggleAbility,
     clearSpecialismGroup,
     selectSpecialism,
-    toggleWeapon,
+    changeWeaponQuantity,
     handleFactionChange,
   } = useBuilderState();
 
@@ -78,7 +78,7 @@ export function BuilderPage() {
               <WeaponSelector
                 sections={weaponView.sections}
                 loadoutRules={weaponView.loadoutRules}
-                onToggleWeapon={toggleWeapon}
+                onChangeWeaponQuantity={changeWeaponQuantity}
               />
 
               <div className="builder-print">

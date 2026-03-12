@@ -2,16 +2,18 @@ import { useMemo } from "react";
 import type { BuildInput, FactionRules, Weapon } from "../../engine/schema";
 import { countWeapons, getEffectiveLoadoutRules } from "../../engine/validateWeapons";
 import { getWeaponRequirementStatus } from "../../engine/weaponRequirements";
-import { groupWeapons } from "../../engine/weaponGrouping";
+import { getWeaponGroupKey, groupWeapons } from "../../engine/weaponGrouping";
+import { hasMaxOnePerModelKeyword } from "../../engine/weaponLimits";
 
 export type WeaponGroupView = {
   key: string;
   type: Weapon["type"];
   name: string;
   weapons: Weapon[];
-  selected: boolean;
+  quantity: number;
   points: number;
-  disabled: boolean;
+  canAdd: boolean;
+  canRemove: boolean;
   requirementLabels: string[];
   unmetRequirements: string[];
   unavailableReasons: string[];
@@ -33,10 +35,18 @@ export function useWeaponOptions(
 ): WeaponOptionsView {
   return useMemo(() => {
     const loadoutRules = getEffectiveLoadoutRules(faction, input.archetypeId);
-    const selectedWeapons = faction.weapons.filter((weapon) =>
-      input.weaponIds.includes(weapon.id),
-    );
+    const selectedWeapons = input.weaponIds
+      .map((weaponId) => faction.weapons.find((weapon) => weapon.id === weaponId))
+      .filter((weapon): weapon is Weapon => weapon !== undefined);
     const counts = countWeapons(selectedWeapons);
+    const quantitiesByGroup = selectedWeapons.reduce<Record<string, number>>(
+      (quantities, weapon) => {
+        const groupKey = getWeaponGroupKey(weapon);
+        quantities[groupKey] = (quantities[groupKey] ?? 0) + 1;
+        return quantities;
+      },
+      {},
+    );
 
     const sections: WeaponSectionView[] = [
       { title: "Ranged", groups: [] },
@@ -51,21 +61,26 @@ export function useWeaponOptions(
     };
 
     sections[0].groups = groupWeapons(byType.ranged).map((group) => {
-      const selected = group.weapons.some((weapon) => input.weaponIds.includes(weapon.id));
+      const quantity = quantitiesByGroup[group.key] ?? 0;
       const points = Math.max(...group.weapons.map((weapon) => weapon.points ?? 0));
       const requirementStatus = getWeaponRequirementStatus(group.weapons[0], input, faction);
-      const overTypeCap = !selected && counts[group.type] >= loadoutRules.caps[group.type];
-      const disabled = !selected && (!requirementStatus.met || overTypeCap);
+      const overTypeCap = counts[group.type] >= loadoutRules.caps[group.type];
+      const atPerModelLimit =
+        quantity >= 1 && group.weapons.some(hasMaxOnePerModelKeyword);
+      const canAdd = requirementStatus.met && !overTypeCap && !atPerModelLimit;
+      const canRemove = quantity > 0;
       const unavailableReasons = [
         ...requirementStatus.unmet,
         ...(overTypeCap ? ["Ranged cap reached"] : []),
+        ...(atPerModelLimit ? ["Max 1 per model"] : []),
       ];
 
       return {
         ...group,
-        selected,
+        quantity,
         points,
-        disabled,
+        canAdd,
+        canRemove,
         requirementLabels: requirementStatus.labels,
         unmetRequirements: requirementStatus.unmet,
         unavailableReasons,
@@ -73,21 +88,26 @@ export function useWeaponOptions(
     });
 
     sections[1].groups = groupWeapons(byType.pistol).map((group) => {
-      const selected = group.weapons.some((weapon) => input.weaponIds.includes(weapon.id));
+      const quantity = quantitiesByGroup[group.key] ?? 0;
       const points = Math.max(...group.weapons.map((weapon) => weapon.points ?? 0));
       const requirementStatus = getWeaponRequirementStatus(group.weapons[0], input, faction);
-      const overTypeCap = !selected && counts[group.type] >= loadoutRules.caps[group.type];
-      const disabled = !selected && (!requirementStatus.met || overTypeCap);
+      const overTypeCap = counts[group.type] >= loadoutRules.caps[group.type];
+      const atPerModelLimit =
+        quantity >= 1 && group.weapons.some(hasMaxOnePerModelKeyword);
+      const canAdd = requirementStatus.met && !overTypeCap && !atPerModelLimit;
+      const canRemove = quantity > 0;
       const unavailableReasons = [
         ...requirementStatus.unmet,
         ...(overTypeCap ? ["Pistol cap reached"] : []),
+        ...(atPerModelLimit ? ["Max 1 per model"] : []),
       ];
 
       return {
         ...group,
-        selected,
+        quantity,
         points,
-        disabled,
+        canAdd,
+        canRemove,
         requirementLabels: requirementStatus.labels,
         unmetRequirements: requirementStatus.unmet,
         unavailableReasons,
@@ -95,21 +115,26 @@ export function useWeaponOptions(
     });
 
     sections[2].groups = groupWeapons(byType.melee).map((group) => {
-      const selected = group.weapons.some((weapon) => input.weaponIds.includes(weapon.id));
+      const quantity = quantitiesByGroup[group.key] ?? 0;
       const points = Math.max(...group.weapons.map((weapon) => weapon.points ?? 0));
       const requirementStatus = getWeaponRequirementStatus(group.weapons[0], input, faction);
-      const overTypeCap = !selected && counts[group.type] >= loadoutRules.caps[group.type];
-      const disabled = !selected && (!requirementStatus.met || overTypeCap);
+      const overTypeCap = counts[group.type] >= loadoutRules.caps[group.type];
+      const atPerModelLimit =
+        quantity >= 1 && group.weapons.some(hasMaxOnePerModelKeyword);
+      const canAdd = requirementStatus.met && !overTypeCap && !atPerModelLimit;
+      const canRemove = quantity > 0;
       const unavailableReasons = [
         ...requirementStatus.unmet,
         ...(overTypeCap ? ["Melee cap reached"] : []),
+        ...(atPerModelLimit ? ["Max 1 per model"] : []),
       ];
 
       return {
         ...group,
-        selected,
+        quantity,
         points,
-        disabled,
+        canAdd,
+        canRemove,
         requirementLabels: requirementStatus.labels,
         unmetRequirements: requirementStatus.unmet,
         unavailableReasons,

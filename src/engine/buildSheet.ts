@@ -6,6 +6,7 @@ import {
   getWeaponRequirementStatus,
 } from "./weaponRequirements";
 import { getWeaponGroupKey } from "./weaponGrouping";
+import { isGroupMaxOnePerModel } from "./weaponLimits";
 import { getAbilityPickCount } from "./choicePicks";
 import { getSelectedSpecialismIds, getSpecialismGroups } from "./specialisms";
 import type { BuiltSheet } from "../sheet/types";
@@ -13,6 +14,38 @@ import type { BuiltSheet } from "../sheet/types";
 export type BuildResult =
   | { type: "error"; errors: string[] }
   | { type: "success"; sheet: BuiltSheet };
+
+function getWeaponPointsForGroup(weapon: FactionRules["weapons"][number], faction: FactionRules) {
+  const groupKey = getWeaponGroupKey(weapon);
+  const groupProfiles = faction.weapons.filter(
+    (candidate) => getWeaponGroupKey(candidate) === groupKey,
+  );
+  const points = groupProfiles
+    .map((profile) => profile.points)
+    .filter((value): value is number => typeof value === "number");
+
+  return points.length > 0 ? Math.max(...points) : undefined;
+}
+
+function calculateSelectedWeaponPoints(
+  selectedWeapons: FactionRules["weapons"],
+  faction: FactionRules,
+) {
+  let fixedPoints = 0;
+  let defaultCostWeapons = 0;
+
+  for (const weapon of selectedWeapons) {
+    const points = getWeaponPointsForGroup(weapon, faction);
+    if (typeof points === "number") {
+      fixedPoints += points;
+      continue;
+    }
+
+    defaultCostWeapons += 1;
+  }
+
+  return fixedPoints + Math.max(0, defaultCostWeapons - 2) * 5;
+}
 
 export function buildSheet(
   faction: FactionRules,
@@ -84,21 +117,35 @@ export function buildSheet(
     }
   }
 
-  const selectedWeapons = faction.weapons.filter((w) =>
-    input.weaponIds.includes(w.id),
-  );
+  const selectedWeapons = input.weaponIds
+    .map((weaponId) => faction.weapons.find((weapon) => weapon.id === weaponId))
+    .filter((weapon): weapon is FactionRules["weapons"][number] => weapon !== undefined);
   const loadoutRules = getEffectiveLoadoutRules(faction, input.archetypeId);
+  const quantitiesByGroup = selectedWeapons.reduce<Record<string, number>>(
+    (quantities, weapon) => {
+      const groupKey = getWeaponGroupKey(weapon);
+      quantities[groupKey] = (quantities[groupKey] ?? 0) + 1;
+      return quantities;
+    },
+    {},
+  );
 
-  const checkedWeaponGroups = new Set<string>();
   for (const weapon of selectedWeapons) {
-    const groupKey = getWeaponGroupKey(weapon);
-    if (checkedWeaponGroups.has(groupKey)) continue;
-    checkedWeaponGroups.add(groupKey);
 
     const status = getWeaponRequirementStatus(weapon, input, faction);
     if (!status.met) {
       errors.push(`${weapon.name} requires ${status.unmet.join(" and ")}`);
     }
+  }
+
+  for (const [groupKey, quantity] of Object.entries(quantitiesByGroup)) {
+    if (quantity <= 1) continue;
+    if (!isGroupMaxOnePerModel(faction, groupKey)) continue;
+
+    const groupWeapon = faction.weapons.find(
+      (weapon) => getWeaponGroupKey(weapon) === groupKey,
+    );
+    errors.push(`${groupWeapon?.name ?? "Weapon"} is max 1 per model`);
   }
 
   errors.push(...validateWeapons(selectedWeapons, loadoutRules));
@@ -116,15 +163,33 @@ export function buildSheet(
   const grantedWeapons = faction.weapons.filter((weapon) =>
     grantedWeaponIds.includes(weapon.id),
   );
+  const selectedWeaponGroups = new Set(
+    selectedWeapons.map((weapon) => getWeaponGroupKey(weapon)),
+  );
   const weapons = [
-    ...selectedWeapons,
+    ...faction.weapons.filter((weapon) =>
+      selectedWeaponGroups.has(getWeaponGroupKey(weapon)),
+    ),
     ...grantedWeapons.filter(
       (grantedWeapon) =>
-        !selectedWeapons.some(
-          (selectedWeapon) => selectedWeapon.id === grantedWeapon.id,
-        ),
+        !selectedWeaponGroups.has(getWeaponGroupKey(grantedWeapon)),
     ),
   ];
+  const weaponQuantities = selectedWeapons.reduce<Record<string, number>>(
+    (quantities, weapon) => {
+      const groupKey = getWeaponGroupKey(weapon);
+      quantities[groupKey] = (quantities[groupKey] ?? 0) + 1;
+      return quantities;
+    },
+    {},
+  );
+
+  for (const weapon of grantedWeapons) {
+    const groupKey = getWeaponGroupKey(weapon);
+    if (!(groupKey in weaponQuantities)) {
+      weaponQuantities[groupKey] = 1;
+    }
+  }
   const effects = [
     ...selectedEffects,
     ...grantedWeapons.flatMap((weapon) => weapon.effects ?? []),
@@ -135,25 +200,26 @@ export function buildSheet(
     ...specialisms.flatMap((specialism) => specialism.keywords ?? []),
     ...abilities.flatMap((ability) => ability.keywords ?? []),
   ].flat();
-  const weaponPointsByGroup = new Map<string, number>();
-  for (const weapon of weapons) {
-    const groupKey = getWeaponGroupKey(weapon);
-    const current = weaponPointsByGroup.get(groupKey) ?? 0;
-    weaponPointsByGroup.set(groupKey, Math.max(current, weapon.points ?? 0));
-  }
-  const weaponPoints = [...weaponPointsByGroup.values()].reduce(
-    (sum, points) => sum + points,
+  const weaponPoints = calculateSelectedWeaponPoints(selectedWeapons, faction);
+  const archetypePoints = archetype.points;
+  const specialismPoints = specialisms.reduce(
+    (sum, specialism) => sum + specialism.points,
     0,
   );
+  const abilityPoints = abilities.reduce((sum, ability) => sum + ability.points, 0);
+  const totalPoints =
+    archetypePoints + specialismPoints + abilityPoints + weaponPoints;
 
   const profile = applyEffectsToProfile(archetype.profile, effects);
 
   const preeffectSheet: BuiltSheet = {
-    points:
-      archetype.points +
-      specialisms.reduce((sum, specialism) => sum + specialism.points, 0) +
-      abilities.reduce((sum, ability) => sum + ability.points, 0) +
-      weaponPoints,
+    points: totalPoints,
+    pointsBreakdown: {
+      archetype: archetypePoints,
+      specialisms: specialismPoints,
+      abilities: abilityPoints,
+      weapons: weaponPoints,
+    },
     factionName: faction.name,
     archetypeName: archetype.name,
     archetypeAbilities: archetype.abilitiesText,
@@ -162,6 +228,7 @@ export function buildSheet(
     profile,
     specialisms,
     abilities,
+    weaponQuantities,
     leaderUnits: archetype.leaderUnits,
     factionKeywords: archetype.factionKeywords,
     keywords,

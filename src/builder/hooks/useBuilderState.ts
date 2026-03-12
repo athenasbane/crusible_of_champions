@@ -27,6 +27,7 @@ import {
 } from "../../engine/validateWeapons";
 import { getWeaponRequirementStatus } from "../../engine/weaponRequirements";
 import { getWeaponGroupKey } from "../../engine/weaponGrouping";
+import { isGroupMaxOnePerModel } from "../../engine/weaponLimits";
 import { getAbilityPickCount } from "../../engine/choicePicks";
 import {
   getSelectedSpecialismIds,
@@ -81,13 +82,12 @@ function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {
   const rules = getEffectiveLoadoutRules(faction, input.archetypeId);
   const counts = { ranged: 0, pistol: 0, melee: 0 };
   const sanitizedWeaponIds: string[] = [];
-  const handledGroups = new Set<string>();
+  const quantitiesByGroup: Record<string, number> = {};
 
   for (const weaponId of input.weaponIds) {
     const weapon = faction.weapons.find((w) => w.id === weaponId);
     if (!weapon) continue;
     const groupKey = getWeaponGroupKey(weapon);
-    if (handledGroups.has(groupKey)) continue;
 
     const requirementStatus = getWeaponRequirementStatus(
       weapon,
@@ -97,13 +97,17 @@ function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {
     if (!requirementStatus.met) continue;
 
     if (counts[weapon.type] >= rules.caps[weapon.type]) continue;
+    if (isGroupMaxOnePerModel(faction, groupKey) && (quantitiesByGroup[groupKey] ?? 0) >= 1) {
+      continue;
+    }
 
-    const groupWeaponIds = faction.weapons
-      .filter((candidate) => getWeaponGroupKey(candidate) === groupKey)
-      .map((candidate) => candidate.id);
+    const representativeWeapon = faction.weapons.find(
+      (candidate) => getWeaponGroupKey(candidate) === groupKey,
+    );
+    if (!representativeWeapon) continue;
 
-    sanitizedWeaponIds.push(...groupWeaponIds);
-    handledGroups.add(groupKey);
+    sanitizedWeaponIds.push(representativeWeapon.id);
+    quantitiesByGroup[groupKey] = (quantitiesByGroup[groupKey] ?? 0) + 1;
     counts[weapon.type] += 1;
   }
 
@@ -219,7 +223,7 @@ export function useBuilderState() {
     }));
   }
 
-  function toggleWeapon(id: string) {
+  function changeWeaponQuantity(id: string, delta: 1 | -1) {
     setInputSanitized((prev) => ({
       ...prev,
       weaponIds: (() => {
@@ -227,20 +231,18 @@ export function useBuilderState() {
         if (!weapon) return prev.weaponIds;
 
         const groupKey = getWeaponGroupKey(weapon);
-        const groupWeaponIds = faction.weapons
-          .filter((candidate) => getWeaponGroupKey(candidate) === groupKey)
-          .map((candidate) => candidate.id);
-        const hasAnySelected = groupWeaponIds.some((groupId) =>
-          prev.weaponIds.includes(groupId),
+        const representativeWeapon = faction.weapons.find(
+          (candidate) => getWeaponGroupKey(candidate) === groupKey,
         );
+        if (!representativeWeapon) return prev.weaponIds;
 
-        if (hasAnySelected) {
-          return prev.weaponIds.filter(
-            (selectedId) => !groupWeaponIds.includes(selectedId),
-          );
+        if (delta > 0) {
+          return [...prev.weaponIds, representativeWeapon.id];
         }
 
-        return [...prev.weaponIds, ...groupWeaponIds];
+        const removeIndex = prev.weaponIds.lastIndexOf(representativeWeapon.id);
+        if (removeIndex < 0) return prev.weaponIds;
+        return prev.weaponIds.filter((_, index) => index !== removeIndex);
       })(),
     }));
   }
@@ -255,7 +257,9 @@ export function useBuilderState() {
 
   const selectedWeapons = useMemo(
     () =>
-      faction.weapons.filter((weapon) => input.weaponIds.includes(weapon.id)),
+      input.weaponIds
+        .map((weaponId) => faction.weapons.find((weapon) => weapon.id === weaponId))
+        .filter((weapon): weapon is (typeof faction.weapons)[number] => weapon !== undefined),
     [faction, input.weaponIds],
   );
 
@@ -281,7 +285,7 @@ export function useBuilderState() {
     toggleAbility,
     clearSpecialismGroup,
     selectSpecialism,
-    toggleWeapon,
+    changeWeaponQuantity,
     handleFactionChange,
   };
 }

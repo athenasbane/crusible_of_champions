@@ -3,12 +3,27 @@ import "./CharacterSheet.css";
 
 export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
   const p = sheet.profile;
+  const pointsParts = [
+    `${sheet.pointsBreakdown.archetype} pts archetype`,
+    ...(sheet.pointsBreakdown.specialisms > 0
+      ? [`${sheet.pointsBreakdown.specialisms} pts specialisms`]
+      : []),
+    ...(sheet.pointsBreakdown.abilities > 0
+      ? [`${sheet.pointsBreakdown.abilities} pts abilities`]
+      : []),
+    ...(sheet.pointsBreakdown.weapons > 0
+      ? [`${sheet.pointsBreakdown.weapons} pts weapons`]
+      : []),
+  ];
 
   return (
     <section className="cs-page" style={{ margin: "0 auto" }}>
       <header className="cs-header">
         <div className="cs-title">
           <div className="cs-points">{`${sheet.points} pts`}</div>
+          <div className="cs-points-breakdown">
+            {`(${pointsParts.join(" + ")})`}
+          </div>
           <div className="cs-faction">{sheet.factionName}</div>
           <div className="cs-archetype">{sheet.archetypeName}</div>
           <div className="cs-name">{`Models: ${sheet.modelCount}`}</div>
@@ -60,14 +75,17 @@ export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
               <WeaponTable
                 title="Ranged"
                 weapons={sheet.weapons.filter((w) => w.type === "ranged")}
+                quantities={sheet.weaponQuantities}
               />
               <WeaponTable
                 title="Pistols"
                 weapons={sheet.weapons.filter((w) => w.type === "pistol")}
+                quantities={sheet.weaponQuantities}
               />
               <WeaponTable
                 title="Melee"
                 weapons={sheet.weapons.filter((w) => w.type === "melee")}
+                quantities={sheet.weaponQuantities}
               />
             </div>
           </Block>
@@ -124,6 +142,7 @@ function Block({
 type WeaponRow = {
   id: string;
   name: string;
+  group?: string;
   type: "ranged" | "pistol" | "melee";
   range?: string;
   attacks: string;
@@ -134,12 +153,19 @@ type WeaponRow = {
   keywords?: string[];
 };
 
+function getWeaponQuantityKey(weapon: WeaponRow) {
+  const groupName = weapon.group?.trim() || weapon.name.trim();
+  return `${weapon.type}:${groupName.toLowerCase()}`;
+}
+
 function WeaponTable({
   title,
   weapons,
+  quantities,
 }: {
   title: string;
   weapons: readonly WeaponRow[];
+  quantities: Record<string, number>;
 }) {
   if (!weapons.length) return null;
 
@@ -170,47 +196,57 @@ function WeaponTable({
           </tr>
         </thead>
         <tbody>
-          {weapons.map((w) => (
-            <tr key={w.id}>
-              <td className="cs-weapon-name">{w.name}</td>
-              <td>{w.range ?? (w.type === "melee" ? "Melee" : "—")}</td>
-              <td>{w.attacks}</td>
-              <td>{w.skill ?? "—"}</td>
-              <td>{w.strength}</td>
-              <td>{w.ap}</td>
-              <td>{w.damage}</td>
-              <td className="cs-weapon-kw">
-                {(w.keywords ?? []).join(", ") || "—"}
-              </td>
-            </tr>
-          ))}
+          {weapons.map((w) => {
+            const quantity = quantities[getWeaponQuantityKey(w)] ?? 1;
+            return (
+              <tr key={w.id}>
+                <td className="cs-weapon-name">
+                  {quantity > 1 ? `${w.name} x${quantity}` : w.name}
+                </td>
+                <td>{w.range ?? (w.type === "melee" ? "Melee" : "—")}</td>
+                <td>{w.attacks}</td>
+                <td>{w.skill ?? "—"}</td>
+                <td>{w.strength}</td>
+                <td>{w.ap}</td>
+                <td>{w.damage}</td>
+                <td className="cs-weapon-kw">
+                  {(w.keywords ?? []).join(", ") || "—"}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 
       <div className="cs-weapon-cards" aria-label={`${title} weapons`}>
-        {weapons.map((w) => (
-          <article key={w.id} className="cs-weapon-card">
-            <div className="cs-weapon-card-name">{w.name}</div>
-            <dl className="cs-weapon-card-stats">
-              {weaponStatRows.map((row) => {
-                const value =
-                  row.key === "range"
-                    ? w.range ?? (w.type === "melee" ? "Melee" : "—")
-                    : (w[row.key] ?? "—");
+        {weapons.map((w) => {
+          const quantity = quantities[getWeaponQuantityKey(w)] ?? 1;
+          return (
+            <article key={w.id} className="cs-weapon-card">
+              <div className="cs-weapon-card-name">
+                {quantity > 1 ? `${w.name} x${quantity}` : w.name}
+              </div>
+              <dl className="cs-weapon-card-stats">
+                {weaponStatRows.map((row) => {
+                  const value =
+                    row.key === "range"
+                      ? w.range ?? (w.type === "melee" ? "Melee" : "—")
+                      : (w[row.key] ?? "—");
 
-                return (
-                  <div key={row.label} className="cs-weapon-card-stat">
-                    <dt>{row.label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                );
-              })}
-            </dl>
-            <div className="cs-weapon-card-keywords">
-              {(w.keywords ?? []).join(", ") || "—"}
-            </div>
-          </article>
-        ))}
+                  return (
+                    <div key={row.label} className="cs-weapon-card-stat">
+                      <dt>{row.label}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  );
+                })}
+              </dl>
+              <div className="cs-weapon-card-keywords">
+                {(w.keywords ?? []).join(", ") || "—"}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
   );

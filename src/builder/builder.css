@@ -74,6 +74,36 @@
   font-size: 1.06rem;
 }
 
+.builder-accordion-item {
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #242424;
+}
+
+.builder-accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+.builder-accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  border-bottom: 1px solid #3b3b3b;
+  background: #2a2a2a;
+  color: #efefef;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 10px 12px;
+}
+
+.builder-accordion-content {
+  padding: 10px;
+}
+
 .builder-help {
   margin: 0 0 12px;
   color: #ababab;
@@ -124,6 +154,39 @@
   margin-top: 6px;
   color: #f0a8a8;
   font-size: 0.85rem;
+}
+
+.builder-option-label-quantity {
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+}
+
+.builder-qty-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.builder-qty-controls button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #4f4f4f;
+  border-radius: 6px;
+  background: #222;
+  color: #ececec;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.builder-qty-controls button:disabled {
+  opacity: 0.5;
+}
+
+.builder-qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 700;
 }
 
 .builder-archetype-profile {

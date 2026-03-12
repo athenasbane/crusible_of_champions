@@ -14,6 +14,13 @@ export type BuiltSheet = {
   factionKeywords: string[];
   keywords: string[];
   weapons: Weapon[];
+  weaponQuantities: Record<string, number>;
   points: number;
+  pointsBreakdown: {
+    archetype: number;
+    specialisms: number;
+    abilities: number;
+    weapons: number;
+  };
   notes?: string;
 };

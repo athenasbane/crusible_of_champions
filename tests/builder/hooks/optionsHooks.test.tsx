@@ -54,29 +54,33 @@ describe("builder option hooks", () => {
     expect(ranged).toBeTruthy();
 
     const ballistus = ranged?.groups.find((group) => group.name === "Ballistus lascannon");
-    expect(ballistus?.selected).toBe(true);
+    expect(ballistus?.quantity).toBe(1);
     expect(ballistus?.points).toBe(10);
   });
 });
 
 describe("useBuilderState", () => {
-  it("toggles a weapon by group (selects both profiles, then clears both)", () => {
+  it("changes weapon quantity by group", () => {
     const { result } = renderHook(() => useBuilderState());
 
     act(() => {
       result.current.setArchetype("venerable_battle_brother");
-      result.current.toggleWeapon("macro_plasma_incinerator_standard");
+      result.current.changeWeaponQuantity("macro_plasma_incinerator_standard", 1);
+      result.current.changeWeaponQuantity("macro_plasma_incinerator_standard", 1);
     });
 
-    expect(result.current.input.weaponIds).toContain("macro_plasma_incinerator_standard");
-    expect(result.current.input.weaponIds).toContain("macro_plasma_incinerator_supercharge");
+    expect(result.current.input.weaponIds).toEqual([
+      "macro_plasma_incinerator_standard",
+      "macro_plasma_incinerator_standard",
+    ]);
 
     act(() => {
-      result.current.toggleWeapon("macro_plasma_incinerator_standard");
+      result.current.changeWeaponQuantity("macro_plasma_incinerator_standard", -1);
     });
 
-    expect(result.current.input.weaponIds).not.toContain("macro_plasma_incinerator_standard");
-    expect(result.current.input.weaponIds).not.toContain("macro_plasma_incinerator_supercharge");
+    expect(result.current.input.weaponIds).toEqual([
+      "macro_plasma_incinerator_standard",
+    ]);
   });
 
   it("resets input when faction changes", () => {
@@ -86,7 +90,7 @@ describe("useBuilderState", () => {
     act(() => {
       result.current.setArchetype("venerable_battle_brother");
       result.current.toggleAbility(abilityId, true);
-      result.current.toggleWeapon("ballistus_lascannon");
+      result.current.changeWeaponQuantity("ballistus_lascannon", 1);
     });
 
     act(() => {
@@ -98,5 +102,21 @@ describe("useBuilderState", () => {
     expect(result.current.input.abilityIds).toEqual([]);
     expect(result.current.input.weaponIds).toEqual([]);
     expect(result.current.input.archetypeId).toBe(result.current.faction.archetypes[0].id);
+  });
+
+  it("does not keep duplicate max-1-per-model weapons", () => {
+    const { result } = renderHook(() => useBuilderState());
+
+    act(() => {
+      result.current.handleFactionChange("adeptus-sororitas");
+    });
+
+    act(() => {
+      result.current.setArchetype("reliquant_knight");
+      result.current.changeWeaponQuantity("paragon_war_blade", 1);
+      result.current.changeWeaponQuantity("paragon_war_blade", 1);
+    });
+
+    expect(result.current.input.weaponIds).toEqual(["paragon_war_blade"]);
   });
 });

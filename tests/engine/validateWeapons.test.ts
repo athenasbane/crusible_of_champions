@@ -6,7 +6,7 @@ import { countWeapons, validateWeapons } from "../../src/engine/validateWeapons"
 const faction = loadFaction(adeptusAstartesRaw);
 
 describe("validateWeapons", () => {
-  it("counts profile variants as one weapon group", () => {
+  it("counts each selected weapon entry", () => {
     const weapons = faction.weapons.filter((weapon) =>
       ["macro_plasma_incinerator_standard", "macro_plasma_incinerator_supercharge"].includes(
         weapon.id,
@@ -15,7 +15,7 @@ describe("validateWeapons", () => {
 
     const counts = countWeapons(weapons);
 
-    expect(counts.ranged).toBe(1);
+    expect(counts.ranged).toBe(2);
     expect(counts.pistol).toBe(0);
     expect(counts.melee).toBe(0);
   });
@@ -35,7 +35,7 @@ describe("validateWeapons", () => {
     expect(rangedErrors).toContain("You must take at least one melee weapon");
   });
 
-  it("uses explicit weapon group from data when counting", () => {
+  it("does not collapse duplicate picks by weapon group", () => {
     const weapons = faction.weapons.filter((weapon) =>
       ["plasma_pistol_standard", "plasma_pistol_supercharge"].includes(
         weapon.id,
@@ -56,7 +56,7 @@ describe("validateWeapons", () => {
     ]);
 
     expect(counts.ranged).toBe(0);
-    expect(counts.pistol).toBe(1);
+    expect(counts.pistol).toBe(2);
     expect(counts.melee).toBe(0);
   });
 });
