@@ -1,0 +1,710 @@
+{
+  "id": "adepta_sororitas",
+  "name": "Adepta Sororitas",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "militant_commander",
+      "name": "Militant Commander",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 3,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 4
+      },
+      "points": 75,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Acts of Faith"
+        },
+        {
+          "title": "Sacred Command",
+          "text": "Once per battle round, one unit from your army with this ability can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase."
+        }
+      ],
+      "leaderUnits": [
+        "Battle Sisters Squad",
+        "Celestian Sacresants",
+        "Dominion Squad",
+        "Retributor Squad",
+        "Sisters Novitiate Squad"
+      ],
+      "unitComposition": "1 Militant Commander",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Imperium",
+        "Canoness",
+        "Militant Commander"
+      ],
+      "factionKeywords": ["Adepta Sororitas"]
+    },
+    {
+      "id": "inspiring_devotee",
+      "name": "Inspiring Devotee",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 3,
+        "wounds": 3,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 6
+      },
+      "points": 50,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Acts of Faith"
+        },
+        {
+          "title": "Sacred Devotions",
+          "text": "Each time this unit performs an Act of Faith, the value of one of the Miracle dice used in that Act of Faith is first changed to a 4."
+        }
+      ],
+      "leaderUnits": [
+        "Battle Sisters Squad",
+        "Celestian Sacresants",
+        "Dominion Squad",
+        "Retributor Squad",
+        "Sisters Novitiate Squad"
+      ],
+      "unitComposition": "1 Inspiring Devotee",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Imperium",
+        "Inspiring Devotee"
+      ],
+      "factionKeywords": ["Adepta Sororitas"]
+    },
+    {
+      "id": "reliquant_knight",
+      "name": "Reliquant Knight",
+      "profile": {
+        "move": 8,
+        "toughness": 7,
+        "save": 2,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 2,
+        "invuln": 4
+      },
+      "points": 100,
+      "modelCount": 1,
+      "loadout": {
+        "caps": {
+          "ranged": 2,
+          "pistol": 2,
+          "melee": 2
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Acts of Faith"
+        },
+        {
+          "title": "Adamant Wrath",
+          "text": "You can re-roll Advance and Charge rolls made for this unit."
+        }
+      ],
+      "leaderUnits": ["Paragon Warsuits"],
+      "unitComposition": "1 Reliquant Knight",
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Character",
+        "Grenades",
+        "Imperium",
+        "Paragon Warsuit",
+        "Reliquant Knight"
+      ],
+      "factionKeywords": ["Adepta Sororitas"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "absolver_of_sin_militant_commander",
+        "name": "Absolver of Sin",
+        "text": "Replace the list of units this model can be attached to: Repentia Squad.",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "militant_commander"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Repentia Squad"]
+          }
+        ]
+      },
+      {
+        "id": "absolver_of_sin_inspiring_devotee",
+        "name": "Absolver of Sin",
+        "text": "Replace the list of units this model can be attached to: Repentia Squad.",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "inspiring_devotee"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Repentia Squad"]
+          }
+        ]
+      },
+      {
+        "id": "absolver_of_sin_reliquant_knight",
+        "name": "Absolver of Sin",
+        "text": "Replace the list of units this model can be attached to: Mortifiers.",
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "reliquant_knight"
+          }
+        ],
+        "points": 0,
+        "effects": [
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Mortifiers"]
+          }
+        ]
+      },
+      {
+        "id": "cherub",
+        "name": "Cherub",
+        "text": "Once per battle, after this model's unit has performed an Act of Faith, you gain 1 Miracle dice. Designer's Note: Place a Cherub token next to the unit, removing it once this ability has been used.",
+        "points": 0
+      },
+      {
+        "id": "jump_pack",
+        "name": "Jump Pack",
+        "text": "(INFANTRY only): Change this model's Move characteristic to 12\", and it gains the Deep Strike ability. Add the FLY and JUMP PACK keywords, and replace the list of units this model can be attached to: Seraphim Squad, Zephyrim Squad.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 12
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Fly", "Jump Pack", "Deep Strike"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Seraphim Squad", "Zephyrim Squad"]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "divine_authority",
+        "name": "Divine Authority",
+        "text": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1.",
+        "points": 0
+      },
+      {
+        "id": "fury_of_the_righteous",
+        "name": "Fury of the Righteous",
+        "text": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability.",
+        "points": 0
+      },
+      {
+        "id": "laud_hailer",
+        "name": "Laud Hailer",
+        "text": "Once per battle, at the start of any phase, you can select one friendly ADEPTA SORORITAS unit that is Battle-shocked and within 12\" of this model. That unit is no longer Battle-shocked.",
+        "points": 0
+      },
+      {
+        "id": "shield_of_the_righteous",
+        "name": "Shield of the Righteous",
+        "text": "(+25 pts): Models in this unit have an invulnerable save of 4+.",
+        "points": 25
+      },
+      {
+        "id": "unflinching_determination",
+        "name": "Unflinching Determination",
+        "text": "(+15 pts): While this model is leading a unit, add 1 to the Objective Control characteristic of models in that unit.",
+        "points": 15
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "artificer_crafted_storm_bolter",
+      "name": "Artificer-crafted storm bolter",
+      "group": "Artificer-crafted storm bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Rapid Fire 2"]
+    },
+    {
+      "id": "autogun",
+      "name": "Autogun",
+      "group": "Autogun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "boltgun",
+      "name": "Boltgun",
+      "group": "Boltgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "brazier_of_holy_fire",
+      "name": "Brazier of holy fire",
+      "group": "Brazier of holy fire",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Ignores Cover", "One Shot", "Torrent"]
+    },
+    {
+      "id": "combi_weapon",
+      "name": "Combi-weapon",
+      "group": "Combi-weapon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Devastating Wounds", "Rapid Fire 1"]
+    },
+    {
+      "id": "condemnor_boltgun",
+      "name": "Condemnor boltgun",
+      "group": "Condemnor boltgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Anti-Psyker 2+",
+        "Devastating Wounds",
+        "Precision",
+        "Rapid Fire 1"
+      ]
+    },
+    {
+      "id": "heavy_bolter",
+      "name": "Heavy bolter",
+      "group": "Heavy bolter",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Sustained Hits 1"]
+    },
+    {
+      "id": "meltagun",
+      "name": "Meltagun",
+      "group": "Meltagun",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 2"]
+    },
+    {
+      "id": "ministorum_flamer",
+      "name": "Ministorum flamer",
+      "group": "Ministorum flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "ministorum_heavy_flamer",
+      "name": "Ministorum heavy flamer",
+      "group": "Ministorum heavy flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "multi_melta",
+      "name": "Multi-melta*",
+      "group": "Multi-melta",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 2"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "reliquant_knight"
+        }
+      ]
+    },
+    {
+      "id": "paragon_grenade_launchers",
+      "name": "Paragon grenade launchers*",
+      "group": "Paragon grenade launchers",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": ["Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "reliquant_knight"
+        }
+      ]
+    },
+    {
+      "id": "paragon_storm_bolters",
+      "name": "Paragon storm bolters*",
+      "group": "Paragon storm bolters",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 2", "Twin-linked"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "reliquant_knight"
+        }
+      ]
+    },
+    {
+      "id": "autopistol",
+      "name": "Autopistol",
+      "group": "Autopistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "bolt_pistol",
+      "name": "Bolt pistol",
+      "group": "Bolt pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "inferno_pistol",
+      "name": "Inferno pistol",
+      "group": "Inferno pistol",
+      "type": "pistol",
+      "range": "6\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-4",
+      "damage": "D3",
+      "keywords": ["Melta 2", "Pistol"]
+    },
+    {
+      "id": "ministorum_hand_flamer",
+      "name": "Ministorum hand flamer",
+      "group": "Ministorum hand flamer",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Pistol", "Torrent"]
+    },
+    {
+      "id": "plasma_pistol_standard",
+      "name": "Plasma pistol — standard",
+      "group": "Plasma pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "plasma_pistol_overcharge",
+      "name": "Plasma pistol — overcharge",
+      "group": "Plasma pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Hazardous", "Pistol"]
+    },
+    {
+      "id": "blessed_blade",
+      "name": "Blessed blade",
+      "group": "Blessed blade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "blessed_polearm",
+      "name": "Blessed polearm",
+      "group": "Blessed polearm",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "hallowed_chainsword",
+      "name": "Hallowed chainsword",
+      "group": "Hallowed chainsword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "hallowed_mace",
+      "name": "Hallowed mace",
+      "group": "Hallowed mace",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Lethal Hits"]
+    },
+    {
+      "id": "holy_eviscerator",
+      "name": "Holy eviscerator",
+      "group": "Holy eviscerator",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Sustained Hits 1"]
+    },
+    {
+      "id": "neural_whips",
+      "name": "Neural whips",
+      "group": "Neural whips",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+"]
+    },
+    {
+      "id": "paragon_war_blade",
+      "name": "Paragon war blade*",
+      "group": "Paragon war blade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Max 1 per model"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "reliquant_knight"
+        }
+      ]
+    },
+    {
+      "id": "paragon_war_mace",
+      "name": "Paragon war mace*",
+      "group": "Paragon war mace",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-1",
+      "damage": "3",
+      "keywords": ["Max 1 per model"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "reliquant_knight"
+        }
+      ]
+    },
+    {
+      "id": "power_weapon",
+      "name": "Power weapon",
+      "group": "Power weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": []
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Before selecting targets for a weapon with multiple profiles, select one of its profiles to make attacks with.",
+    "Reliquant Knight can be equipped with up to two Reliquant Knight only ranged weapons instead of up to one ranged weapon.",
+    "* Reliquant Knight only.",
+    "¥ You cannot choose more than one of these options."
+  ]
+}

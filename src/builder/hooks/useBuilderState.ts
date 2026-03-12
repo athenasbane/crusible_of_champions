@@ -7,6 +7,7 @@ import emperors_children_raw from "../../rules/emperors-children.json";
 import chaos_space_marines_raw from "../../rules/chaos-space-marines.json";
 import death_guard_raw from "../../rules/death-guard.json";
 import astra_militarum_raw from "../../rules/astra_militarum.json";
+import adeptus_sororitas_raw from "../../rules/adeptus_sororitas.json";
 import tyranids_raw from "../../rules/tyranids.json";
 import thousand_sons_raw from "../../rules/thousand-sons.json";
 import chaos_daemons_raw from "../../rules/chaos_daemons.json";
@@ -15,6 +16,7 @@ import blood_angels_raw from "../../rules/blood_angels.json";
 import space_wolves_raw from "../../rules/space_wolves.json";
 import adeptus_custodes_raw from "../../rules/adeptus_custodes.json";
 import black_templars_raw from "../../rules/black_templars.json";
+import adeptus_mechanicus_raw from "../../rules/adeptus_mechanicus.json";
 import necrons_raw from "../../rules/necrons.json";
 import genestealer_cult_raw from "../../rules/genestealer_cults.json";
 import tau_raw from "../../rules/tau_empire.json";
@@ -39,6 +41,8 @@ const factionData: Record<string, unknown> = {
   "black-templars": black_templars_raw,
   "adeptus-custodes": adeptus_custodes_raw,
   "astra-militarum": astra_militarum_raw,
+  "adeptus-mechanicus": adeptus_mechanicus_raw,
+  "adeptus-sororitas": adeptus_sororitas_raw,
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
@@ -59,6 +63,8 @@ export const availableFactions = [
   { id: "black-templars", name: "Black Templars" },
   { id: "adeptus-custodes", name: "Adeptus Custodes" },
   { id: "astra-militarum", name: "Astra Militarum" },
+  { id: "adeptus-mechanicus", name: "Adeptus Mechanicus" },
+  { id: "adeptus-sororitas", name: "Adeptus Sororitas" },
   { id: "emperors-children", name: "Emperor's Children" },
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },
