@@ -5,6 +5,7 @@
   "inheritsFrom": "adeptus_astartes",
 
   "archetypes": "inherit",
+  "archetypesExclude": ["librarius_adept"],
   "specialismsMode": "extend",
   "abilitiesMode": "extend",
   "weaponsMode": "extend",

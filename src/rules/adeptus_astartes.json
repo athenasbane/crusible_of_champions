@@ -120,6 +120,125 @@
           "melee": 1
         }
       },
+      "weaponSelectionRules": {
+        "guideTitle": "Dreadnought Crucible Champions",
+        "guideLines": [
+          "Use the following options for DrEadnouGhtS, instead of those found on other pages."
+        ],
+        "slots": [
+          {
+            "id": "dreadnought_primary",
+            "title": "First, select one of the following for your model to be equipped with:",
+            "min": 1,
+            "max": 1,
+            "options": [
+              {
+                "id": "primary_ballistus",
+                "name": "Ballistus missile launcher and armoured feet",
+                "groups": ["Ballistus missile launcher", "Armoured feet"]
+              },
+              {
+                "id": "primary_brutalis_fists",
+                "name": "Brutalis bolt rifles and Brutalis fists",
+                "groups": ["Brutalis bolt rifles", "Brutalis fists"]
+              },
+              {
+                "id": "primary_brutalis_talons",
+                "name": "Brutalis talons",
+                "groups": ["Brutalis talons"]
+              },
+              {
+                "id": "primary_redemptor_flamer",
+                "name": "Heavy flamer and Redemptor fist",
+                "groups": ["Heavy flamer", "Redemptor fist"]
+              },
+              {
+                "id": "primary_redemptor_onslaught",
+                "name": "Onslaught gatling cannon and Redemptor fist",
+                "groups": ["Onslaught gatling cannon", "Redemptor fist"]
+              }
+            ]
+          },
+          {
+            "id": "dreadnought_secondary",
+            "title": "Then, select one of the following for your model to be equipped with:",
+            "min": 1,
+            "max": 1,
+            "options": [
+              {
+                "id": "secondary_fragstorm",
+                "name": "Twin fragstorm grenade launcher",
+                "groups": ["Twin fragstorm grenade launcher"]
+              },
+              {
+                "id": "secondary_heavy_bolter_icarus",
+                "name": "Twin heavy bolter and twin Icarus ironhail heavy stubber",
+                "groups": [
+                  "Twin heavy bolter",
+                  "Twin Icarus ironhail heavy stubber"
+                ]
+              },
+              {
+                "id": "secondary_multi_melta_icarus",
+                "name": "Twin multi-melta and twin Icarus ironhail heavy stubber",
+                "groups": [
+                  "Twin multi-melta",
+                  "Twin Icarus ironhail heavy stubber"
+                ]
+              },
+              {
+                "id": "secondary_twin_storm_bolter",
+                "name": "Twin storm bolter",
+                "groups": ["Twin storm bolter"]
+              }
+            ]
+          },
+          {
+            "id": "dreadnought_main_gun",
+            "title": "Then, if your model is not equipped with Brutalis bolt rifles and Brutalis fists, or Brutalis talons, your model is equipped with one of the following:",
+            "min": 1,
+            "max": 1,
+            "disabledWhenAnyOptionsSelected": [
+              "primary_brutalis_fists",
+              "primary_brutalis_talons"
+            ],
+            "options": [
+              {
+                "id": "main_ballistus_lascannon",
+                "name": "Ballistus lascannon",
+                "groups": ["Ballistus lascannon"]
+              },
+              {
+                "id": "main_heavy_onslaught",
+                "name": "Heavy onslaught gatling cannon",
+                "groups": ["Heavy onslaught gatling cannon"]
+              },
+              {
+                "id": "main_macro_plasma_incinerator",
+                "name": "Macro plasma incinerator",
+                "groups": ["Macro plasma incinerator"]
+              }
+            ]
+          },
+          {
+            "id": "dreadnought_optional_rocket",
+            "title": "Finally, if your model is not equipped with a twin icarus ironhail heavy stubber, your model can be equipped with 1 Icarus rocket pod.",
+            "min": 0,
+            "max": 1,
+            "disabledWhenAnyOptionsSelected": [
+              "secondary_heavy_bolter_icarus",
+              "secondary_multi_melta_icarus"
+            ],
+            "options": [
+              {
+                "id": "optional_icarus_rocket_pod",
+                "name": "Icarus rocket pod",
+                "groups": ["Icarus rocket pod"]
+              }
+            ]
+          }
+        ]
+      },
       "abilitiesText": [
         {
           "title": "Core",

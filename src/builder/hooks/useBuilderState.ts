@@ -28,6 +28,10 @@ import {
 import { getWeaponRequirementStatus } from "../../engine/weaponRequirements";
 import { getWeaponGroupKey } from "../../engine/weaponGrouping";
 import { isGroupMaxOnePerModel } from "../../engine/weaponLimits";
+import {
+  getGroupCapForWeapon,
+  isWeaponAllowedForSelectionRules,
+} from "../../engine/weaponSelectionRules";
 import { getAbilityPickCount } from "../../engine/choicePicks";
 import {
   getSelectedSpecialismIds,
@@ -95,9 +99,14 @@ function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {
       faction,
     );
     if (!requirementStatus.met) continue;
+    if (!isWeaponAllowedForSelectionRules(faction, input, weapon)) continue;
 
     if (counts[weapon.type] >= rules.caps[weapon.type]) continue;
     if (isGroupMaxOnePerModel(faction, groupKey) && (quantitiesByGroup[groupKey] ?? 0) >= 1) {
+      continue;
+    }
+    const groupCap = getGroupCapForWeapon(faction, input, weapon);
+    if (typeof groupCap === "number" && (quantitiesByGroup[groupKey] ?? 0) >= groupCap) {
       continue;
     }
 
@@ -247,6 +256,78 @@ export function useBuilderState() {
     }));
   }
 
+  function selectWeaponSlotOption(slotId: string, optionId: string) {
+    setInputSanitized((prev) => {
+      const archetype = faction.archetypes.find(
+        (item) => item.id === prev.archetypeId,
+      );
+      const slotRules = archetype?.weaponSelectionRules?.slots;
+      if (!slotRules?.length) return prev;
+
+      const slot = slotRules.find((item) => item.id === slotId);
+      if (!slot) return prev;
+      const option = slot.options.find((item) => item.id === optionId);
+      if (!option) return prev;
+
+      const selectedWeapons = prev.weaponIds
+        .map((weaponId) =>
+          faction.weapons.find((weapon) => weapon.id === weaponId),
+        )
+        .filter(
+          (weapon): weapon is (typeof faction.weapons)[number] =>
+            weapon !== undefined,
+        );
+
+      const selectedCounts = selectedWeapons.reduce<Record<string, number>>(
+        (counts, weapon) => {
+          const key = (weapon.group ?? weapon.name).toLowerCase();
+          counts[key] = (counts[key] ?? 0) + 1;
+          return counts;
+        },
+        {},
+      );
+
+      const optionAlreadySelected = option.groups.every(
+        (groupName) => (selectedCounts[groupName.toLowerCase()] ?? 0) > 0,
+      );
+
+      const groupsInSlot = new Set(
+        slot.options
+          .flatMap((slotOption) => slotOption.groups)
+          .map((groupName) => groupName.toLowerCase()),
+      );
+
+      const remainingWeaponIds = prev.weaponIds.filter((weaponId) => {
+        const weapon = faction.weapons.find((candidate) => candidate.id === weaponId);
+        if (!weapon) return false;
+        return !groupsInSlot.has((weapon.group ?? weapon.name).toLowerCase());
+      });
+
+      if (optionAlreadySelected) {
+        return { ...prev, weaponIds: remainingWeaponIds };
+      }
+
+      const addedWeaponIds = option.groups
+        .map((groupName) =>
+          faction.weapons.find(
+            (weapon) =>
+              (weapon.group ?? weapon.name).toLowerCase() ===
+              groupName.toLowerCase(),
+          ),
+        )
+        .filter(
+          (weapon): weapon is (typeof faction.weapons)[number] =>
+            weapon !== undefined,
+        )
+        .map((weapon) => weapon.id);
+
+      return {
+        ...prev,
+        weaponIds: [...remainingWeaponIds, ...addedWeaponIds],
+      };
+    });
+  }
+
   function handleFactionChange(factionId: string) {
     setSelectedFactionId(factionId);
     const nextFaction = loadFaction(factionData[factionId]);
@@ -286,6 +367,7 @@ export function useBuilderState() {
     clearSpecialismGroup,
     selectSpecialism,
     changeWeaponQuantity,
+    selectWeaponSlotOption,
     handleFactionChange,
   };
 }

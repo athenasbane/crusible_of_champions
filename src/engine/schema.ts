@@ -170,6 +170,32 @@ export const ArchetypeSchema = z.object({
   points: z.number(),
   modelCount: z.number(),
   loadout: LoadoutRulesSchema.optional(),
+  weaponSelectionRules: z
+    .object({
+      guideTitle: z.string().optional(),
+      guideLines: z.array(z.string()).optional(),
+      allowedGroups: z.array(z.string()).optional(),
+      groupCaps: z.record(z.string(), z.number()).optional(),
+      slots: z
+        .array(
+          z.object({
+            id: z.string(),
+            title: z.string(),
+            min: z.number(),
+            max: z.number(),
+            disabledWhenAnyOptionsSelected: z.array(z.string()).optional(),
+            options: z.array(
+              z.object({
+                id: z.string(),
+                name: z.string(),
+                groups: z.array(z.string()).min(1),
+              }),
+            ),
+          }),
+        )
+        .optional(),
+    })
+    .optional(),
   abilityPick: z.number().optional(),
   leaderUnits: z.array(z.string()),
   keywords: z.array(z.string()),

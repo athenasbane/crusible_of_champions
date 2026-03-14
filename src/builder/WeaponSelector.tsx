@@ -1,8 +1,13 @@
 import { useState } from "react";
-import type { WeaponSectionView } from "./hooks/useWeaponOptions";
+import type { WeaponSectionView, WeaponSlotGuideView } from "./hooks/useWeaponOptions";
 
 export type WeaponSelectorProps = {
   sections: WeaponSectionView[];
+  slotGuide?: {
+    guideTitle?: string;
+    guideLines?: string[];
+    slots: WeaponSlotGuideView[];
+  };
   loadoutRules: {
     caps: {
       ranged: number;
@@ -14,12 +19,15 @@ export type WeaponSelectorProps = {
     };
   };
   onChangeWeaponQuantity: (id: string, delta: 1 | -1) => void;
+  onSelectSlotOption: (slotId: string, optionId: string) => void;
 };
 
 export const WeaponSelector = ({
   sections,
+  slotGuide,
   loadoutRules,
   onChangeWeaponQuantity,
+  onSelectSlotOption,
 }: WeaponSelectorProps) => {
   const [openSection, setOpenSection] = useState(sections[0]?.title ?? "Ranged");
 
@@ -30,6 +38,61 @@ export const WeaponSelector = ({
         Loadout limits: up to {loadoutRules.caps.ranged} ranged,{" "}
         {loadoutRules.caps.pistol} pistol, {loadoutRules.caps.melee} melee.
       </p>
+      {slotGuide?.slots && slotGuide.slots.length > 0 && (
+        <div className="builder-weapon-guide">
+          <h3 className="builder-weapon-guide-title">
+            {slotGuide.guideTitle ?? "Loadout Steps"}
+          </h3>
+          {slotGuide.guideLines && slotGuide.guideLines.length > 0 && (
+            <div className="builder-weapon-guide-copy">
+              {slotGuide.guideLines.map((line) => (
+                <div key={line}>{line}</div>
+              ))}
+            </div>
+          )}
+          {slotGuide.slots.map((slot, index) => {
+            const statusLabel = slot.required
+              ? `Select ${slot.min}-${slot.max}`
+              : `Optional (${slot.min}-${slot.max})`;
+            const complete =
+              !slot.required ||
+              (slot.selectedCount >= slot.min && slot.selectedCount <= slot.max);
+
+            return (
+              <div
+                key={slot.id}
+                className={`builder-weapon-guide-slot ${complete ? "builder-weapon-guide-slot-complete" : ""}`}
+              >
+                <div className="builder-weapon-guide-slot-header">
+                  <strong>{`Step ${index + 1}`}</strong>
+                  <span>{`${slot.selectedCount} selected`}</span>
+                </div>
+                <div className="builder-weapon-guide-slot-status">{slot.title}</div>
+                <div className="builder-weapon-guide-slot-status">{statusLabel}</div>
+                <div className="builder-weapon-guide-options">
+                  {slot.options.map((option) => (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => onSelectSlotOption(slot.id, option.id)}
+                      disabled={option.disabled}
+                      className={`builder-weapon-guide-option ${
+                        option.selected
+                          ? "builder-weapon-guide-option-selected"
+                          : option.disabled
+                            ? "builder-weapon-guide-option-disabled"
+                            : ""
+                      }`}
+                    >
+                      {option.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
       {sections.map((section) => (
         <div key={section.title} className="builder-accordion-item">
           {(() => {

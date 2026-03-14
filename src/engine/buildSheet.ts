@@ -7,6 +7,7 @@ import {
 } from "./weaponRequirements";
 import { getWeaponGroupKey } from "./weaponGrouping";
 import { isGroupMaxOnePerModel } from "./weaponLimits";
+import { validateWeaponSelectionRules } from "./weaponSelectionRules";
 import { getAbilityPickCount } from "./choicePicks";
 import { getSelectedSpecialismIds, getSpecialismGroups } from "./specialisms";
 import type { BuiltSheet } from "../sheet/types";
@@ -149,6 +150,7 @@ export function buildSheet(
   }
 
   errors.push(...validateWeapons(selectedWeapons, loadoutRules));
+  errors.push(...validateWeaponSelectionRules(faction, input, selectedWeapons));
 
   if (errors.length) return { type: "error", errors };
 

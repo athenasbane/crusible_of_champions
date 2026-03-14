@@ -110,6 +110,77 @@
   font-size: 0.88rem;
 }
 
+.builder-weapon-guide {
+  margin: 0 0 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.builder-weapon-guide-title {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.builder-weapon-guide-copy {
+  margin-top: 2px;
+  display: grid;
+  gap: 4px;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #bdbdbd;
+}
+
+.builder-weapon-guide-slot {
+  border: 1px solid #474747;
+  border-radius: 8px;
+  padding: 8px;
+  background: #222;
+}
+
+.builder-weapon-guide-slot-complete {
+  border-color: #1d755f;
+}
+
+.builder-weapon-guide-slot-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.84rem;
+}
+
+.builder-weapon-guide-slot-status {
+  margin-top: 2px;
+  color: #a9a9a9;
+  font-size: 0.78rem;
+}
+
+.builder-weapon-guide-options {
+  margin-top: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.builder-weapon-guide-option {
+  border: 1px solid #555;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.76rem;
+  color: #d8d8d8;
+  background: transparent;
+  cursor: pointer;
+}
+
+.builder-weapon-guide-option-selected {
+  border-color: #15866a;
+  background: #124338;
+  color: #defff5;
+}
+
+.builder-weapon-guide-option-disabled {
+  opacity: 0.55;
+}
+
 .builder-option {
   margin: 0 0 10px;
   border: 1px solid #444;

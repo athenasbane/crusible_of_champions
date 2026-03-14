@@ -95,10 +95,22 @@
         "caps": {
           "ranged": 0,
           "pistol": 2,
-          "melee": 1
+          "melee": 2
         },
         "mins": {
           "melee": 1
+        }
+      },
+      "weaponSelectionRules": {
+        "allowedGroups": [
+          "Grot blasta",
+          "Attack squig",
+          "Close-combat weapon"
+        ],
+        "groupCaps": {
+          "Grot blasta": 2,
+          "Attack squig": 1,
+          "Close-combat weapon": 1
         }
       },
       "abilitiesText": [

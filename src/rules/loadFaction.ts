@@ -7,6 +7,7 @@ type UnknownRecord = Record<string, unknown>;
 type InheritableFactionData = UnknownRecord & {
   inheritsFrom?: string;
   archetypes?: unknown;
+  archetypesExclude?: string[];
   specialismsMode?: "inherit" | "extend" | "override";
   abilitiesMode?: "inherit" | "extend" | "override";
   weaponsMode?: "inherit" | "extend" | "override";
@@ -19,6 +20,10 @@ const baseFactionDataById: Record<string, unknown> = {
 
 function isRecord(value: unknown): value is UnknownRecord {
   return typeof value === "object" && value !== null;
+}
+
+function isIdRecord(value: unknown): value is { id: string } {
+  return isRecord(value) && typeof value.id === "string";
 }
 
 function mergeOptionsById<T extends { id: string }>(base: T[], next: T[]) {
@@ -160,6 +165,18 @@ function resolveInheritance(data: unknown): unknown {
       ? base.archetypes
       : faction.archetypes;
 
+  const archetypesExclude = new Set(
+    Array.isArray(faction.archetypesExclude) ? faction.archetypesExclude : [],
+  );
+
+  const filteredArchetypes =
+    archetypesExclude.size > 0 && Array.isArray(archetypes)
+      ? archetypes.filter(
+          (archetype) =>
+            !(isIdRecord(archetype) && archetypesExclude.has(archetype.id)),
+        )
+      : archetypes;
+
   const specialismsMode = faction.specialismsMode ?? "inherit";
   const abilitiesMode = faction.abilitiesMode ?? "inherit";
   const weaponsMode = faction.weaponsMode ?? "inherit";
@@ -215,7 +232,7 @@ function resolveInheritance(data: unknown): unknown {
   const merged = {
     ...base,
     ...faction,
-    archetypes,
+    archetypes: filteredArchetypes,
     specialisms,
     abilities,
     weapons,

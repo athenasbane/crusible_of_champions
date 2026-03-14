@@ -12,6 +12,7 @@ describe("buildSheet", () => {
       specialismIds: [],
       abilityIds: [],
       weaponIds: [
+        "ballistus_missile_launcher_frag",
         "armoured_feet",
         "ballistus_lascannon",
         "twin_multi_melta",
@@ -22,12 +23,12 @@ describe("buildSheet", () => {
     expect(result.type).toBe("success");
     if (result.type !== "success") return;
 
-    expect(result.sheet.points).toBe(180);
+    expect(result.sheet.points).toBe(185);
     expect(result.sheet.pointsBreakdown).toEqual({
       archetype: 160,
       specialisms: 0,
       abilities: 0,
-      weapons: 20,
+      weapons: 25,
     });
   });
 
@@ -39,20 +40,22 @@ describe("buildSheet", () => {
       specialismIds: [],
       abilityIds: [],
       weaponIds: [
+        "ballistus_missile_launcher_frag",
         "armoured_feet",
         "macro_plasma_incinerator_standard",
+        "twin_storm_bolter",
       ],
     });
 
     expect(result.type).toBe("success");
     if (result.type !== "success") return;
 
-    expect(result.sheet.points).toBe(170);
+    expect(result.sheet.points).toBe(175);
     expect(result.sheet.pointsBreakdown).toEqual({
       archetype: 160,
       specialisms: 0,
       abilities: 0,
-      weapons: 10,
+      weapons: 15,
     });
   });
 
@@ -354,6 +357,31 @@ describe("buildSheet", () => {
 
     expect(
       result.errors.some((error) => error.includes("max 1 per model")),
+    ).toBe(true);
+  });
+
+  it("rejects invalid dreadnought loadout slot combinations", () => {
+    const faction = loadFaction(adeptusAstartesRaw);
+
+    const result = buildSheet(faction, {
+      archetypeId: "venerable_battle_brother",
+      specialismIds: [],
+      abilityIds: [],
+      weaponIds: [
+        "ballistus_missile_launcher_frag",
+        "brutalis_fists",
+        "twin_storm_bolter",
+        "ballistus_lascannon",
+      ],
+    });
+
+    expect(result.type).toBe("error");
+    if (result.type !== "error") return;
+
+    expect(
+      result.errors.some((error) =>
+        error.includes("First, select one of the following"),
+      ),
     ).toBe(true);
   });
 });

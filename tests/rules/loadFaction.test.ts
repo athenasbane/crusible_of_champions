@@ -3,6 +3,7 @@ import { loadFaction } from "../../src/rules/loadFaction";
 import darkAngelsRaw from "../../src/rules/dark_angels.json";
 import bloodAngelsRaw from "../../src/rules/blood_angels.json";
 import genestealerCultsRaw from "../../src/rules/genestealer_cults.json";
+import blackTemplarsRaw from "../../src/rules/black_templars.json";
 
 describe("loadFaction inheritance", () => {
   it("inherits archetypes and extends options/weapons from Adeptus Astartes", () => {
@@ -98,5 +99,16 @@ describe("loadFaction inheritance", () => {
     expect(faction.specialisms.options.length).toBeGreaterThan(0);
     expect(faction.abilities.options.length).toBeGreaterThan(0);
     expect(faction.weapons.length).toBeGreaterThan(0);
+  });
+
+  it("excludes psyker archetypes from black templars inheritance", () => {
+    const faction = loadFaction(blackTemplarsRaw);
+
+    expect(
+      faction.archetypes.some((archetype) => archetype.id === "librarius_adept"),
+    ).toBe(false);
+    expect(
+      faction.archetypes.some((archetype) => archetype.id === "champion_of_the_chapter"),
+    ).toBe(true);
   });
 });

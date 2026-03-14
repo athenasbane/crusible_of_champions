@@ -24,6 +24,7 @@ export function BuilderPage() {
     clearSpecialismGroup,
     selectSpecialism,
     changeWeaponQuantity,
+    selectWeaponSlotOption,
     handleFactionChange,
   } = useBuilderState();
 
@@ -77,8 +78,10 @@ export function BuilderPage() {
 
               <WeaponSelector
                 sections={weaponView.sections}
+                slotGuide={weaponView.slotGuide}
                 loadoutRules={weaponView.loadoutRules}
                 onChangeWeaponQuantity={changeWeaponQuantity}
+                onSelectSlotOption={selectWeaponSlotOption}
               />
 
               <div className="builder-print">
