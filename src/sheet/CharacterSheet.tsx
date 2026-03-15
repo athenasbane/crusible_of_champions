@@ -27,7 +27,7 @@ export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
           <div className="cs-faction">{sheet.factionName}</div>
           <div className="cs-archetype">{sheet.archetypeName}</div>
           <div className="cs-name">{`Models: ${sheet.modelCount}`}</div>
-          {sheet.name ? <div className="cs-name">{sheet.name}</div> : null}
+          {sheet.name ? <div className="cs-archetype">{sheet.name}</div> : null}
         </div>
 
         <div className="cs-profile">

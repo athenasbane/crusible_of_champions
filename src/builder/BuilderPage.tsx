@@ -19,6 +19,7 @@ export function BuilderPage() {
     points,
     weaponTypeCounts,
     selectedWeaponCount,
+    setCharacterName,
     setArchetype,
     toggleAbility,
     clearSpecialismGroup,
@@ -34,6 +35,11 @@ export function BuilderPage() {
 
   return (
     <div className="builder-page">
+      <header className="builder-disclaimer no-print">
+        Check rules with the source material. Our best effort has been made to
+        keep everything correct, but nurglings sometimes get into the code.
+      </header>
+
       <div className="builder-layout">
         <div className="builder-controls no-print">
           <h1 className="builder-title">{faction.name} Builder</h1>
@@ -48,6 +54,23 @@ export function BuilderPage() {
               R/P/M: {weaponTypeCounts.ranged}/{weaponTypeCounts.pistol}/
               {weaponTypeCounts.melee}
             </span>
+          </div>
+          <div className="builder-section">
+            <div className="builder-faction-row">
+              <label className="builder-label" htmlFor="character-name-input">
+                Character Name
+              </label>
+              <input
+                id="character-name-input"
+                className="builder-select"
+                type="text"
+                autoComplete="off"
+                autoCorrect="off"
+                value={input.name ?? ""}
+                onChange={(event) => setCharacterName(event.target.value)}
+                placeholder="Enter character name"
+              />
+            </div>
           </div>
           <div className="builder-sections-grid">
             <div>
@@ -85,7 +108,9 @@ export function BuilderPage() {
               />
 
               <div className="builder-print">
-                <button onClick={() => window.print()}>Print / Save as PDF</button>
+                <button onClick={() => window.print()}>
+                  Print / Save as PDF
+                </button>
               </div>
             </div>
           </div>

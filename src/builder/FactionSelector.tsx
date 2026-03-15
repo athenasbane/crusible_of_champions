@@ -13,9 +13,6 @@ export function FactionSelector({
     <section className="builder-section">
       <h2 className="builder-section-title">Faction</h2>
       <div className="builder-faction-row">
-        <label htmlFor="faction-select" className="builder-label">
-        Faction:
-        </label>
         <select
           id="faction-select"
           value={selectedFactionId}

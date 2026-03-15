@@ -101,6 +101,21 @@ describe("useBuilderState", () => {
     ]);
   });
 
+  it("updates character name for sheet output", () => {
+    const { result } = renderHook(() => useBuilderState());
+
+    act(() => {
+      result.current.setCharacterName("Grimtoof");
+      result.current.changeWeaponQuantity("close_combat_weapon", 1);
+    });
+
+    expect(result.current.input.name).toBe("Grimtoof");
+    expect(result.current.result.type).toBe("success");
+    if (result.current.result.type === "success") {
+      expect(result.current.result.sheet.name).toBe("Grimtoof");
+    }
+  });
+
   it("resets input when faction changes", () => {
     const { result } = renderHook(() => useBuilderState());
     const abilityId = result.current.faction.abilities.options[0].id;

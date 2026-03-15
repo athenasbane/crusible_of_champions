@@ -3,8 +3,7 @@
   padding: 24px 16px 40px;
   background:
     radial-gradient(circle at 0% 0%, #2c2f34 0, transparent 40%),
-    radial-gradient(circle at 100% 0%, #263338 0, transparent 35%),
-    #202123;
+    radial-gradient(circle at 100% 0%, #263338 0, transparent 35%), #202123;
 }
 
 .builder-layout {
@@ -340,7 +339,6 @@
 }
 
 .builder-select {
-  width: 100%;
   border: 1px solid #4a4a4a;
   border-radius: 8px;
   padding: 10px;
@@ -378,6 +376,18 @@
   background: #3a2323;
   color: #ffbcbc;
   padding: 14px;
+}
+
+.builder-disclaimer {
+  max-width: 1680px;
+  margin: 14px auto;
+  border: 1px solid #4c6130;
+  border-radius: 10px;
+  background: #2e3a22;
+  color: #d8e8bf;
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 @media (max-width: 960px) {

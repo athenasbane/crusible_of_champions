@@ -190,6 +190,10 @@ export function useBuilderState() {
     setInputSanitized((prev) => ({ ...prev, archetypeId }));
   }
 
+  function setCharacterName(name: string) {
+    setInputSanitized((prev) => ({ ...prev, name }));
+  }
+
   function toggleAbility(abilityId: string, checked: boolean) {
     setInputSanitized((prev) => ({
       ...prev,
@@ -362,6 +366,7 @@ export function useBuilderState() {
     points,
     weaponTypeCounts,
     selectedWeaponCount,
+    setCharacterName,
     setArchetype,
     toggleAbility,
     clearSpecialismGroup,
