@@ -48,16 +48,6 @@ export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
               {ability.text}
             </Block>
           ))}
-          {sheet.specialisms.map((specialism) => (
-            <Block key={specialism.id} title={specialism.name}>
-              {specialism.text}
-            </Block>
-          ))}
-          {sheet.abilities.map((ability) => (
-            <Block key={ability.id} title={ability.name}>
-              {ability.text}
-            </Block>
-          ))}
           {sheet.leaderUnits && sheet.leaderUnits.length > 0 && (
             <Block title="Leader">
               <ul className="cs-inline-list">
@@ -70,26 +60,16 @@ export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
         </div>
 
         <div className="cs-right">
-          <Block title="Weapons">
-            <div className="cs-weapon-groups">
-              <WeaponTable
-                title="Ranged"
-                weapons={sheet.weapons.filter((w) => w.type === "ranged")}
-                quantities={sheet.weaponQuantities}
-              />
-              <WeaponTable
-                title="Pistols"
-                weapons={sheet.weapons.filter((w) => w.type === "pistol")}
-                quantities={sheet.weaponQuantities}
-              />
-              <WeaponTable
-                title="Melee"
-                weapons={sheet.weapons.filter((w) => w.type === "melee")}
-                quantities={sheet.weaponQuantities}
-              />
-            </div>
-          </Block>
-
+          {sheet.specialisms.map((specialism) => (
+            <Block key={specialism.id} title={specialism.name}>
+              {specialism.text}
+            </Block>
+          ))}
+          {sheet.abilities.map((ability) => (
+            <Block key={ability.id} title={ability.name}>
+              {ability.text}
+            </Block>
+          ))}
           {sheet.notes ? <Block title="Notes">{sheet.notes}</Block> : null}
           {sheet.keywords && sheet.keywords.length > 0 && (
             <Block title="Faction Keywords">
@@ -110,6 +90,28 @@ export function CharacterSheet({ sheet }: { sheet: BuiltSheet }) {
             </Block>
           ) : null}
         </div>
+      </div>
+
+      <div className="cs-weapons-full">
+        <Block title="Weapons">
+          <div className="cs-weapon-groups">
+            <WeaponTable
+              title="Ranged"
+              weapons={sheet.weapons.filter((w) => w.type === "ranged")}
+              quantities={sheet.weaponQuantities}
+            />
+            <WeaponTable
+              title="Pistols"
+              weapons={sheet.weapons.filter((w) => w.type === "pistol")}
+              quantities={sheet.weaponQuantities}
+            />
+            <WeaponTable
+              title="Melee"
+              weapons={sheet.weapons.filter((w) => w.type === "melee")}
+              quantities={sheet.weaponQuantities}
+            />
+          </div>
+        </Block>
       </div>
     </section>
   );

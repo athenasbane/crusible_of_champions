@@ -10,7 +10,7 @@
   max-width: 1680px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(680px, 1.25fr) minmax(560px, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
   align-items: start;
 }
@@ -366,6 +366,7 @@
 
 .builder-preview {
   min-width: 0;
+  overflow-x: auto;
 }
 
 .builder-errors {
@@ -391,8 +392,12 @@
 }
 
 @media (max-width: 960px) {
-  .builder-layout {
-    grid-template-columns: 1fr;
+  .builder-page {
+    padding: 4px;
+  }
+
+  .builder-controls {
+    padding: 8px;
   }
 
   .builder-sections-grid {
