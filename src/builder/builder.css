@@ -61,11 +61,14 @@
 }
 
 .builder-section {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #414141;
   border-radius: 10px;
   padding: 14px;
   margin: 0 0 14px;
   background: #262626;
+  gap: 12px;
 }
 
 .builder-section-title {

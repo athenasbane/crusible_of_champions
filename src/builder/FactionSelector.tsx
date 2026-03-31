@@ -10,8 +10,8 @@ export function FactionSelector({
   onSelect,
 }: FactionSelectorProps) {
   return (
-    <section className="builder-section">
-      <h2 className="builder-section-title">Faction</h2>
+    <div className="builder-faction-row">
+      <label className="builder-label">Select Faction</label>
       <div className="builder-faction-row">
         <select
           id="faction-select"
@@ -26,6 +26,6 @@ export function FactionSelector({
           ))}
         </select>
       </div>
-    </section>
+    </div>
   );
 }

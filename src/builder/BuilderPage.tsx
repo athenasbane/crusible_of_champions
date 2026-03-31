@@ -9,6 +9,7 @@ import { useAbilityOptions } from "./hooks/useAbilityOptions";
 import { useSpecialismOptions } from "./hooks/useSpecialismOptions";
 import { useWeaponOptions } from "./hooks/useWeaponOptions";
 import "./builder.css";
+import { CharacterNameInput } from "./CharacterNameInput";
 
 export function BuilderPage() {
   const {
@@ -56,30 +57,18 @@ export function BuilderPage() {
             </span>
           </div>
           <div className="builder-section">
-            <div className="builder-faction-row">
-              <label className="builder-label" htmlFor="character-name-input">
-                Character Name
-              </label>
-              <input
-                id="character-name-input"
-                className="builder-select"
-                type="text"
-                autoComplete="off"
-                autoCorrect="off"
-                value={input.name ?? ""}
-                onChange={(event) => setCharacterName(event.target.value)}
-                placeholder="Enter character name"
-              />
-            </div>
+            <FactionSelector
+              factions={availableFactions}
+              selectedFactionId={selectedFactionId}
+              onSelect={handleFactionChange}
+            />
+            <CharacterNameInput
+              input={input}
+              setCharacterName={setCharacterName}
+            />
           </div>
           <div className="builder-sections-grid">
             <div>
-              <FactionSelector
-                factions={availableFactions}
-                selectedFactionId={selectedFactionId}
-                onSelect={handleFactionChange}
-              />
-
               <ArchetypeSelector
                 input={input}
                 faction={faction}
