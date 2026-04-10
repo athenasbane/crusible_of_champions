@@ -22,6 +22,7 @@ import genestealer_cult_raw from "../../rules/genestealer_cults.json";
 import tau_raw from "../../rules/tau_empire.json";
 import orks_raw from "../../rules/orks.json";
 import aeldari_raw from "../../rules/aeldari.json";
+import drukhari_raw from "../../rules/drukhari.json";
 import {
   countWeapons,
   getEffectiveLoadoutRules,
@@ -60,6 +61,7 @@ const factionData: Record<string, unknown> = {
   necrons: necrons_raw,
   tau: tau_raw,
   orks: orks_raw,
+  drukhari: drukhari_raw,
 };
 
 export const availableFactions = [
@@ -82,6 +84,7 @@ export const availableFactions = [
   { id: "tau", name: "Tau Empire" },
   { id: "orks", name: "Orks" },
   { id: "aeldari", name: "Aeldari" },
+  { id: "drukhari", name: "Drukhari" },
   { id: "genestealer-cult", name: "Genestealer Cult" },
 ];
 

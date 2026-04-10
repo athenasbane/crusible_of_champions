@@ -1,0 +1,734 @@
+{
+  "id": "drukhari",
+  "name": "Drukhari",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "archtormentor",
+      "name": "Archtormentor",
+      "modelCount": 1,
+      "profile": {
+        "move": 8,
+        "toughness": 3,
+        "save": 6,
+        "wounds": 4,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 4
+      },
+      "points": 60,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Power From Pain"
+        },
+        {
+          "title": "Hatred Eternal (Pain)",
+          "text": "In your Shooting phase or the Fight phase, when you select this model's unit to shoot or fight, you can spend 1 Pain token to Empower that unit. While that unit is Empowered, each time a model in that unit makes an attack, you can re-roll the Hit roll."
+        },
+        {
+          "title": "Cruel Example",
+          "text": "Each time this model makes an attack that targets a Character unit, you can add 1 to the Wound roll. Each time this model's unit destroys a Character model, you gain 1CP."
+        }
+      ],
+      "leaderUnits": [
+        "Wyches"
+      ],
+      "unitComposition": "1 Archtormentor",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Wych Cult",
+        "Aeldari",
+        "Archtormentor"
+      ],
+      "factionKeywords": [
+        "Drukhari"
+      ]
+    },
+    {
+      "id": "flesh_crafter",
+      "name": "Flesh Crafter",
+      "modelCount": 1,
+      "profile": {
+        "move": 7,
+        "toughness": 4,
+        "save": 5,
+        "wounds": 5,
+        "leadership": 7,
+        "objectiveControl": 1,
+        "invuln": 6
+      },
+      "points": 60,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Feel No Pain 5+, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Power From Pain"
+        },
+        {
+          "title": "Fleshcraft (Pain)",
+          "text": "In your Command phase, you can spend 1 Pain token to Empower this model's unit. Each time you do, you can return up to D3+1 destroyed Bodyguard models to that unit."
+        },
+        {
+          "title": "Pain Adept",
+          "text": "In your Command phase, if one or more models from your army with this ability are on the battlefield, roll one D6; on a 4+, you gain 1 Pain token."
+        }
+      ],
+      "leaderUnits": [
+        "Wracks"
+      ],
+      "unitComposition": "1 Flesh Crafter",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Haemonculus Covens",
+        "Aeldari",
+        "Flesh Crafter"
+      ],
+      "factionKeywords": [
+        "Drukhari"
+      ]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "jetbike",
+        "name": "Jetbike",
+        "text": "(ARCHTORMENTOR only): Change this model's Move characteristic to 16\", its Toughness characteristic to 4, and its Wounds characteristic to 5. Add the Fly and Mounted keywords, and replace the list of units this model can be attached to: Reavers.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "archtormentor"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 16
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 4
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "addKeywords",
+            "value": [
+              "Fly",
+              "Mounted",
+              "Jetbike"
+            ]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Reavers"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kabal_overlord",
+        "name": "Kabal Overlord",
+        "text": "(ARCHTORMENTOR only): Change this model's Move characteristic to 7\" and its Leadership characteristic to 6+. Remove the Wych Cult keyword, add the Kabal keyword, and replace the list of units this model can be attached to: Hand of the Archon, Incubi, Kabalite Warriors.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "archtormentor"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 7
+          },
+          {
+            "kind": "set",
+            "field": "leadership",
+            "value": 6
+          },
+          {
+            "kind": "remove",
+            "field": "keywords",
+            "value": "Wych Cult"
+          },
+          {
+            "kind": "addKeywords",
+            "value": [
+              "Kabal"
+            ]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Hand of the Archon",
+              "Incubi",
+              "Kabalite Warriors"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pseudavian_form",
+        "name": "Pseudavian Form",
+        "text": "Change this model's Move characteristic to 14\", add the Fly and Jump Pack keywords, and it gains the Deep Strike ability. Replace the list of units this model can be attached to: Scourges with Heavy Weapons, Scourges with Shardcarbines.",
+        "points": 0,
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 14
+          },
+          {
+            "kind": "addKeywords",
+            "value": [
+              "Fly",
+              "Jump Pack",
+              "Deep Strike"
+            ]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Scourges with Heavy Weapons",
+              "Scourges with Shardcarbines"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "skyboard",
+        "name": "Skyboard",
+        "text": "(ARCHTORMENTOR only): Change this model's Move characteristic to 14\", its Toughness characteristic to 4, and its Wounds characteristic to 5. Add the Fly and Mounted keywords, it gains the Deep Strike ability, and replace the list of units this model can be attached to: Hellions.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "archtormentor"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 14
+          },
+          {
+            "kind": "set",
+            "field": "toughness",
+            "value": 4
+          },
+          {
+            "kind": "set",
+            "field": "wounds",
+            "value": 5
+          },
+          {
+            "kind": "addKeywords",
+            "value": [
+              "Fly",
+              "Mounted",
+              "Deep Strike",
+              "Skyboard"
+            ]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": [
+              "Hellions"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "conduit_of_cruelty",
+        "name": "Conduit of Cruelty",
+        "text": "This unit is always Empowered - you do not need to spend any Pain tokens to activate this unit's Pain abilities.",
+        "points": 0
+      },
+      {
+        "id": "darkglass_prism",
+        "name": "Darkglass Prism",
+        "text": "Each time this unit disembarks from a Transport, until the end of the turn, enemy units cannot use the Fire Overwatch Stratagem to shoot at this unit.",
+        "points": 0
+      },
+      {
+        "id": "fear_incarnate",
+        "name": "Fear Incarnate",
+        "text": "(Aura) While an enemy unit is within 6\" of this model, worsen the Leadership characteristic of models in that unit by 1. In addition, in the Battle-shock step of your opponent's Command phase, if such an enemy unit is below its Starting Strength, it must take a Battle-shock test.",
+        "points": 0
+      },
+      {
+        "id": "overwhelming_avarice",
+        "name": "Overwhelming Avarice",
+        "text": "While this model is leading a unit, each time a model in that unit makes a Pile-in or Consolidation move, it can move up to 6\" instead of up to 3\".",
+        "points": 0
+      },
+      {
+        "id": "sadistic_epicurean",
+        "name": "Sadistic Epicurean",
+        "text": "Each time an enemy unit is destroyed by this model's unit, gain 1 Pain token.",
+        "points": 0
+      },
+      {
+        "id": "storm_of_blades",
+        "name": "Storm of Blades",
+        "text": "While this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
+        "points": 0
+      },
+      {
+        "id": "twisting_the_knife",
+        "name": "Twisting the Knife",
+        "text": "Each time this model makes an attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If that target is Below Half-strength, you can re-roll the Wound roll as well.",
+        "points": 0
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "blaster",
+      "name": "Blaster*",
+      "group": "Blaster",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-4",
+      "damage": "D6+1",
+      "keywords": [
+        "Assault"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "jetbike"
+        }
+      ]
+    },
+    {
+      "id": "heat_lance",
+      "name": "Heat Lance*",
+      "group": "Heat Lance",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "14",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": [
+        "Assault",
+        "Melta 3"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "jetbike"
+        }
+      ]
+    },
+    {
+      "id": "shardcarbine",
+      "name": "Shardcarbine",
+      "group": "Shardcarbine",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "2+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 3+",
+        "Assault"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "pseudavian_form"
+        }
+      ]
+    },
+    {
+      "id": "splinter_pods",
+      "name": "Splinter pods**",
+      "group": "Splinter pods",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 3+",
+        "Assault",
+        "Twin-linked"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "skyboard"
+        }
+      ]
+    },
+    {
+      "id": "splinter_rifle",
+      "name": "Splinter rifle",
+      "group": "Splinter rifle",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 3+",
+        "Assault"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "kabal_overlord"
+        }
+      ]
+    },
+    {
+      "id": "blast_pistol",
+      "name": "Blast pistol",
+      "group": "Blast pistol",
+      "type": "pistol",
+      "range": "6\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "D3",
+      "keywords": [
+        "Pistol"
+      ],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "archtormentor"
+        }
+      ]
+    },
+    {
+      "id": "splinter_pistol",
+      "name": "Splinter pistol",
+      "group": "Splinter pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 3+",
+        "Assault",
+        "Pistol"
+      ],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "archtormentor"
+        }
+      ]
+    },
+    {
+      "id": "stinger_pistol",
+      "name": "Stinger pistol",
+      "group": "Stinger pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "2",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": [
+        "Anti-Infantry 2+",
+        "Pistol",
+        "Precision"
+      ],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "flesh_crafter"
+        }
+      ]
+    },
+    {
+      "id": "agoniser",
+      "name": "Agoniser",
+      "group": "Agoniser",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 3+"
+      ],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "archtormentor"
+        }
+      ]
+    },
+    {
+      "id": "archite_glaive_and_agoniser",
+      "name": "Archite glaive and agoniser",
+      "group": "Archite glaive and agoniser",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+        "Anti-Infantry 3+",
+        "Precision"
+      ],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "archtormentor"
+        }
+      ]
+    },
+    {
+      "id": "bladevanes",
+      "name": "Bladevanes*",
+      "group": "Bladevanes",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [
+        "Extra Attacks",
+        "Lance"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "jetbike"
+        }
+      ]
+    },
+    {
+      "id": "demiklaives_single_blade",
+      "name": "Demiklaives - single blade",
+      "group": "Demiklaives",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "kabal_overlord"
+        }
+      ]
+    },
+    {
+      "id": "demiklaives_dual_blades",
+      "name": "Demiklaives - dual blades",
+      "group": "Demiklaives",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": [
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "kabal_overlord"
+        }
+      ]
+    },
+    {
+      "id": "haemonculus_tools_and_scissorhands",
+      "name": "Haemonculus tools and scissorhands",
+      "group": "Haemonculus tools and scissorhands",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-1",
+      "damage": "D3",
+      "keywords": [
+        "Anti-Infantry 2+",
+        "Precision"
+      ],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "flesh_crafter"
+        }
+      ]
+    },
+    {
+      "id": "hellglaive",
+      "name": "Hellglaive",
+      "group": "Hellglaive",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": [
+        "Lance",
+        "Sustained Hits 1"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "skyboard"
+        }
+      ]
+    },
+    {
+      "id": "huskblade",
+      "name": "Huskblade",
+      "group": "Huskblade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": [
+        "Devastating Wounds"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "kabal_overlord"
+        }
+      ]
+    },
+    {
+      "id": "power_weapon",
+      "name": "Power weapon",
+      "group": "Power weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "kabal_overlord"
+        }
+      ]
+    },
+    {
+      "id": "stunclaw",
+      "name": "Stunclaw",
+      "group": "Stunclaw",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": [
+        "Devastating Wounds",
+        "Lance",
+        "Precision"
+      ],
+      "requirements": [
+        {
+          "kind": "hasChoice",
+          "groupId": "specialisms",
+          "optionId": "skyboard"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Before selecting targets for a weapon with more than one profile, select one of its profiles to make attacks with.",
+    "* Model with Jetbike only.",
+    "** Model with Skyboard only."
+  ]
+}

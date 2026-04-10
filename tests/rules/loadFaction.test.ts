@@ -4,6 +4,7 @@ import darkAngelsRaw from "../../src/rules/dark_angels.json";
 import bloodAngelsRaw from "../../src/rules/blood_angels.json";
 import genestealerCultsRaw from "../../src/rules/genestealer_cults.json";
 import blackTemplarsRaw from "../../src/rules/black_templars.json";
+import drukhariRaw from "../../src/rules/drukhari.json";
 
 describe("loadFaction inheritance", () => {
   it("inherits archetypes and extends options/weapons from Adeptus Astartes", () => {
@@ -110,5 +111,24 @@ describe("loadFaction inheritance", () => {
     expect(
       faction.archetypes.some((archetype) => archetype.id === "champion_of_the_chapter"),
     ).toBe(true);
+  });
+
+  it("loads drukhari rules from the photographed pages", () => {
+    const faction = loadFaction(drukhariRaw);
+
+    expect(faction.id).toBe("drukhari");
+    expect(
+      faction.archetypes.some((archetype) => archetype.id === "archtormentor"),
+    ).toBe(true);
+    expect(
+      faction.archetypes.some((archetype) => archetype.id === "flesh_crafter"),
+    ).toBe(true);
+    expect(
+      faction.specialisms.options.some((option) => option.id === "jetbike"),
+    ).toBe(true);
+    expect(
+      faction.abilities.options.some((option) => option.id === "conduit_of_cruelty"),
+    ).toBe(true);
+    expect(faction.weapons.some((weapon) => weapon.id === "stunclaw")).toBe(true);
   });
 });
