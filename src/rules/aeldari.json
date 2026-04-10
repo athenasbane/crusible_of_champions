@@ -78,7 +78,7 @@
           "text": "Battle Focus"
         },
         {
-          "title": "Winds of Va",
+          "title": "Winds of War",
           "text": "This model's unit is eligible to declare a charge in a turn in which it Advanced."
         }
       ],
@@ -365,8 +365,8 @@
       "keywords": [],
       "requirements": [
         {
-          "kind": "keywordHas",
-          "keyword": "Mounted"
+          "kind": "archetypeIs",
+          "archetypeId": "ghost_warrior"
         }
       ]
     },
@@ -445,7 +445,13 @@
       "strength": "4",
       "ap": "0",
       "damage": "1",
-      "keywords": ["Assault", "Ignores Cover", "Torrent"]
+      "keywords": ["Assault", "Ignores Cover", "Torrent"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "ghost_warrior"
+        }
+      ]
     },
     {
       "id": "long_rifle",
@@ -523,13 +529,7 @@
       "strength": "5",
       "ap": "0",
       "damage": "1",
-      "keywords": ["Assault", "Sustained Hits 1"],
-      "requirements": [
-        {
-          "kind": "keywordHas",
-          "keyword": "Mounted"
-        }
-      ]
+      "keywords": ["Assault", "Sustained Hits 1"]
     },
     {
       "id": "shuriken_cannon",
@@ -542,13 +542,7 @@
       "strength": "6",
       "ap": "-1",
       "damage": "2",
-      "keywords": ["Assault", "Lethal Hits"],
-      "requirements": [
-        {
-          "kind": "keywordHas",
-          "keyword": "Mounted"
-        }
-      ]
+      "keywords": ["Assault", "Lethal Hits"]
     },
     {
       "id": "shuriken_catapult",
@@ -561,7 +555,13 @@
       "strength": "4",
       "ap": "-1",
       "damage": "1",
-      "keywords": ["Assault"]
+      "keywords": ["Assault"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "ghost_warrior"
+        }
+      ]
     },
     {
       "id": "singing_spear_ranged",
@@ -615,8 +615,8 @@
       "keywords": [],
       "requirements": [
         {
-          "kind": "keywordHas",
-          "keyword": "Mounted"
+          "kind": "archetypeIs",
+          "archetypeId": "ghost_warrior"
         }
       ]
     },
