@@ -46,12 +46,7 @@
         "Warlock Conclave"
       ],
       "unitComposition": "1 Craftworld Warleader",
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Aeldari",
-        "Craftworld Warleader"
-      ],
+      "keywords": ["Infantry", "Character", "Aeldari", "Craftworld Warleader"],
       "factionKeywords": ["Asuryani"]
     },
     {
@@ -82,17 +77,9 @@
           "text": "This model's unit is eligible to declare a charge in a turn in which it Advanced."
         }
       ],
-      "leaderUnits": [
-        "Windriders"
-      ],
+      "leaderUnits": ["Windriders"],
       "unitComposition": "1 Skyrunner",
-      "keywords": [
-        "Mounted",
-        "Character",
-        "Aeldari",
-        "Fly",
-        "Skyrunner"
-      ],
+      "keywords": ["Mounted", "Character", "Aeldari", "Fly", "Skyrunner"],
       "factionKeywords": ["Asuryani"]
     },
     {
@@ -312,7 +299,7 @@
       {
         "id": "outcast",
         "name": "Outcast",
-        "text": "(+10 pts) (INFANTRY and MOUNTED only): This model has the Lone Operative ability.",
+        "text": "(INFANTRY and MOUNTED only): This model has the Lone Operative ability.",
         "points": 10,
         "requirements": [
           {
