@@ -1,0 +1,876 @@
+{
+  "id": "aeldari",
+  "name": "Aeldari",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "craftworld_warleader",
+      "name": "Craftworld Warleader",
+      "profile": {
+        "move": 7,
+        "toughness": 3,
+        "save": 6,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 4
+      },
+      "points": 75,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Battle Focus"
+        },
+        {
+          "title": "Guided by Fate",
+          "text": "Each time this model makes an attack, you can re-roll the Hit roll and you can re-roll the Wound roll."
+        }
+      ],
+      "leaderUnits": [
+        "Guardian Defenders",
+        "Storm Guardians",
+        "Warlock Conclave"
+      ],
+      "unitComposition": "1 Craftworld Warleader",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Aeldari",
+        "Craftworld Warleader"
+      ],
+      "factionKeywords": ["Asuryani"]
+    },
+    {
+      "id": "skyrunner",
+      "name": "Skyrunner",
+      "profile": {
+        "move": 14,
+        "toughness": 4,
+        "save": 6,
+        "wounds": 5,
+        "leadership": 6,
+        "objectiveControl": 2,
+        "invuln": 4
+      },
+      "points": 80,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Battle Focus"
+        },
+        {
+          "title": "Winds of Va",
+          "text": "This model's unit is eligible to declare a charge in a turn in which it Advanced."
+        }
+      ],
+      "leaderUnits": [
+        "Windriders"
+      ],
+      "unitComposition": "1 Skyrunner",
+      "keywords": [
+        "Mounted",
+        "Character",
+        "Aeldari",
+        "Fly",
+        "Skyrunner"
+      ],
+      "factionKeywords": ["Asuryani"]
+    },
+    {
+      "id": "ghost_warrior",
+      "name": "Ghost Warrior",
+      "profile": {
+        "move": 8,
+        "toughness": 10,
+        "save": 2,
+        "wounds": 10,
+        "leadership": 6,
+        "objectiveControl": 3
+      },
+      "points": 160,
+      "modelCount": 1,
+      "loadout": {
+        "caps": {
+          "ranged": 4,
+          "pistol": 0,
+          "melee": 2
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise 1"
+        },
+        {
+          "title": "Faction",
+          "text": "Battle Focus"
+        },
+        {
+          "title": "Awakened Spirit",
+          "text": "Each time this model makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+        }
+      ],
+      "leaderUnits": [],
+      "unitComposition": "1 Ghost Warrior",
+      "keywords": [
+        "Monster",
+        "Character",
+        "Aeldari",
+        "Walker",
+        "Wraith Construct",
+        "Ghost Warrior"
+      ],
+      "factionKeywords": ["Asuryani"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "cameleoline_cloak",
+        "name": "Cameleoline Cloak",
+        "text": "(INFANTRY only): This model gains the Infiltrators and Stealth abilities, and replace the list of units this model can be attached to: Rangers.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Infiltrators", "Stealth"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Rangers"]
+          }
+        ]
+      },
+      {
+        "id": "corsair_raider",
+        "name": "Corsair Raider",
+        "text": "(INFANTRY only): This model gains the Scouts 7\" ability, add the ANHRATHE keyword, and replace the list of units this model can be attached to: Corsair Voidreavers, Corsair Voidscarred.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Scouts 7\"", "Anhrathe"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Corsair Voidreavers", "Corsair Voidscarred"]
+          }
+        ]
+      },
+      {
+        "id": "heavy_aspect_armour",
+        "name": "Heavy Aspect Armour",
+        "text": "(INFANTRY only): Change this model's Save characteristic to 3+. Add the following units to the list of units this model can be attached to: Dark Reapers, Dire Avengers, Fire Dragons, Howling Banshees, Striking Scorpions.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 3
+          },
+          {
+            "kind": "addLeaderUnits",
+            "value": [
+              "Dark Reapers",
+              "Dire Avengers",
+              "Fire Dragons",
+              "Howling Banshees",
+              "Striking Scorpions"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "path_of_the_witch",
+        "name": "Path of the Witch",
+        "text": "The model gains the PSYKER keyword.",
+        "points": 0,
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Psyker"]
+          }
+        ]
+      },
+      {
+        "id": "skyrunners_heavy_aspect_armour",
+        "name": "Skyrunner's Heavy Aspect Armour",
+        "text": "(MOUNTED only): Change this model's Save characteristic to 3+. Add the following unit to the list of units this model can be attached to: Shining Spears.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Mounted"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 3
+          },
+          {
+            "kind": "addLeaderUnits",
+            "value": ["Shining Spears"]
+          }
+        ]
+      },
+      {
+        "id": "wayleapers_heavy_aspect_armour",
+        "name": "Wayleaper's Heavy Aspect Armour",
+        "text": "(INFANTRY only): Change this model's Move characteristic to 14\", its Save characteristic to 3+, it gains the Deep Strike ability, and add the Fly and Jump Pack keywords. Replace the list of units this model can be attached to: Swooping Hawks, Warp Spiders.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Infantry"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "set",
+            "field": "move",
+            "value": 14
+          },
+          {
+            "kind": "set",
+            "field": "save",
+            "value": 3
+          },
+          {
+            "kind": "addKeywords",
+            "value": ["Deep Strike", "Fly", "Jump Pack"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Swooping Hawks", "Warp Spiders"]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "options": [
+      {
+        "id": "doomseer",
+        "name": "Doomseer",
+        "text": "(PSYKER only): Each time a model in this unit makes an attack, add 1 to the Hit roll.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ]
+      },
+      {
+        "id": "outcast",
+        "name": "Outcast",
+        "text": "(+10 pts) (INFANTRY and MOUNTED only): This model has the Lone Operative ability.",
+        "points": 10,
+        "requirements": [
+          {
+            "kind": "oneOf",
+            "requirements": [
+              {
+                "kind": "keywordHas",
+                "keyword": "Infantry"
+              },
+              {
+                "kind": "keywordHas",
+                "keyword": "Mounted"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "superlative_strategist",
+        "name": "Superlative Strategist",
+        "text": "You can re-roll Advance rolls made for this model's unit, and you can re-roll any rolls made for that unit while it is performing an Agile Manoeuvre.",
+        "points": 0
+      },
+      {
+        "id": "warden_of_fate",
+        "name": "Warden of Fate",
+        "text": "(PSYKER only): Each time a ranged attack targets this unit, models in that unit have the Benefit of Cover.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Psyker"
+          }
+        ]
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "bright_lance",
+      "name": "Bright lance*‡",
+      "group": "Bright lance",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "12",
+      "ap": "-3",
+      "damage": "D6+2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "destructor",
+      "name": "Destructor**",
+      "group": "Destructor",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Psychic", "Torrent"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "death_spinner",
+      "name": "Death spinner",
+      "group": "Death spinner",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "dragon_fusion_gun",
+      "name": "Dragon fusion gun",
+      "group": "Dragon fusion gun",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Assault", "Melta 3"]
+    },
+    {
+      "id": "eldritch_storm",
+      "name": "Eldritch Storm**",
+      "group": "Eldritch Storm",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": ["Blast", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "flamer",
+      "name": "Flamer",
+      "group": "Flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault", "Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "long_rifle",
+      "name": "Long rifle",
+      "group": "Long rifle",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Heavy", "Precision"]
+    },
+    {
+      "id": "missile_launcher_starshot",
+      "name": "Missile launcher — starshot",
+      "group": "Missile launcher",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "D6",
+      "keywords": []
+    },
+    {
+      "id": "missile_launcher_sunburst",
+      "name": "Missile launcher — sunburst",
+      "group": "Missile launcher",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "D6",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Blast"]
+    },
+    {
+      "id": "reaper_launcher_starshot",
+      "name": "Reaper launcher — starshot",
+      "group": "Reaper launcher",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Heavy", "Ignores Cover"]
+    },
+    {
+      "id": "reaper_launcher_starswarm",
+      "name": "Reaper launcher — starswarm",
+      "group": "Reaper launcher",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Heavy", "Ignores Cover"]
+    },
+    {
+      "id": "scatter_laser",
+      "name": "Scatter laser‡",
+      "group": "Scatter laser",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault", "Sustained Hits 1"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "shuriken_cannon",
+      "name": "Shuriken cannon‡",
+      "group": "Shuriken cannon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Assault", "Lethal Hits"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "shuriken_catapult",
+      "name": "Shuriken catapult",
+      "group": "Shuriken catapult",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Assault"]
+    },
+    {
+      "id": "singing_spear_ranged",
+      "name": "Singing spear**",
+      "group": "Singing spear",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "0",
+      "damage": "3",
+      "keywords": ["Assault", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "star_lance_ranged",
+      "name": "Star lance***‡",
+      "group": "Star lance",
+      "type": "ranged",
+      "range": "6\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": ["Assault"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "starcannon",
+      "name": "Starcannon*‡",
+      "group": "Starcannon",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "twin_shuriken_catapult",
+      "name": "Twin shuriken catapult***",
+      "group": "Twin shuriken catapult",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Assault", "Twin-linked"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "dragon_fusion_pistol",
+      "name": "Dragon fusion pistol",
+      "group": "Dragon fusion pistol",
+      "type": "pistol",
+      "range": "6\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Assault", "Melta 3", "Pistol"]
+    },
+    {
+      "id": "shuriken_pistol",
+      "name": "Shuriken pistol",
+      "group": "Shuriken pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Assault", "Pistol"]
+    },
+    {
+      "id": "banshee_blade",
+      "name": "Banshee blade",
+      "group": "Banshee blade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Anti-Infantry 3+"]
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "ghostglaive_strike",
+      "name": "Ghostglaive — strike*",
+      "group": "Ghostglaive",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "4+",
+      "strength": "10",
+      "ap": "-3",
+      "damage": "D6+1",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "ghost_warrior"
+        }
+      ]
+    },
+    {
+      "id": "ghostglaive_sweep",
+      "name": "Ghostglaive — sweep*",
+      "group": "Ghostglaive",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "8",
+      "skill": "4+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "ghost_warrior"
+        }
+      ]
+    },
+    {
+      "id": "paragon_sabre",
+      "name": "Paragon sabre",
+      "group": "Paragon sabre",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "scorpion_chainsword",
+      "name": "Scorpion chainsword",
+      "group": "Scorpion chainsword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "7",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Sustained Hits 1"]
+    },
+    {
+      "id": "singing_spear_melee",
+      "name": "Singing spear**",
+      "group": "Singing spear",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "3",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "star_glaive",
+      "name": "Star glaive",
+      "group": "Star glaive",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": []
+    },
+    {
+      "id": "star_lance_melee",
+      "name": "Star lance***",
+      "group": "Star lance",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-3",
+      "damage": "3",
+      "keywords": ["Anti-Monster 3+", "Anti-Vehicle 3+", "Lance"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Mounted"
+        }
+      ]
+    },
+    {
+      "id": "witch_staff",
+      "name": "Witch staff**",
+      "group": "Witch staff",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "D3",
+      "keywords": ["Anti-Infantry 2+", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "witchblade",
+      "name": "Witchblade**",
+      "group": "Witchblade",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Anti-Infantry 2+", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "wraithbone_fists",
+      "name": "Wraithbone fists*",
+      "group": "Wraithbone fists",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "4+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": [],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "ghost_warrior"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols (Infantry and Mounted only), one or two melee weapons.",
+    "Before selecting targets for a weapon with multiple profiles, select one of its profiles to make attacks with.",
+    "Ghost Warrior can be equipped with up to four Ghost Warrior only ranged weapons instead of up to one ranged weapon.",
+    "* Ghost Warrior only.",
+    "** Psyker only.",
+    "*** Mounted only.",
+    "‡ A model cannot have more than two of these options."
+  ]
+}

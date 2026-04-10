@@ -21,6 +21,7 @@ import necrons_raw from "../../rules/necrons.json";
 import genestealer_cult_raw from "../../rules/genestealer_cults.json";
 import tau_raw from "../../rules/tau_empire.json";
 import orks_raw from "../../rules/orks.json";
+import aeldari_raw from "../../rules/aeldari.json";
 import {
   countWeapons,
   getEffectiveLoadoutRules,
@@ -54,6 +55,7 @@ const factionData: Record<string, unknown> = {
   "chaos-daemons": chaos_daemons_raw,
   "emperors-children": emperors_children_raw,
   "genestealer-cult": genestealer_cult_raw,
+  aeldari: aeldari_raw,
   tyranids: tyranids_raw,
   necrons: necrons_raw,
   tau: tau_raw,
@@ -79,6 +81,7 @@ export const availableFactions = [
   { id: "necrons", name: "Necrons" },
   { id: "tau", name: "Tau Empire" },
   { id: "orks", name: "Orks" },
+  { id: "aeldari", name: "Aeldari" },
   { id: "genestealer-cult", name: "Genestealer Cult" },
 ];
 
@@ -102,11 +105,17 @@ function sanitizeInputWeapons(faction: FactionRules, input: BuildInput) {
     if (!isWeaponAllowedForSelectionRules(faction, input, weapon)) continue;
 
     if (counts[weapon.type] >= rules.caps[weapon.type]) continue;
-    if (isGroupMaxOnePerModel(faction, groupKey) && (quantitiesByGroup[groupKey] ?? 0) >= 1) {
+    if (
+      isGroupMaxOnePerModel(faction, groupKey) &&
+      (quantitiesByGroup[groupKey] ?? 0) >= 1
+    ) {
       continue;
     }
     const groupCap = getGroupCapForWeapon(faction, input, weapon);
-    if (typeof groupCap === "number" && (quantitiesByGroup[groupKey] ?? 0) >= groupCap) {
+    if (
+      typeof groupCap === "number" &&
+      (quantitiesByGroup[groupKey] ?? 0) >= groupCap
+    ) {
       continue;
     }
 
@@ -302,7 +311,9 @@ export function useBuilderState() {
       );
 
       const remainingWeaponIds = prev.weaponIds.filter((weaponId) => {
-        const weapon = faction.weapons.find((candidate) => candidate.id === weaponId);
+        const weapon = faction.weapons.find(
+          (candidate) => candidate.id === weaponId,
+        );
         if (!weapon) return false;
         return !groupsInSlot.has((weapon.group ?? weapon.name).toLowerCase());
       });
@@ -343,8 +354,13 @@ export function useBuilderState() {
   const selectedWeapons = useMemo(
     () =>
       input.weaponIds
-        .map((weaponId) => faction.weapons.find((weapon) => weapon.id === weaponId))
-        .filter((weapon): weapon is (typeof faction.weapons)[number] => weapon !== undefined),
+        .map((weaponId) =>
+          faction.weapons.find((weapon) => weapon.id === weaponId),
+        )
+        .filter(
+          (weapon): weapon is (typeof faction.weapons)[number] =>
+            weapon !== undefined,
+        ),
     [faction, input.weaponIds],
   );
 
