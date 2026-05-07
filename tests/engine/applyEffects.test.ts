@@ -74,4 +74,23 @@ describe("applyEffectsToSheet", () => {
     expect(result.keywords).toEqual(["Infantry", "Fly", "Jump Pack"]);
     expect(result.leaderUnits).toEqual(["Outrider Squad", "Attack Bike Squad"]);
   });
+
+  it("applies faction keyword and archetype-specific leader-unit effects", () => {
+    const effects: Effect[] = [
+      { kind: "remove", field: "factionKeywords", value: "Test" },
+      { kind: "addFactionKeywords", value: ["Replacement"] },
+      {
+        kind: "setLeaderUnitsByArchetype",
+        value: {
+          matching_archetype: ["Matching Unit"],
+          other_archetype: ["Other Unit"],
+        },
+      },
+    ];
+
+    const result = applyEffectsToSheet(makeSheet(), effects, "matching_archetype");
+
+    expect(result.factionKeywords).toEqual(["Replacement"]);
+    expect(result.leaderUnits).toEqual(["Matching Unit"]);
+  });
 });

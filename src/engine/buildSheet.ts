@@ -238,7 +238,7 @@ export function buildSheet(
     notes: input.notes,
   };
 
-  const sheet = applyEffectsToSheet(preeffectSheet, effects);
+  const sheet = applyEffectsToSheet(preeffectSheet, effects, archetype.id);
 
   return {
     type: "success",
