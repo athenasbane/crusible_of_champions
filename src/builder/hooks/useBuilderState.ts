@@ -23,6 +23,7 @@ import tau_raw from "../../rules/tau_empire.json";
 import orks_raw from "../../rules/orks.json";
 import aeldari_raw from "../../rules/aeldari.json";
 import drukhari_raw from "../../rules/drukhari.json";
+import imperial_raw from "../../rules/imperial_agents.json";
 import {
   countWeapons,
   getEffectiveLoadoutRules,
@@ -50,6 +51,7 @@ const factionData: Record<string, unknown> = {
   "astra-militarum": astra_militarum_raw,
   "adeptus-mechanicus": adeptus_mechanicus_raw,
   "adeptus-sororitas": adeptus_sororitas_raw,
+  "imperial-agents": imperial_raw,
   "chaos-space-marines": chaos_space_marines_raw,
   "death-guard": death_guard_raw,
   "thousand-sons": thousand_sons_raw,
@@ -74,6 +76,7 @@ export const availableFactions = [
   { id: "astra-militarum", name: "Astra Militarum" },
   { id: "adeptus-mechanicus", name: "Adeptus Mechanicus" },
   { id: "adeptus-sororitas", name: "Adeptus Sororitas" },
+  { id: "imperial-agents", name: "Imperial Agents" },
   { id: "emperors-children", name: "Emperor's Children" },
   { id: "chaos-space-marines", name: "Chaos Space Marines" },
   { id: "death-guard", name: "Death Guard" },

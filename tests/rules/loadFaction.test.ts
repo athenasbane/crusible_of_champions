@@ -5,6 +5,7 @@ import bloodAngelsRaw from "../../src/rules/blood_angels.json";
 import genestealerCultsRaw from "../../src/rules/genestealer_cults.json";
 import blackTemplarsRaw from "../../src/rules/black_templars.json";
 import drukhariRaw from "../../src/rules/drukhari.json";
+import imperialAgentsRaw from "../../src/rules/imperial_agents.json";
 
 describe("loadFaction inheritance", () => {
   it("inherits archetypes and extends options/weapons from Adeptus Astartes", () => {
@@ -130,5 +131,21 @@ describe("loadFaction inheritance", () => {
       faction.abilities.options.some((option) => option.id === "conduit_of_cruelty"),
     ).toBe(true);
     expect(faction.weapons.some((weapon) => weapon.id === "stunclaw")).toBe(true);
+  });
+
+  it("loads imperial agents and normalizes conditional archetype requirements", () => {
+    const faction = loadFaction(imperialAgentsRaw);
+    const ordoHereticus = faction.specialisms.options.find(
+      (option) => option.id === "ordo_hereticus",
+    );
+
+    expect(faction.id).toBe("imperial_agents");
+    expect(
+      faction.archetypes.every((archetype) => Array.isArray(archetype.leaderUnits)),
+    ).toBe(true);
+    expect(ordoHereticus?.requirements?.[0]?.kind).toBe("oneOf");
+    expect(ordoHereticus?.effects?.map((effect) => effect.kind)).toContain(
+      "setLeaderUnitsByArchetype",
+    );
   });
 });

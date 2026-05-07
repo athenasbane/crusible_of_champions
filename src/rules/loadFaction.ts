@@ -40,6 +40,19 @@ function normalizeRequirement(requirement: unknown): unknown {
     return requirement;
   }
 
+  if (
+    requirement.kind === "archetypeAnyOf" &&
+    Array.isArray(requirement.value)
+  ) {
+    return {
+      kind: "oneOf",
+      requirements: requirement.value.map((archetypeId) => ({
+        kind: "archetypeIs",
+        archetypeId,
+      })),
+    };
+  }
+
   if (requirement.kind === "archetypeIs") {
     return {
       ...requirement,
@@ -135,11 +148,27 @@ function normalizeWeapons(weapons: unknown) {
   });
 }
 
+function normalizeArchetypes(archetypes: unknown) {
+  if (!Array.isArray(archetypes)) return archetypes;
+
+  return archetypes.map((archetype) => {
+    if (!isRecord(archetype)) return archetype;
+
+    return {
+      ...archetype,
+      leaderUnits: Array.isArray(archetype.leaderUnits)
+        ? archetype.leaderUnits
+        : [],
+    };
+  });
+}
+
 function normalizeFaction(data: unknown): unknown {
   if (!isRecord(data)) return data;
 
   return {
     ...data,
+    archetypes: normalizeArchetypes(data.archetypes),
     specialisms: normalizeSpecialisms(data.specialisms),
     abilities: normalizeChoiceGroup(data.abilities),
     weapons: normalizeWeapons(data.weapons),

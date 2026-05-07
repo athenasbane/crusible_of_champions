@@ -32,7 +32,7 @@ export const EffectSchema = z.union([
   }),
   z.object({
     kind: z.literal("remove"),
-    field: z.enum(["keywords"]),
+    field: z.enum(["keywords", "factionKeywords"]),
     value: z.string(),
   }),
   z.object({
@@ -44,8 +44,16 @@ export const EffectSchema = z.union([
     value: z.array(z.string()),
   }),
   z.object({
+    kind: z.literal("addFactionKeywords"),
+    value: z.array(z.string()),
+  }),
+  z.object({
     kind: z.literal("setLeaderUnits"),
     value: z.array(z.string()),
+  }),
+  z.object({
+    kind: z.literal("setLeaderUnitsByArchetype"),
+    value: z.record(z.string(), z.array(z.string())),
   }),
   z.object({
     kind: z.literal("addLeaderUnits"),

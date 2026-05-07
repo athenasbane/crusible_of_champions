@@ -1,0 +1,952 @@
+{
+  "id": "imperial_agents",
+  "name": "Imperial Agents",
+  "defaultLoadout": {
+    "caps": {
+      "ranged": 1,
+      "pistol": 2,
+      "melee": 2
+    },
+    "mins": {
+      "melee": 1
+    }
+  },
+  "archetypes": [
+    {
+      "id": "martial_agent",
+      "name": "Martial Agent",
+      "profile": {
+        "move": 6,
+        "toughness": 3,
+        "save": 4,
+        "wounds": 4,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 5
+      },
+      "points": 60,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader, Lone Operative"
+        },
+        {
+          "title": "Faction",
+          "text": "Assigned Agents"
+        },
+        {
+          "title": "Moment of Glory",
+          "text": "Once per battle, in the Fight phase, this model can use this ability. If it does, until the end of the phase, improve the Strength and Attacks characteristics of melee weapons equipped by this model by 3."
+        }
+      ],
+      "unitComposition": "1 Martial Agent",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Imperium",
+        "Martial Agent"
+      ],
+      "factionKeywords": ["Imperial Agents"]
+    },
+    {
+      "id": "deathwatch_agent",
+      "name": "Deathwatch Agent",
+      "profile": {
+        "move": 6,
+        "toughness": 4,
+        "save": 3,
+        "wounds": 5,
+        "leadership": 6,
+        "objectiveControl": 1,
+        "invuln": 4
+      },
+      "points": 105,
+      "modelCount": 1,
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Leader"
+        },
+        {
+          "title": "Faction",
+          "text": "Assigned Agents"
+        },
+        {
+          "title": "Your Vigil Is Not Yet Ended",
+          "text": "While this model is leading a unit, in your Command phase, you can return 1 destroyed model, excluding Character models, to that unit."
+        }
+      ],
+      "leaderUnits": ["Deathwatch Kill Team"],
+      "unitComposition": "1 Deathwatch Agent",
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Grenades",
+        "Imperium",
+        "Ordo Xenos",
+        "Deathwatch",
+        "Deathwatch Agent"
+      ],
+      "factionKeywords": ["Imperial Agents"]
+    },
+    {
+      "id": "enthroned_agent",
+      "name": "Enthroned Agent",
+      "profile": {
+        "move": 8,
+        "toughness": 7,
+        "save": 3,
+        "wounds": 9,
+        "leadership": 6,
+        "objectiveControl": 3,
+        "invuln": 4
+      },
+      "points": 120,
+      "modelCount": 1,
+      "loadout": {
+        "caps": {
+          "ranged": 2,
+          "pistol": 2,
+          "melee": 2
+        },
+        "mins": {
+          "melee": 1
+        }
+      },
+      "abilitiesText": [
+        {
+          "title": "Core",
+          "text": "Crucible, Deadly Demise 1"
+        },
+        {
+          "title": "Faction",
+          "text": "Assigned Agents"
+        },
+        {
+          "title": "Towering Reputation (Aura)",
+          "text": "While a friendly unit is within 6\" of this model, improve the Leadership characteristic of models in that unit by 1. While an enemy unit is within 6\" of this model, worsen the Leadership characteristic of models in that unit by 1."
+        }
+      ],
+      "unitComposition": "1 Enthroned Agent",
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Character",
+        "Imperium",
+        "Enthroned Agent"
+      ],
+      "factionKeywords": ["Imperial Agents"]
+    }
+  ],
+  "specialisms": {
+    "id": "specialisms",
+    "title": "Specialisms",
+    "pick": 1,
+    "options": [
+      {
+        "id": "ordo_hereticus",
+        "name": "Ordo Hereticus",
+        "text": "(MARTIAL AGENT or ENTHRONED AGENT only): Add the ORDO HERETICUS and INQUISITOR keywords. Add to the list of units MARTIAL AGENT models can be attached to: Exaction Squad, Imperium Battleline, Imperial Navy Breachers, Inquisitorial Agents, Sisters of Battle Squad, Subductor Squad, Vigilant Squad.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeAnyOf",
+            "value": ["martial_agent", "enthroned_agent"]
+          }
+        ],
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Ordo Hereticus", "Inquisitor"]
+          },
+          {
+            "kind": "setLeaderUnitsByArchetype",
+            "value": {
+              "martial_agent": [
+                "Exaction Squad",
+                "Imperium Battleline",
+                "Imperial Navy Breachers",
+                "Inquisitorial Agents",
+                "Sisters of Battle Squad",
+                "Subductor Squad",
+                "Vigilant Squad"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ordo_malleus",
+        "name": "Ordo Malleus",
+        "text": "(MARTIAL AGENT or ENTHRONED AGENT only): Add the ORDO MALLEUS and INQUISITOR keywords. Add to the list of units MARTIAL AGENT models can be attached to: Exaction Squad, Grey Knights Terminator Squad, Imperium Battleline, Imperial Navy Breachers, Inquisitorial Agents, Subductor Squad, Vigilant Squad.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeAnyOf",
+            "value": ["martial_agent", "enthroned_agent"]
+          }
+        ],
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Ordo Malleus", "Inquisitor"]
+          },
+          {
+            "kind": "setLeaderUnitsByArchetype",
+            "value": {
+              "martial_agent": [
+                "Exaction Squad",
+                "Grey Knights Terminator Squad",
+                "Imperium Battleline",
+                "Imperial Navy Breachers",
+                "Inquisitorial Agents",
+                "Subductor Squad",
+                "Vigilant Squad"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ordo_xenos",
+        "name": "Ordo Xenos",
+        "text": "(MARTIAL AGENT or ENTHRONED AGENT only): Add the ORDO XENOS and INQUISITOR keywords. Add to the list of units MARTIAL AGENT models can be attached to: Deathwatch Kill Team, Exaction Squad, Imperium Battleline, Imperial Navy Breachers, Inquisitorial Agents, Subductor Squad, Vigilant Squad.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeAnyOf",
+            "value": ["martial_agent", "enthroned_agent"]
+          }
+        ],
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Ordo Xenos", "Inquisitor"]
+          },
+          {
+            "kind": "setLeaderUnitsByArchetype",
+            "value": {
+              "martial_agent": [
+                "Deathwatch Kill Team",
+                "Exaction Squad",
+                "Imperium Battleline",
+                "Imperial Navy Breachers",
+                "Inquisitorial Agents",
+                "Subductor Squad",
+                "Vigilant Squad"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "rogue_trader",
+        "name": "Rogue Trader",
+        "text": "(MARTIAL AGENT or ENTHRONED AGENT only): Add the VOIDFARERS and ROGUE TRADER keywords. Add to the list of units MARTIAL AGENT models can be attached to: Imperial Navy Breachers, Voidsmen-at-Arms.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeAnyOf",
+            "value": ["martial_agent", "enthroned_agent"]
+          }
+        ],
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Voidfarers", "Rogue Trader"]
+          },
+          {
+            "kind": "setLeaderUnitsByArchetype",
+            "value": {
+              "martial_agent": ["Imperial Navy Breachers", "Voidsmen-at-Arms"]
+            }
+          }
+        ]
+      },
+      {
+        "id": "the_long_vigil",
+        "name": "The Long Vigil",
+        "text": "(DEATHWATCH AGENT only): Replace the IMPERIAL AGENTS Faction keyword with ADEPTUS ASTARTES and DEATHWATCH. Replace the list of units this model can lead to: KILL TEAM, excluding FLY, GRAVIS and TERMINATOR.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "archetypeIs",
+            "archetypeId": "deathwatch_agent"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "remove",
+            "field": "factionKeywords",
+            "value": "Imperial Agents"
+          },
+          {
+            "kind": "addFactionKeywords",
+            "value": ["Adeptus Astartes", "Deathwatch"]
+          },
+          {
+            "kind": "setLeaderUnits",
+            "value": ["Kill Team, excluding Fly, Gravis and Terminator"]
+          }
+        ]
+      }
+    ]
+  },
+  "abilities": {
+    "id": "abilities",
+    "title": "Ability",
+    "pick": 1,
+    "required": [
+      {
+        "id": "high_handed_authority",
+        "name": "High-handed Authority",
+        "text": "While this model is leading a unit, it can embark within any TRANSPORT that its Bodyguard unit can embark within.",
+        "points": 0
+      }
+    ],
+    "options": [
+      {
+        "id": "backroom_deals",
+        "name": "Backroom Deals",
+        "text": "(ROGUE TRADER only): While this model is leading a unit, models in that unit have the Infiltrators ability.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Rogue Trader"
+          }
+        ]
+      },
+      {
+        "id": "holy_hatred",
+        "name": "Holy Hatred",
+        "text": "Melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.",
+        "points": 0
+      },
+      {
+        "id": "nowhere_to_hide",
+        "name": "Nowhere to Hide",
+        "text": "Ranged weapons equipped by models in this unit have the [LETHAL HITS] ability.",
+        "points": 0
+      },
+      {
+        "id": "oracular_gifts",
+        "name": "Oracular Gifts",
+        "text": "(INQUISITOR only): This model has the PSYKER keyword. Enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12\" of this model.",
+        "points": 0,
+        "requirements": [
+          {
+            "kind": "keywordHas",
+            "keyword": "Inquisitor"
+          }
+        ],
+        "effects": [
+          {
+            "kind": "addKeywords",
+            "value": ["Psyker"]
+          }
+        ]
+      },
+      {
+        "id": "termination",
+        "name": "Termination",
+        "text": "Each time a model in this unit makes an attack that targets a unit that is Below Half-strength, add 1 to the Hit roll.",
+        "points": 0
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "id": "arbites_combat_shotgun",
+      "name": "Arbites combat shotgun",
+      "group": "Arbites combat shotgun",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault"]
+    },
+    {
+      "id": "arbites_grenade_launcher_frag",
+      "name": "Arbites grenade launcher — frag",
+      "group": "Arbites grenade launcher",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D6",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Blast"]
+    },
+    {
+      "id": "arbites_grenade_launcher_krak",
+      "name": "Arbites grenade launcher — krak",
+      "group": "Arbites grenade launcher",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": []
+    },
+    {
+      "id": "artificer_crafted_storm_bolter",
+      "name": "Artificer-crafted storm bolter",
+      "group": "Artificer-crafted storm bolter",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "2",
+      "keywords": ["Rapid Fire 2"]
+    },
+    {
+      "id": "artificer_shotgun",
+      "name": "Artificer shotgun",
+      "group": "Artificer shotgun",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "boltgun",
+      "name": "Boltgun",
+      "group": "Boltgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "combi_weapon",
+      "name": "Combi-weapon",
+      "group": "Combi-weapon",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Anti-Infantry 4+", "Devastating Wounds", "Rapid Fire 1"]
+    },
+    {
+      "id": "conversion_beamer_dispersed",
+      "name": "Conversion beamer — dispersed",
+      "group": "Conversion beamer",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "D3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Conversion"]
+    },
+    {
+      "id": "conversion_beamer_focused",
+      "name": "Conversion beamer — focused",
+      "group": "Conversion beamer",
+      "type": "ranged",
+      "range": "48\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "10",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": ["Conversion", "Sustained Hits D3"]
+    },
+    {
+      "id": "deathwatch_bolt_rifle",
+      "name": "Deathwatch bolt rifle",
+      "group": "Deathwatch bolt rifle",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Lethal Hits", "Precision"]
+    },
+    {
+      "id": "heavy_bolter",
+      "name": "Heavy bolter",
+      "group": "Heavy bolter",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": ["Sustained Hits 1"]
+    },
+    {
+      "id": "lasgun",
+      "name": "Lasgun",
+      "group": "Lasgun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "master_crafted_bolt_sniper_rifle",
+      "name": "Master-crafted bolt sniper rifle",
+      "group": "Master-crafted bolt sniper rifle",
+      "type": "ranged",
+      "range": "36\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "3",
+      "keywords": ["Heavy", "Precision"]
+    },
+    {
+      "id": "meltagun",
+      "name": "Meltagun",
+      "group": "Meltagun",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Melta 2"]
+    },
+    {
+      "id": "ministorum_flamer",
+      "name": "Ministorum flamer",
+      "group": "Ministorum flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "5",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "ministorum_heavy_flamer",
+      "name": "Ministorum heavy flamer",
+      "group": "Ministorum heavy flamer",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "6",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Torrent"]
+    },
+    {
+      "id": "multi_melta",
+      "name": "Multi-melta",
+      "group": "Multi-melta",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2",
+      "skill": "4+",
+      "strength": "9",
+      "ap": "-4",
+      "damage": "D6",
+      "keywords": ["Heavy", "Melta 4"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "enthroned_agent"
+        }
+      ]
+    },
+    {
+      "id": "plasma_gun_standard",
+      "name": "Plasma gun — standard",
+      "group": "Plasma gun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Rapid Fire 1"]
+    },
+    {
+      "id": "plasma_gun_supercharge",
+      "name": "Plasma gun — supercharge",
+      "group": "Plasma gun",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Hazardous", "Rapid Fire 1"]
+    },
+    {
+      "id": "psychic_shock_wave",
+      "name": "Psychic Shock Wave",
+      "group": "Psychic Shock Wave",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "2D6",
+      "skill": "N/A",
+      "strength": "3",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Devastating Wounds", "Psychic", "Torrent"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "unholy_gaze",
+      "name": "Unholy Gaze",
+      "group": "Unholy Gaze",
+      "type": "ranged",
+      "range": "18\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "vigil_spear_ranged",
+      "name": "Vigil spear",
+      "group": "Vigil spear",
+      "type": "ranged",
+      "range": "24\"",
+      "attacks": "2",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "2",
+      "keywords": []
+    },
+    {
+      "id": "webber",
+      "name": "Webber",
+      "group": "Webber",
+      "type": "ranged",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "2",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Assault", "Devastating Wounds", "Torrent"]
+    },
+    {
+      "id": "agent_firearm",
+      "name": "Agent firearm",
+      "group": "Agent firearm",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "heavy_bolt_pistol",
+      "name": "Heavy bolt pistol",
+      "group": "Heavy bolt pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "2+",
+      "strength": "4",
+      "ap": "-1",
+      "damage": "1",
+      "keywords": ["Pistol"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "deathwatch_agent"
+        }
+      ]
+    },
+    {
+      "id": "holy_pistol",
+      "name": "Holy pistol",
+      "group": "Holy pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "household_pistol",
+      "name": "Household pistol",
+      "group": "Household pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "2",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Devastating Wounds", "Pistol"]
+    },
+    {
+      "id": "inferno_pistol",
+      "name": "Inferno pistol",
+      "group": "Inferno pistol",
+      "type": "pistol",
+      "range": "6\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-4",
+      "damage": "D3",
+      "keywords": ["Melta 2", "Pistol"]
+    },
+    {
+      "id": "ministorum_hand_flamer",
+      "name": "Ministorum hand flamer",
+      "group": "Ministorum hand flamer",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "D6",
+      "skill": "N/A",
+      "strength": "4",
+      "ap": "0",
+      "damage": "1",
+      "keywords": ["Ignores Cover", "Pistol", "Torrent"]
+    },
+    {
+      "id": "plasma_pistol_standard",
+      "name": "Plasma pistol — standard",
+      "group": "Plasma pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "7",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Pistol"]
+    },
+    {
+      "id": "plasma_pistol_supercharge",
+      "name": "Plasma pistol — supercharge",
+      "group": "Plasma pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "1",
+      "skill": "3+",
+      "strength": "8",
+      "ap": "-3",
+      "damage": "2",
+      "keywords": ["Hazardous", "Pistol"]
+    },
+    {
+      "id": "voltaic_pistol",
+      "name": "Voltaic pistol",
+      "group": "Voltaic pistol",
+      "type": "pistol",
+      "range": "12\"",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Pistol", "Sustained Hits 2"]
+    },
+    {
+      "id": "chainfist",
+      "name": "Chainfist",
+      "group": "Chainfist",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "4+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Anti-Vehicle 3+"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "enthroned_agent"
+        }
+      ]
+    },
+    {
+      "id": "chainsword",
+      "name": "Chainsword",
+      "group": "Chainsword",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "close_combat_weapon",
+      "name": "Close-combat weapon",
+      "group": "Close-combat weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "3",
+      "ap": "0",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "deathwatch_weapon",
+      "name": "Deathwatch weapon",
+      "group": "Deathwatch weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "6",
+      "skill": "2+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Devastating Wounds"],
+      "requirements": [
+        {
+          "kind": "archetypeIs",
+          "archetypeId": "deathwatch_agent"
+        }
+      ]
+    },
+    {
+      "id": "eviscerator",
+      "name": "Eviscerator",
+      "group": "Eviscerator",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "3",
+      "skill": "3+",
+      "strength": "6",
+      "ap": "-2",
+      "damage": "2",
+      "keywords": ["Devastating Wounds"]
+    },
+    {
+      "id": "excruciator_maul",
+      "name": "Excruciator maul",
+      "group": "Excruciator maul",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "5",
+      "ap": "-2",
+      "damage": "D3",
+      "keywords": []
+    },
+    {
+      "id": "force_weapon",
+      "name": "Force weapon",
+      "group": "Force weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "5",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    },
+    {
+      "id": "power_weapon",
+      "name": "Power weapon",
+      "group": "Power weapon",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": []
+    },
+    {
+      "id": "warp_grasp",
+      "name": "Warp grasp",
+      "group": "Warp grasp",
+      "type": "melee",
+      "range": "Melee",
+      "attacks": "4",
+      "skill": "3+",
+      "strength": "4",
+      "ap": "-2",
+      "damage": "1",
+      "keywords": ["Lethal Hits", "Psychic"],
+      "requirements": [
+        {
+          "kind": "keywordHas",
+          "keyword": "Psyker"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Choose the weapons your model is equipped with from the following: up to one ranged weapon, up to two pistols, one or two melee weapons.",
+    "Enthroned Agent can be equipped with up to two ranged weapons instead of up to one.",
+    "Your model has High-handed Authority and one other ability.",
+    "Before selecting targets for a weapon with multiple profiles, select one of its profiles to make attacks with.",
+    "* Walker only.",
+    "** Psyker only.",
+    "*** Deathwatch Agent only."
+  ]
+}

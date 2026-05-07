@@ -49,6 +49,10 @@ const sheetHandlers: EffectHandlerMap<BuiltSheet> = {
     ...sheet,
     keywords: [...sheet.keywords, ...effect.value],
   }),
+  addFactionKeywords: (sheet, effect) => ({
+    ...sheet,
+    factionKeywords: [...sheet.factionKeywords, ...effect.value],
+  }),
   setLeaderUnits: (sheet, effect) => ({
     ...sheet,
     leaderUnits: [...effect.value],
@@ -62,6 +66,19 @@ const sheetHandlers: EffectHandlerMap<BuiltSheet> = {
 export function applyEffectsToSheet(
   sheet: BuiltSheet,
   effects: readonly Effect[],
+  archetypeId?: string,
 ) {
-  return reduceWithEffectHandlers(sheet, effects, sheetHandlers);
+  const handlers: EffectHandlerMap<BuiltSheet> = {
+    ...sheetHandlers,
+    setLeaderUnitsByArchetype: (currentSheet, effect) => {
+      const leaderUnits =
+        archetypeId === undefined ? undefined : effect.value[archetypeId];
+
+      return leaderUnits
+        ? { ...currentSheet, leaderUnits: [...leaderUnits] }
+        : currentSheet;
+    },
+  };
+
+  return reduceWithEffectHandlers(sheet, effects, handlers);
 }
